@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>RSS源标题</title>
+        <link>博客URL</link>
+        <description>RSS源描述</description>
+        <lastBuildDate>Sat, 04 Jan 2014 17:34:16 +0800</lastBuildDate>
+        <language>zh-cn</language>
+        
+        <item>
+            <title>江城子</title>
+            <link>博客URL/articles/first-post.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>博客URL/articles/first-post.html</guid>
+            <author>邮箱 博客主</author>
+            <pubDate>Wed, 02 Jan 2013 00:00:00 +0800</pubDate>
+            <description>&lt;h1 id=&quot;-&quot;&gt;江城子&lt;/h1&gt;
+&lt;p&gt;十年生死两茫茫，不思量，自难忘。&lt;/p&gt;
+&lt;p&gt;千里孤坟，无处话凄凉。&lt;/p&gt;
+&lt;p&gt;纵使相逢应不识，尘满面，鬓如霜。&lt;/p&gt;
+&lt;p&gt;夜来幽梦忽还乡。小轩窗，正梳妆。&lt;/p&gt;
+&lt;p&gt;相顾无言，惟有泪千行。&lt;/p&gt;
+&lt;p&gt;料得年年肠断处：明月夜，短松冈。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>代码及数学公式示例</title>
+            <link>博客URL/articles/second-post.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>博客URL/articles/second-post.html</guid>
+            <author>邮箱 博客主</author>
+            <pubDate>Tue, 01 Jan 2013 00:00:00 +0800</pubDate>
+            <description>&lt;h1 id=&quot;-&quot;&gt;这是一段代码&lt;/h1&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;#include &lt;stdio.h&gt;
+
+int main(int argc, char** argv) {
+    printf(&quot;%s\n&quot;, &quot;Hello, World!&quot;);
+}
+&lt;/pre&gt;
+&lt;h1 id=&quot;-&quot;&gt;这是一些数学公式&lt;/h1&gt;
+&lt;p&gt;\[e^{i\pi}+1=0\]&lt;/p&gt;
+&lt;p&gt;\[\begin{pmatrix}
+  1/\sqrt{2}  &amp; 1/\sqrt{2} \\
+  -1/\sqrt{2} &amp; 1/\sqrt{2}
+\end{pmatrix}
+\begin{pmatrix}
+  3 \\
+  2
+\end{pmatrix}
+=
+\begin{pmatrix}
+  5/\sqrt{2} \\
+  -1/\sqrt{2}
+\end{pmatrix}\]&lt;/p&gt;
+&lt;p&gt;\[Var(a)=\frac{1}{m}\sum_{i=1}^m{(a_i-\mu)^2}\]&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
