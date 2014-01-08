@@ -4,7 +4,7 @@
         <title>Edgar1470&#39;s RSS</title>
         <link>http://edgar1470.github.io</link>
         <description>Geeks Note for Embedded System</description>
-        <lastBuildDate>Wed, 08 Jan 2014 16:45:22 +0800</lastBuildDate>
+        <lastBuildDate>Wed, 08 Jan 2014 17:03:10 +0800</lastBuildDate>
         <language>zh-cn</language>
         
         <item>
@@ -12,7 +12,7 @@
             <link>http://edgar1470.github.io/articles/use-papery-write-blog.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
             <guid>http://edgar1470.github.io/articles/use-papery-write-blog.html</guid>
             <author>edgar1470@gmail.com Edgar1470</author>
-            <pubDate>Invalid date +0800</pubDate>
+            <pubDate>Wed, 08 Jan 2014 16:33:11 +0800</pubDate>
             <description>&lt;h1 id=&quot;-papery-blog&quot;&gt;使用papery写blog&lt;/h1&gt;
 &lt;p&gt;配置步骤:
 参照 &lt;a href=&quot;https://github.com/ericzhang-cn/papery&quot;&gt;papry&lt;/a&gt; 的说明进行&lt;/p&gt;
@@ -79,7 +79,7 @@ dgar@debian:/data_disk/papery_blog$ pap-server blog_test_dir/
             <link>http://edgar1470.github.io/articles/vim-tips.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
             <guid>http://edgar1470.github.io/articles/vim-tips.html</guid>
             <author>edgar1470@gmail.com Edgar1470</author>
-            <pubDate>Invalid date +0800</pubDate>
+            <pubDate>Wed, 08 Jan 2014 16:35:44 +0800</pubDate>
             <description>&lt;h1 id=&quot;vim-tips&quot;&gt;VIM tips&lt;/h1&gt;
 &lt;h3 id=&quot;-&quot;&gt;快速插入时间戳&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/a/58604&quot;&gt;best way to insert timestamp in vim&lt;/a&gt;&lt;/p&gt;
