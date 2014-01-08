@@ -3,11 +3,11 @@
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta name="description" content="页面meta中的description"/>
-        <meta name="keywords" content="关键词1,关键词2,关键词3"/>
-        <meta name="author" content="页面meta中的author"/>
+        <meta name="description" content="Geeks Note for Embedded System"/>
+        <meta name="keywords" content="OpenWRT,GoPro,Mobius ActionCam,Flytecam,SSD"/>
+        <meta name="author" content="Edgar1470"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-        <title>博客标题 - 代码及数学公式示例
+        <title>Geeks Note - VIM技巧
 </title>
         <link rel="stylesheet" href="/assets/vendor/normalize.css"/>
         <link rel="stylesheet" href="/assets/vendor/prettify-night.css"/>
@@ -19,8 +19,8 @@
     <body onload="prettyPrint()">
     <div id="header">
         <div id="header-inner">
-            <div id="title"><a href="/">博客标题</a></div>
-            <div id="subtitle">博客副标题</div>
+            <div id="title"><a href="/">Geeks Note</a></div>
+            <div id="subtitle">Open your heart &amp; Enjoy the life course</div>
         </div>
     </div>
 
@@ -36,51 +36,30 @@
 <li><a href="/pages/about-me.html" target="_self">关于我</a></li>
 
 <li class="sep"> | </li>
-<li><a href="https://github.com/ericzhang-cn/papery" target="_blank">github</a></li>
+<li><a href="https://github.com/edgar1470" target="_blank">github</a></li>
 
 
             </ul>
             <div style="clear:both;"></div>
         </div>
         <div id="article-title">
-            <a href="/articles/second-post.html">代码及数学公式示例</a>
+            <a href="/articles/vim-tips.html">VIM技巧</a>
         </div>
         <div id="article-meta">
-            作者 papery | 发布于 2013-01-01
+            作者 edgar1470 | 发布于 2014-01-08 16:35:44 Wed
         </div>
         <div id="article-tags">
         
-        <a class="tag" href="/tag.html#代码">代码</a>
-        
-        <a class="tag" href="/tag.html#数学公式">数学公式</a>
-        
-        <a class="tag" href="/tag.html#papery">papery</a>
+        <a class="tag" href="/tag.html#vim">vim</a>
         
         </div>
         <div id="article-content">
-            <h1 id="-">这是一段代码</h1>
-<pre class="prettyprint linenums lang-c">#include &lt;stdio.h&gt;
-
-int main(int argc, char** argv) {
-    printf(&quot;%s\n&quot;, &quot;Hello, World!&quot;);
-}
+            <h1 id="vim-tips">VIM tips</h1>
+<h3 id="-">快速插入时间戳</h3>
+<p><a href="http://stackoverflow.com/a/58604">best way to insert timestamp in vim</a></p>
+<pre class="prettyprint linenums lang-vim">  nmap &lt;F3&gt; a&lt;C-R&gt;=strftime(&quot;%Y-%m-%d %H:%M:%S %a&quot;)&lt;CR&gt;&lt;Esc&gt;
+  imap &lt;F3&gt; &lt;C-R&gt;=strftime(&quot;%Y-%m-%d %H:%M:%S %a&quot;)&lt;CR&gt;
 </pre>
-<h1 id="-">这是一些数学公式</h1>
-<p>\[e^{i\pi}+1=0\]</p>
-<p>\[\begin{pmatrix}
-  1/\sqrt{2}  &amp; 1/\sqrt{2} \\
-  -1/\sqrt{2} &amp; 1/\sqrt{2}
-\end{pmatrix}
-\begin{pmatrix}
-  3 \\
-  2
-\end{pmatrix}
-=
-\begin{pmatrix}
-  5/\sqrt{2} \\
-  -1/\sqrt{2}
-\end{pmatrix}\]</p>
-<p>\[Var(a)=\frac{1}{m}\sum_{i=1}^m{(a_i-\mu)^2}\]</p>
 
         </div>
         
@@ -88,8 +67,9 @@ int main(int argc, char** argv) {
 </div>
         <div id="footer">
             <div id="footer-inner">
-                <p id="copyright">Copyright (c) 2011-2013 版权所有方</p>
-                <p id="icp"><a href="http://www.miibeian.gov.cn/" target="_blank">备案号</a></p>
+                <p id="copyright">
+                Powered By <a href="https://github.com/ericzhang-cn/papery">papery</a>   Copyright &copy; 2014-2014 Edgar1470
+                </p>
             </div>
         </div>
         <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">

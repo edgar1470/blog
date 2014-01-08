@@ -1,57 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
     <channel>
-        <title>RSS源标题</title>
-        <link>博客URL</link>
-        <description>RSS源描述</description>
-        <lastBuildDate>Sat, 04 Jan 2014 17:34:16 +0800</lastBuildDate>
+        <title>Edgar1470&#39;s RSS</title>
+        <link>http://edgar1470.github.io</link>
+        <description>Geeks Note for Embedded System</description>
+        <lastBuildDate>Wed, 08 Jan 2014 16:45:22 +0800</lastBuildDate>
         <language>zh-cn</language>
         
         <item>
-            <title>江城子</title>
-            <link>博客URL/articles/first-post.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>博客URL/articles/first-post.html</guid>
-            <author>邮箱 博客主</author>
-            <pubDate>Wed, 02 Jan 2013 00:00:00 +0800</pubDate>
-            <description>&lt;h1 id=&quot;-&quot;&gt;江城子&lt;/h1&gt;
-&lt;p&gt;十年生死两茫茫，不思量，自难忘。&lt;/p&gt;
-&lt;p&gt;千里孤坟，无处话凄凉。&lt;/p&gt;
-&lt;p&gt;纵使相逢应不识，尘满面，鬓如霜。&lt;/p&gt;
-&lt;p&gt;夜来幽梦忽还乡。小轩窗，正梳妆。&lt;/p&gt;
-&lt;p&gt;相顾无言，惟有泪千行。&lt;/p&gt;
-&lt;p&gt;料得年年肠断处：明月夜，短松冈。&lt;/p&gt;
+            <title>使用papery写blog</title>
+            <link>http://edgar1470.github.io/articles/use-papery-write-blog.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>http://edgar1470.github.io/articles/use-papery-write-blog.html</guid>
+            <author>edgar1470@gmail.com Edgar1470</author>
+            <pubDate>Invalid date +0800</pubDate>
+            <description>&lt;h1 id=&quot;-papery-blog&quot;&gt;使用papery写blog&lt;/h1&gt;
+&lt;p&gt;配置步骤:
+参照 &lt;a href=&quot;https://github.com/ericzhang-cn/papery&quot;&gt;papry&lt;/a&gt; 的说明进行&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;安装相应的软件&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;apt-get install nodejs&lt;/li&gt;
+&lt;li&gt;apt-get install npm&lt;/li&gt;
+&lt;li&gt;nmp install -g papery&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;创建blog&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;使用&lt;em&gt;pap-create blog_test_dir&lt;/em&gt;创建blog出错&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/papery_blog$ pap-create blog_test_dir
+/usr/bin/env: node: No such file or directory
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/14017172/paper-js-build-error-env-node-no-such-file-or-directory&quot;&gt;stackoverflow&lt;/a&gt;上也有人遇到了这个问题&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/a/14018192&quot;&gt;The script calls build/prepro.js, which runs in node.js 
+(see the first line: #!/usr/bin/env node), 
+but you seem to not have it installed (or at least it&#39;s not found by env).
+Try installing node.js, or making it available to env, so the build script will work.
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;看起来应该是在环境变量中找不到node程序.
+在终端下输入node按TAB只匹配出了nodejs程序，没有node程序,看来问题确时出在这里
+解决方法：&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io$ whereis nodejs
+nodejs: /usr/bin/nodejs /usr/lib/nodejs /usr/bin/X11/nodejs /usr/include/nodejs /usr/share/man/man1/nodejs.1.gz
+edgar@debian:/usr/bin$ sudo ln -s /usr/bin/nodejs /usr/bin/node
+edgar@debian:/data_disk/papery_blog$ pap-create blog_test_dir
+ [2014-01-04 17:30:55.225] [INFO] [default] - Woo! A new blog was born in blog_test_dir
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;继续创建&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/papery_blog$ pap-build all blog_test_dir/
+[2014-01-04 17:34:16.020] [INFO] [default] - Load blog_test_dir/site.yml completed!
+[2014-01-04 17:34:16.025] [INFO] [default] - Load blog_test_dir/articles.yml completed!
+[2014-01-04 17:34:16.025] [INFO] [default] - Load blog_test_dir/pages.yml completed!
+[2014-01-04 17:34:16.026] [INFO] [default] - Load blog_test_dir/navbar.yml completed!
+[2014-01-04 17:34:16.027] [INFO] [default] - Load blog_test_dir/ext.yml completed!
+[2014-01-04 17:34:16.033] [INFO] [default] - Load blog_test_dir/templates/index.ejs completed!
+[2014-01-04 17:34:16.050] [INFO] [default] - Build index.html completed!
+[2014-01-04 17:34:16.058] [INFO] [default] - Load blog_test_dir/templates/rss.ejs completed!
+[2014-01-04 17:34:16.079] [INFO] [default] - Build rss.xml completed!
+[2014-01-04 17:34:16.080] [INFO] [default] - Load blog_test_dir/templates/tag.ejs completed!
+[2014-01-04 17:34:16.101] [INFO] [default] - Build tag.html completed!
+[2014-01-04 17:34:16.102] [INFO] [default] - Load blog_test_dir/templates/pages.ejs completed!
+[2014-01-04 17:34:16.116] [INFO] [default] - Build blog_test_dir/pages/about-me.html completed!
+[2014-01-04 17:34:16.117] [INFO] [default] - Load blog_test_dir/templates/articles.ejs completed!
+[2014-01-04 17:34:16.135] [INFO] [default] - Build blog_test_dir/articles/first-post.html completed!
+[2014-01-04 17:34:16.147] [INFO] [default] - Build blog_test_dir/articles/second-post.html completed!
+dgar@debian:/data_disk/papery_blog$ pap-server blog_test_dir/
+[2014-01-04 17:38:18.823] [INFO] [default] - Server started at http://localhost:8001/
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         
         <item>
-            <title>代码及数学公式示例</title>
-            <link>博客URL/articles/second-post.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>博客URL/articles/second-post.html</guid>
-            <author>邮箱 博客主</author>
-            <pubDate>Tue, 01 Jan 2013 00:00:00 +0800</pubDate>
-            <description>&lt;h1 id=&quot;-&quot;&gt;这是一段代码&lt;/h1&gt;
-&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;#include &lt;stdio.h&gt;
-
-int main(int argc, char** argv) {
-    printf(&quot;%s\n&quot;, &quot;Hello, World!&quot;);
-}
+            <title>VIM技巧</title>
+            <link>http://edgar1470.github.io/articles/vim-tips.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>http://edgar1470.github.io/articles/vim-tips.html</guid>
+            <author>edgar1470@gmail.com Edgar1470</author>
+            <pubDate>Invalid date +0800</pubDate>
+            <description>&lt;h1 id=&quot;vim-tips&quot;&gt;VIM tips&lt;/h1&gt;
+&lt;h3 id=&quot;-&quot;&gt;快速插入时间戳&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/a/58604&quot;&gt;best way to insert timestamp in vim&lt;/a&gt;&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-vim&quot;&gt;  nmap &lt;F3&gt; a&lt;C-R&gt;=strftime(&quot;%Y-%m-%d %H:%M:%S %a&quot;)&lt;CR&gt;&lt;Esc&gt;
+  imap &lt;F3&gt; &lt;C-R&gt;=strftime(&quot;%Y-%m-%d %H:%M:%S %a&quot;)&lt;CR&gt;
 &lt;/pre&gt;
-&lt;h1 id=&quot;-&quot;&gt;这是一些数学公式&lt;/h1&gt;
-&lt;p&gt;\[e^{i\pi}+1=0\]&lt;/p&gt;
-&lt;p&gt;\[\begin{pmatrix}
-  1/\sqrt{2}  &amp; 1/\sqrt{2} \\
-  -1/\sqrt{2} &amp; 1/\sqrt{2}
-\end{pmatrix}
-\begin{pmatrix}
-  3 \\
-  2
-\end{pmatrix}
-=
-\begin{pmatrix}
-  5/\sqrt{2} \\
-  -1/\sqrt{2}
-\end{pmatrix}\]&lt;/p&gt;
-&lt;p&gt;\[Var(a)=\frac{1}{m}\sum_{i=1}^m{(a_i-\mu)^2}\]&lt;/p&gt;
 </description>
         </item>
         

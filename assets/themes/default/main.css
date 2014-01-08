@@ -3,7 +3,7 @@ body {
 }
 a {
     text-decoration: none;
-    color: #0099CC;
+    color: #BB8000;
 }
 a:hover {
     text-decoration: underline;
@@ -22,7 +22,7 @@ pre.prettyprint {
     font-size: 12px;
 }
 div#header {
-    background-color: #0099CC;
+    background-color: #303030;
     height: 50px;
 }
 div#header-inner {
@@ -46,7 +46,7 @@ div#subtitle {
     color: #FFFFFF;
 }
 div#footer-inner {
-    border-top: 1px solid #0099CC;
+    border-top: 1px solid #303030;
     width: 1024px;
     margin: 20px auto 0;
 }
@@ -87,7 +87,7 @@ div#article-content blockquote {
     font-size: 14px;
 }
 div#article-meta {
-    color: #999999;
+    color: #603060;
     padding: 6px 0;
 }
 div.article-block {
@@ -103,7 +103,7 @@ div.article-block p.meta {
 }
 div.article-block a.tag {
     margin-right: 6px;
-    background-color: #0099CC;
+    background-color: #603060;
     color: #FFFFFF;
     padding: 3px;
     font-size: 14px;
@@ -134,7 +134,7 @@ div#tag-cloud a {
     margin: 6px;
     display: block;
     float: left;
-    background-color: #0099CC;
+    background-color: #603060;
     color: #FFFFFF;
     padding: 3px;
     font-size: 14px;
@@ -155,7 +155,7 @@ div#article-tags {
 }
 div#article-tags a.tag {
     margin-right: 6px;
-    background-color: #0099CC;
+    background-color: #603060;
     color: #FFFFFF;
     padding: 3px;
     font-size: 14px;
