@@ -4,7 +4,7 @@
         <title>Edgar1470&#39;s RSS</title>
         <link>http://edgar1470.github.io</link>
         <description>Geeks Note for Embedded System</description>
-        <lastBuildDate>Wed, 08 Jan 2014 17:40:03 +0800</lastBuildDate>
+        <lastBuildDate>Thu, 09 Jan 2014 18:15:50 +0800</lastBuildDate>
         <language>zh-cn</language>
         
         <item>
@@ -85,6 +85,235 @@ dgar@debian:/data_disk/papery_blog$ pap-server blog_test_dir/
 &lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/a/58604&quot;&gt;best way to insert timestamp in vim&lt;/a&gt;&lt;/p&gt;
 &lt;pre class=&quot;prettyprint linenums lang-vim&quot;&gt;  nmap &lt;F3&gt; a&lt;C-R&gt;=strftime(&quot;%Y-%m-%d %H:%M:%S %a&quot;)&lt;CR&gt;&lt;Esc&gt;
   imap &lt;F3&gt; &lt;C-R&gt;=strftime(&quot;%Y-%m-%d %H:%M:%S %a&quot;)&lt;CR&gt;
+&lt;/pre&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>.MOV内嵌GPS信息分析之一</title>
+            <link>http://edgar1470.github.io/articles/mov-fileformat-001.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>http://edgar1470.github.io/articles/mov-fileformat-001.html</guid>
+            <author>edgar1470@gmail.com Edgar1470</author>
+            <pubDate>Thu, 09 Jan 2014 14:03:10 +0800</pubDate>
+            <description>&lt;h3 id=&quot;mov-gps-&quot;&gt;MOV内嵌GPS信息分析之一&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#base-framework&quot;&gt;基本框架&lt;/a&gt;    &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#atom-size&quot;&gt;ATOM大小计算&lt;/a&gt;    &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#atom-structrue&quot;&gt;MOV文件基本ATOM&lt;/a&gt;                            &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#atom-basic&quot;&gt;Basic ATOM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#atom-ftyp&quot;&gt;ATOM ftyp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#nt96650&quot;&gt;NTK96650录制的MOV文件信息&lt;/a&gt; &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;官方资料 [QuickTime File Format Specification](&lt;a href=&quot;https://developer.apple.com/library/mac/documentation/quicktime/qtff/QTFFChap1/qtff1&quot;&gt;https://developer.apple.com/library/mac/documentation/quicktime/qtff/QTFFChap1/qtff1&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;-a-name-base-framework-a-&quot;&gt;&lt;a name=&quot;base-framework&quot;&gt; 基本框架 &lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt; &lt;img src=&quot;../images/qtff_atom_sample.gif&quot; alt=&quot;qtff-atom&quot;&gt;                                   &lt;/p&gt;
+&lt;h3 id=&quot;-a-name-atom-size-atom-a-&quot;&gt;&lt;a name=&quot;atom-size&quot;&gt; ATOM大小计算 &lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt; &lt;img src=&quot;../images/qtff_atom_size.gif&quot; alt=&quot;qtff-size&quot;&gt;                                     &lt;/p&gt;
+&lt;h3 id=&quot;-a-name-atom-structrue-mov-atom-a-&quot;&gt;&lt;a name=&quot;atom-structrue&quot;&gt; MOV文件基本ATOM &lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt; &lt;img src=&quot;../images/qtff_mov_structure.gif&quot; alt=&quot;qtff-structrue&quot;&gt;                            &lt;/p&gt;
+&lt;h3 id=&quot;-a-name-atom-basic-basic-atom-a-&quot;&gt;&lt;a name=&quot;atom-basic&quot;&gt; Basic ATOM &lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Basic atom types of a QuickTime file&lt;br&gt;|  Atom type   |  Use |&lt;br&gt;|--------------|:------|
+|  &lt;strong&gt;&#39;ftyp&#39;&lt;/strong&gt;  |File type compatibility—identifies the file type and differentiates it from similar file types, such as MPEG-4 files and JPEG-2000 files.|
+|  &lt;strong&gt;&#39;moov&#39;&lt;/strong&gt;  |Movie resource metadata about the movie (number and type of tracks, location of sample data, and so on). Describes where the movie data can be found and how to interpret it.|
+|  &lt;strong&gt;&#39;mdat&#39;&lt;/strong&gt;  |Movie sample data—media samples such as video frames and groups of audio samples. Usually this data can be interpreted only by using the movie resource.|
+|  &lt;strong&gt;&#39;free&#39;&lt;/strong&gt;  |Unused space available in file. |
+|  &lt;strong&gt;&#39;skip&#39;&lt;/strong&gt;  |Unused space available in file.|&lt;br&gt;|  &lt;strong&gt;&#39;wide&#39;&lt;/strong&gt;  |Reserved space—can be overwritten by an extended size field if the following atom exceeds 2^32 bytes, without displacing the contents of the following atom.|
+|  &lt;strong&gt;&#39;pnot&#39;&lt;/strong&gt;  |Reference to movie preview data.|                                        &lt;/p&gt;
+&lt;h3 id=&quot;-a-name-atom-ftyp-atom-ftyp-a-&quot;&gt;&lt;a name=&quot;atom-ftyp&quot;&gt; ATOM ftyp&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;&#39;ftyp&#39;&lt;/em&gt;  The File Type Compatibility Atom&lt;br&gt;  The file type atom is optional, but strongly recommended. If present, it must be the first significant atom in the file, preceding the movie atom (and any free space atoms, preview atom, or movie data atoms).&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -l 100 REC_0001_GPS_FAKE.MOV 
+0000000: 00000018 66747970 71742020 00000000  ....ftypqt  ....
+0000010: 71742020 00000000 0000747c 66726561  qt  ......t|frea
+0000020: 0000000c 74696d61 00000009 00001be4  ....tima........
+0000030: 74686d61 ffd8ffdb 00840006 04050605  thma............
+0000040: 04060605 06070706 080a100a 0a09090a  ................
+0000050: 140e0f0c 10171418 18171416 161a1d25  ...............%
+0000060: 1f1a1b23                             ...#
+&lt;/pre&gt;
+&lt;p&gt;the file type atom has an atom type value of &#39;ftyp&#39; and contains the following fields:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Size&lt;br&gt;A 32-bit unsigned integer that specifies the number of bytes in this atom.&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -l 100 REC_0001_GPS_FAKE.MOV 
+0000000: 00000018 66747970 71742020 00000000  ....ftypqt  ....
+              |
+       size = 0x18
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;Type&lt;br&gt;A 32-bit unsigned integer that identifies the atom type, typically represented as a four-character code; this field must be set to &#39;ftyp&#39;.&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -l 100 REC_0001_GPS_FAKE.MOV 
+0000000: 00000018 66747970 71742020 00000000  ....ftypqt  ....
+                       |
+                must be &#39;ftyp&#39;
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;Major_Brand&lt;br&gt;A 32-bit unsigned integer that should be set to &#39;qt  &#39; (note the two trailing ASCII space characters) for QuickTime movie files. If a file is compatible with multiple brands, all such brands are listed in the Compatible_Brands fields, and the Major_Brand identifies the preferred brand or best use.&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -l 100 REC_0001_GPS_FAKE.MOV 
+0000000: 00000018 66747970 71742020 00000000  ....ftypqt  ....
+                                |
+                              must be &#39;qt  &#39;
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;Minor_Version&lt;br&gt;A 32-bit field that indicates the file format specification version. For QuickTime movie files, this takes the form of four binary-coded decimal values, indicating the century, year, and month of the QuickTime File Format Specification, followed by a binary coded decimal zero. For example, for the June 2004 minor version, this field is set to the BCD values 20 04 06 00.&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -l 100 REC_0001_GPS_FAKE.MOV 
+0000000: 00000018 66747970 71742020 00000000  ....ftypqt  ....
+                                         |
+                               minor version
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;Compatible_Brands[ ]&lt;br&gt;A series of unsigned 32-bit integers listing compatible file formats. The major brand must appear in the list of compatible brands. One or more “placeholder” entries with value zero are permitted; such entries should be ignored.
+If none of the Compatible_Brands fields is set to &#39;qt  &#39;, then the file is not a QuickTime movie file and is not compatible with this specification. Applications should return an error and close the file, or else invoke a file importer appropriate to one of the specified brands, preferably the major brand. QuickTime currently returns an error when attempting to open a file whose file type, file extension, or MIME type identifies it as a QuickTime movie, but whose file type atom does not include the &#39;qt  &#39; brand.&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -l 100 REC_0001_GPS_FAKE.MOV 
+0000000: 00000018 66747970 71742020 00000000  ....ftypqt  ....
+0000010: 71742020 00000000 0000747c 66726561  qt  ......t|frea
+              |
+        compatiable_brands
+&lt;/pre&gt;
+Note: A common source of this error is an MPEG-4 file incorrectly named with the .mov file extension or with the MIME type incorrectly set to “video/quicktime”. MPEG-4 files are automatically imported by QuickTime only when they are correctly identified as MPEG-4 files using the Mac OS file type, file extension, or MIME type.
+If you are creating a file type that is fully compatible with the QuickTime file format, one of the Compatible_Brand fields must be set to &#39;qt  &#39;; otherwise QuickTime will not recognize the file as a QuickTime movie.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Warning:  Use of the QuickTime file format in this manner is subject to license from Apple, Inc.&lt;/p&gt;
+&lt;h3 id=&quot;-a-name-nt96650-ntk96650-mov-a-&quot;&gt;&lt;a name=&quot;nt96650&quot;&gt;NTK96650录制的MOV文件信息&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;以文件&lt;strong&gt;REC_0001_GPS_FAKE.MOV&lt;/strong&gt;为例:
+   文件大小(字节) : 17894846  = 0x1110DBE&lt;br&gt;   第一层atom  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ftyp  长度 = 0x00000018&lt;/li&gt;
+&lt;li&gt;frea  长度 = 0x0000747c&lt;/li&gt;
+&lt;li&gt;mdat  长度 = 0x01108b74 &lt;/li&gt;
+&lt;li&gt;moov  长度 = 0x00000db6 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -l 100 REC_0001_GPS_FAKE.MOV 
+0000000: 00000018 66747970 71742020 00000000  ....ftypqt  ....
+0000010: 71742020 00000000 0000747c 66726561  qt  ......t|frea
+0000020: 0000000c 74696d61 00000009 00001be4  ....tima........
+0000030: 74686d61 ffd8ffdb 00840006 04050605  thma............
+0000040: 04060605 06070706 080a100a 0a09090a  ................
+0000050: 140e0f0c 10171418 18171416 161a1d25  ...............%
+0000060: 1f1a1b23                             ...#
+
+edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -s 0x18 -l 100 REC_0001_GPS_FAKE.MOV 
+0000018: 0000747c 66726561 0000000c 74696d61  ..t|frea....tima
+0000028: 00000009 00001be4 74686d61 ffd8ffdb  ........thma....
+0000038: 00840006 04050605 04060605 06070706  ................
+0000048: 080a100a 0a09090a 140e0f0c 10171418  ................
+0000058: 18171416 161a1d25 1f1a1b23 1c161620  .......%...#... 
+0000068: 2c202326 27292a29 191f2d30 2d283025  , #&amp;&#39;)*)..-0-(0%
+0000078: 28292801                             ()(.
+
+edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -s 0x7494 -l 100 REC_0001_GPS_FAKE.MOV 
+0007494: 01108b74 6d646174 00000000 00000000  ...tmdat........
+00074a4: 00000000 00000000 00000000 00000000  ................
+00074b4: 00000000 00000000 00000000 00000000  ................
+00074c4: 00000000 00000000 00000000 00000000  ................
+00074d4: 00000000 00000000 00000000 00000000  ................
+00074e4: 00000000 00000000 00000000 00000000  ................
+00074f4: 00000000                             ....
+
+edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -s 0x1110008 -l 100 REC_0001_GPS_FAKE.MOV 
+1110008: 00000db6 6d6f6f76 0000006c 6d766864  ....moov...lmvhd
+1110018: 00000000 cd07d7d4 cd07d7d4 00007530  ..............u0
+1110028: 00041eb0 00010000 01000000 00000000  ................
+1110038: 00000000 00010000 00000000 00000000  ................
+1110048: 00000000 00010000 00000000 00000000  ................
+1110058: 00000000 40000000 00000000 00000000  ....@...........
+1110068: 00000000                             ....
+
+edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -s 0x1110D80 -l 100 REC_0001_GPS_FAKE.MOV 
+1110d80: d4800000 f2000001 0f800000 00003375  ..............3u
+1110d90: 64746100 000013a9 666d7400 07000044  dta.....fmt....D
+1110da0: 56522d43 44000000 0018a969 6e66000c  VR-CD......inf..
+1110db0: 00004844 4456522d 31303830 5000      ..HDDVR-1080P.
+&lt;/pre&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>linux 命令行下的计算器bc</title>
+            <link>http://edgar1470.github.io/articles/linux-command-calculate.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>http://edgar1470.github.io/articles/linux-command-calculate.html</guid>
+            <author>edgar1470@gmail.com Edgar1470</author>
+            <pubDate>Thu, 09 Jan 2014 15:56:17 +0800</pubDate>
+            <description>&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#descriptoin&quot;&gt;linux 命令行下的计算器bc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#bc-basic&quot;&gt;基本计算 加减乘除&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#bc-last&quot;&gt;使用上一次的计算结果&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#bc-precision&quot;&gt;指定精度  默认小数点后显示0位&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#bc-change&quot;&gt;进制之间相互转换 默认输入输出都是十进制&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#bc-parenthesis&quot;&gt;复杂运算需要使用括号&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#bc-uppercase&quot;&gt;十六进制的都使用大写&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#bc-force&quot;&gt;我就想要小数点有10个数字出现&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;linux-bc-a-name-descriptoin-a-&quot;&gt;linux 命令行下的计算器bc &lt;a name=&quot;descriptoin&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;在分析.MOV文件格式时需要计算地址，于是google到了bc神器  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;bc - An arbitrary precision calculator language&lt;/strong&gt;  &lt;/p&gt;
+&lt;p&gt;bc是一个任意精度的计算器语言，我的乖乖，正是神器啊！！！ &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;DESCRIPTION&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;bc  is  a language&lt;/strong&gt; that supports arbitrary precision numbers with interactive execution of statements. &lt;strong&gt;There are some simi‐
+larities in the syntax to the C programming language.&lt;/strong&gt;  A standard math library is available  by  command  line  option.   If
+requested,  the math library is defined before processing any files.  bc starts by processing code from all the files listed
+on the command line in the order listed.  After all files have been processed, bc reads from the standard input.   All  code
+is  executed  as  it  is  read.   (If  a file contains a command to halt the processor, bc will never read from the standard
+    input.)&lt;/p&gt;
+&lt;h4 id=&quot;1-a-name-bc-basic-a-&quot;&gt;1 基本计算 加减乘除  &lt;a name=&quot;bc-basic&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/$ echo &#39;1+1&#39; | bc
+2
+edgar@debian:/$ echo &#39;3-2&#39; | bc
+1
+edgar@debian:/$ echo &#39;2 * 5&#39;| bc
+10
+edgar@debian:/$ echo &#39;8 / 3&#39;| bc     &lt;--- 像C语言
+2
+edgar@debian:/$ echo &#39;8 % 3&#39;| bc
+2
+edgar@debian:/$ echo &#39;4 % 3&#39;| bc
+1
+&lt;/pre&gt;
+&lt;h4 id=&quot;2-a-name-bc-last-a-&quot;&gt;2 使用上一次的计算结果 &lt;a name=&quot;bc-last&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/$ echo &#39;11 * 3&#39; | bc
+33
+edgar@debian:/$ echo &#39;last + 2&#39; | bc
+2
+edgar@debian:/$ echo &#39;11*3; last+2&#39; | bc
+33
+35
+edgar@debian:/$ echo &#39;11*3; .+2&#39; | bc
+33
+35
+&lt;/pre&gt;
+&lt;h4 id=&quot;3-0-a-name-bc-precision-a-&quot;&gt;3 指定精度  默认小数点后显示0位 &lt;a name=&quot;bc-precision&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/$ echo &#39;8/3&#39; | bc
+2
+edgar@debian:/$ echo &#39;scale=1; 8/3&#39; | bc
+2.6
+edgar@debian:/$ echo &#39;scale=10; 8/3&#39; | bc
+2.6666666666
+edgar@debian:/$ echo &#39;scale=10; sqrt(3)&#39; | bc
+1.7320508075
+&lt;/pre&gt;
+&lt;h4 id=&quot;4-a-name-bc-change-a-&quot;&gt;4  进制之间相互转换 默认输入输出都是十进制 &lt;a name=&quot;bc-change&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/$ echo &#39;obase=2; 12&#39; | bc   十进制到二进制
+1100
+edgar@debian:/$ echo &#39;obase=8; 12&#39; | bc   十进制到八进制
+14
+edgar@debian:/$ echo &#39;obase=16; 12&#39; | bc  十进制到十六进制
+C
+edgar@debian:/$ echo &#39;obase=2; ibase=16; 12&#39; | bc  十六进制到二进制
+10010
+&lt;/pre&gt;
+&lt;h4 id=&quot;5-a-name-bc-parenthesis-a-&quot;&gt;5 复杂运算需要使用括号   &lt;a name=&quot;bc-parenthesis&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/$ echo &#39;obase=10; ibase=10; (3^3)^3&#39; | bc
+19683
+edgar@debian:/$ echo &#39;obase=10; ibase=10; 3^3^3&#39; | bc
+7625597484987
+&lt;/pre&gt;
+&lt;h4 id=&quot;6-a-name-bc-uppercase-a-&quot;&gt;6 十六进制的都使用大写  &lt;a name=&quot;bc-uppercase&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/$ echo &#39;obase=10; ibase=16; ffff&#39; | bc
+0
+edgar@debian:/$ echo &#39;obase=10; ibase=16; FFFF&#39; | bc
+65535
+edgar@debian:/$ echo &#39;obase=10; ibase=16; 1a&#39; | bc
+(standard_in) 1: syntax error
+edgar@debian:/$ echo &#39;obase=10; ibase=16; 1A&#39; | bc
+26
+&lt;/pre&gt;
+&lt;h4 id=&quot;7-10-a-name-bc-force-a-&quot;&gt;7 我就想要小数点有10个数字出现   &lt;a name=&quot;bc-force&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/$ echo &#39;scale=10; 1.25*9&#39; | bc
+11.25
+edgar@debian:/$ echo &#39;scale=10; (1.25*9)/1&#39; | bc
+11.2500000000
 &lt;/pre&gt;
 </description>
         </item>
