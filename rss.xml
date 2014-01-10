@@ -4,7 +4,7 @@
         <title>Edgar1470&#39;s RSS</title>
         <link>http://edgar1470.github.io</link>
         <description>Geeks Note for Embedded System</description>
-        <lastBuildDate>Thu, 09 Jan 2014 18:15:50 +0800</lastBuildDate>
+        <lastBuildDate>Fri, 10 Jan 2014 16:22:30 +0800</lastBuildDate>
         <language>zh-cn</language>
         
         <item>
@@ -112,13 +112,45 @@ dgar@debian:/data_disk/papery_blog$ pap-server blog_test_dir/
 &lt;h3 id=&quot;-a-name-atom-structrue-mov-atom-a-&quot;&gt;&lt;a name=&quot;atom-structrue&quot;&gt; MOV文件基本ATOM &lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt; &lt;img src=&quot;../images/qtff_mov_structure.gif&quot; alt=&quot;qtff-structrue&quot;&gt;                            &lt;/p&gt;
 &lt;h3 id=&quot;-a-name-atom-basic-basic-atom-a-&quot;&gt;&lt;a name=&quot;atom-basic&quot;&gt; Basic ATOM &lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Basic atom types of a QuickTime file&lt;br&gt;|  Atom type   |  Use |&lt;br&gt;|--------------|:------|
-|  &lt;strong&gt;&#39;ftyp&#39;&lt;/strong&gt;  |File type compatibility—identifies the file type and differentiates it from similar file types, such as MPEG-4 files and JPEG-2000 files.|
-|  &lt;strong&gt;&#39;moov&#39;&lt;/strong&gt;  |Movie resource metadata about the movie (number and type of tracks, location of sample data, and so on). Describes where the movie data can be found and how to interpret it.|
-|  &lt;strong&gt;&#39;mdat&#39;&lt;/strong&gt;  |Movie sample data—media samples such as video frames and groups of audio samples. Usually this data can be interpreted only by using the movie resource.|
-|  &lt;strong&gt;&#39;free&#39;&lt;/strong&gt;  |Unused space available in file. |
-|  &lt;strong&gt;&#39;skip&#39;&lt;/strong&gt;  |Unused space available in file.|&lt;br&gt;|  &lt;strong&gt;&#39;wide&#39;&lt;/strong&gt;  |Reserved space—can be overwritten by an extended size field if the following atom exceeds 2^32 bytes, without displacing the contents of the following atom.|
-|  &lt;strong&gt;&#39;pnot&#39;&lt;/strong&gt;  |Reference to movie preview data.|                                        &lt;/p&gt;
+&lt;p&gt;Basic atom types of a QuickTime file   &lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Atom type&lt;/th&gt;
+&lt;th&gt;Use&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&#39;ftyp&#39;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;File type compatibility—identifies the file type and differentiates it from similar file types, such as MPEG-4 files and JPEG-2000 files.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&#39;moov&#39;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Movie resource metadata about the movie (number and type of tracks, location of sample data, and so on). Describes where the movie data can be found and how to interpret it.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&#39;mdat&#39;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Movie sample data—media samples such as video frames and groups of audio samples. Usually this data can be interpreted only by using the movie resource.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&#39;free&#39;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Unused space available in file.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&#39;skip&#39;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Unused space available in file.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&#39;wide&#39;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Reserved space—can be overwritten by an extended size field if the following atom exceeds 2^32 bytes, without displacing the contents of the following atom.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;&#39;pnot&#39;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Reference to movie preview data.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h3 id=&quot;-a-name-atom-ftyp-atom-ftyp-a-&quot;&gt;&lt;a name=&quot;atom-ftyp&quot;&gt; ATOM ftyp&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;&#39;ftyp&#39;&lt;/em&gt;  The File Type Compatibility Atom&lt;br&gt;  The file type atom is optional, but strongly recommended. If present, it must be the first significant atom in the file, preceding the movie atom (and any free space atoms, preview atom, or movie data atoms).&lt;/p&gt;
 &lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -l 100 REC_0001_GPS_FAKE.MOV 
@@ -314,6 +346,147 @@ edgar@debian:/$ echo &#39;obase=10; ibase=16; 1A&#39; | bc
 11.25
 edgar@debian:/$ echo &#39;scale=10; (1.25*9)/1&#39; | bc
 11.2500000000
+&lt;/pre&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>.MOV内嵌GPS信息分析之二</title>
+            <link>http://edgar1470.github.io/articles/mov-fileformat-002.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>http://edgar1470.github.io/articles/mov-fileformat-002.html</guid>
+            <author>edgar1470@gmail.com Edgar1470</author>
+            <pubDate>Fri, 10 Jan 2014 11:31:52 +0800</pubDate>
+            <description>&lt;h3 id=&quot;mov-gps-&quot;&gt;MOV内嵌GPS信息分析之二&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#root-atom&quot;&gt;顶层ATOM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#root-ftyp&quot;&gt;ATOM: ftyp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#root-frea&quot;&gt;ATOM: frea&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#root-mdat&quot;&gt;ATOM: mdat&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#root-moov&quot;&gt;ATOM: moov&lt;/a&gt; &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a name=&quot;root-atom&quot;&gt; 顶层ATOM&lt;/a&gt;&lt;br&gt;以文件&lt;strong&gt;REC_0001_GPS_FAKE.MOV&lt;/strong&gt;为例:&lt;br&gt;文件大小(字节) : 17894846  = 0x1110DBE   &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ftyp  长度 = 0x00000018&lt;/li&gt;
+&lt;li&gt;frea  长度 = 0x0000747c&lt;/li&gt;
+&lt;li&gt;mdat  长度 = 0x01108b74 &lt;/li&gt;
+&lt;li&gt;moov  长度 = 0x00000db6 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a name=&quot;root-ftyp&quot;&gt; ATOM: ftyp&lt;/a&gt;&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -c4 -l 0x18 REC_0001_GPS_FAKE.MOV 
+0000000: 00000018  ....    Size         ftyp的长度 0x18字节
+0000004: 66747970  ftyp    Type         ftyp的ATOM标记
+0000008: 71742020  qt      Major_Brand  QuickTime movie file
+000000c: 00000000  ....    Minor_Version
+0000010: 71742020  qt      Compatible_Brands 
+0000014: 00000000  ....
+&lt;/pre&gt;
+&lt;p&gt;&lt;a name=&quot;root-frea&quot;&gt; ATOM: frea&lt;/a&gt;&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -c4 -s 0x18 -l 100 REC_0001_GPS_FAKE.MOV 
+0000018: 0000747c  ..t| Size  frea的长度 0x747C
+000001c: 66726561  frea Type  frea的ATOM标记
+0000020: 0000000c  ....   Size tima的长度 0x0C      
+0000024: 74696d61  tima   Type tima的ATOM标记
+0000028: 00000009  ....   Unknown
+000002c: 00001be4  ....     Size thma的长度 0x1BE4
+0000030: 74686d61  thma     Type thma
+0000034: ffd8ffdb  ....       FFD8  JPG?
+0000038: 00840006  ....
+000003c: 04050605  ....
+....
+&lt;/pre&gt;
+&lt;p&gt;真的是 JPG?
+FFD8  FFD9  好熟悉哈&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -u -g4 -c4 -s 0x34 -l 0x1BDC REC_0001_GPS_FAKE.MOV 
+0000034: FFD8FFDB  ....
+0000038: 00840006  ....
+000003c: 04050605  ....
+0000040: 04060605  ....
+0000044: 06070706  ....
+....
+0001bf8: 45140051  E..Q
+0001bfc: 45140051  E..Q
+0001c00: 45140051  E..Q
+0001c04: 45140051  E..Q
+0001c08: 451401FF  E...
+0001c0c: D9FFFFFF  ....
+edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ dd skip=52 count=7132 if=REC_0001_GPS_FAKE.MOV of=thma.jpg bs=1
+7132+0 records in
+7132+0 records out
+7132 bytes (7.1 kB) copied, 0.0176471 s, 404 kB/s
+&lt;/pre&gt;
+&lt;p&gt;打开thma.jpg真的是一张320x240的缩略图   &lt;/p&gt;
+&lt;p&gt;frea的ATOM内存放了两张缩略图:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一张320x240大小  &lt;/li&gt;
+&lt;li&gt;一张640x480大小&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -u -g4 -c4 -s 0x18 -l 0x1BDC REC_0001_GPS_FAKE.MOV 
+0000018: 0000747C  ..t|
+000001c: 66726561  frea
+0000020: 0000000C  ....
+0000024: 74696D61  tima
+0000028: 00000009  ....
+000002c: 00001BE4  ....
+0000030: 74686D61  thma   &lt;- 第一张缩略图 
+0000034: FFD8FFDB  ....
+0000038: 00840006  ....
+....
+0001c08: 451401FF  E...
+0001c0c: D9FFFFFF  ....
+0001c10: 00005884  ..X.
+0001c14: 73637261  scra   &lt;- 第二张缩略图
+0001c18: FFD8FFDB  ....
+0001c1c: 00840006  ....
+0001c20: 04050605  ....
+....
+000748c: 00514514  .QE.
+0007490: 01FFD900  ....
+0007494: 01108B74  ...t
+0007498: 6D646174  mdat
+000749c: 00000000  ....
+00074a0: 00000000  ....
+....
+1110000: 8ADB9742  ...B
+1110004: 5F16F14C  _..L
+1110008: 00000DB6  ....
+111000c: 6D6F6F76  moov
+1110010: 0000006C  ...l
+1110014: 6D766864  mvhd
+1110018: 00000000  ....
+111001c: CD07D7D4  ....
+1110020: CD07D7D4  ....
+1110024: 00007530  ..u0
+1110028: 00041EB0  ....
+111002c: 00010000  ....
+1110030: 01000000  ....
+1110034: 00000000  ....
+1110038: 00000000  ....
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a name=&quot;root-mdat&quot;&gt; ATOM: mdat&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;root-moov&quot;&gt; ATOM: moov&lt;/a&gt;&lt;br&gt;QuickTime movie atoms have an atom type of &#39;moov&#39;. These atoms act as a container for the information that describes a movie’s data. This information, or metadata, is stored in a number of different types of atoms. Generally speaking, only metadata is stored in a movie atom. Sample data for the movie, such as audio or video samples, are referenced in the movie atom, but are not contained in it.&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;1110008: 00000DB6  ....     --&gt;1110DBE  EOF
+111000c: 6D6F6F76  moov
+1110010: 0000006C  ...l     --&gt;111007C
+1110014: 6D766864  mvhd
+1110018: 00000000  ....
+....      
+111007c: 00000AD6  ....     --&gt;1110B52
+1110080: 7472616B  trak                       
+1110b52: 00000239  ...9     --&gt;1110D8B
+1110b56: 7472616B  trak
+....
+1110d8b: 00000033  ...3       --&gt;1110DBE  EOF
+1110d8f: 75647461  udta
+1110d93: 00000013  ....       --&gt;1110DA6      
+1110d97: A9666D74  .fmt
+...
+1110da6: 00000018  ....     --&gt;1110DBE  EOF
+1110daa: A9696E66  .inf
+1110dae: 000C0000  ....
+1110db2: 48444456  HDDV
+1110db6: 522D3130  R-10
+1110dba: 38305000  80P.
+1110DBE  EOF
 &lt;/pre&gt;
 </description>
         </item>

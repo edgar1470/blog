@@ -57,6 +57,14 @@
         
         <a class="tag" href="/tag.html#gps">gps</a>
         
+        <a class="tag" href="/tag.html#nt96650">nt96650</a>
+        
+        <a class="tag" href="/tag.html#ntk">ntk</a>
+        
+        <a class="tag" href="/tag.html#novatek">novatek</a>
+        
+        <a class="tag" href="/tag.html#联咏">联咏</a>
+        
         </div>
         <div id="article-content">
             <h3 id="mov-gps-">MOV内嵌GPS信息分析之一</h3>
@@ -76,13 +84,45 @@
 <h3 id="-a-name-atom-structrue-mov-atom-a-"><a name="atom-structrue"> MOV文件基本ATOM </a></h3>
 <p> <img src="../images/qtff_mov_structure.gif" alt="qtff-structrue">                            </p>
 <h3 id="-a-name-atom-basic-basic-atom-a-"><a name="atom-basic"> Basic ATOM </a></h3>
-<p>Basic atom types of a QuickTime file<br>|  Atom type   |  Use |<br>|--------------|:------|
-|  <strong>&#39;ftyp&#39;</strong>  |File type compatibility—identifies the file type and differentiates it from similar file types, such as MPEG-4 files and JPEG-2000 files.|
-|  <strong>&#39;moov&#39;</strong>  |Movie resource metadata about the movie (number and type of tracks, location of sample data, and so on). Describes where the movie data can be found and how to interpret it.|
-|  <strong>&#39;mdat&#39;</strong>  |Movie sample data—media samples such as video frames and groups of audio samples. Usually this data can be interpreted only by using the movie resource.|
-|  <strong>&#39;free&#39;</strong>  |Unused space available in file. |
-|  <strong>&#39;skip&#39;</strong>  |Unused space available in file.|<br>|  <strong>&#39;wide&#39;</strong>  |Reserved space—can be overwritten by an extended size field if the following atom exceeds 2^32 bytes, without displacing the contents of the following atom.|
-|  <strong>&#39;pnot&#39;</strong>  |Reference to movie preview data.|                                        </p>
+<p>Basic atom types of a QuickTime file   </p>
+<table>
+<thead>
+<tr>
+<th>Atom type</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>&#39;ftyp&#39;</strong></td>
+<td>File type compatibility—identifies the file type and differentiates it from similar file types, such as MPEG-4 files and JPEG-2000 files.</td>
+</tr>
+<tr>
+<td><strong>&#39;moov&#39;</strong></td>
+<td>Movie resource metadata about the movie (number and type of tracks, location of sample data, and so on). Describes where the movie data can be found and how to interpret it.</td>
+</tr>
+<tr>
+<td><strong>&#39;mdat&#39;</strong></td>
+<td>Movie sample data—media samples such as video frames and groups of audio samples. Usually this data can be interpreted only by using the movie resource.</td>
+</tr>
+<tr>
+<td><strong>&#39;free&#39;</strong></td>
+<td>Unused space available in file.</td>
+</tr>
+<tr>
+<td><strong>&#39;skip&#39;</strong></td>
+<td>Unused space available in file.</td>
+</tr>
+<tr>
+<td><strong>&#39;wide&#39;</strong></td>
+<td>Reserved space—can be overwritten by an extended size field if the following atom exceeds 2^32 bytes, without displacing the contents of the following atom.</td>
+</tr>
+<tr>
+<td><strong>&#39;pnot&#39;</strong></td>
+<td>Reference to movie preview data.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="-a-name-atom-ftyp-atom-ftyp-a-"><a name="atom-ftyp"> ATOM ftyp</a></h3>
 <p><em>&#39;ftyp&#39;</em>  The File Type Compatibility Atom<br>  The file type atom is optional, but strongly recommended. If present, it must be the first significant atom in the file, preceding the movie atom (and any free space atoms, preview atom, or movie data atoms).</p>
 <pre class="prettyprint linenums lang-shell">edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -l 100 REC_0001_GPS_FAKE.MOV 
@@ -194,8 +234,9 @@ edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -s 0x1
                 </p>
             </div>
         </div>
-        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+        /*
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+*/
 
     </body>
 </html>
