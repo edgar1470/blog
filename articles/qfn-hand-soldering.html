@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="description" content="Geeks Note for Embedded System"/>
+        <meta name="keywords" content="OpenWRT,GoPro,Mobius ActionCam,Flytecam,SSD"/>
+        <meta name="author" content="Edgar1470"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <title>Geeks Note - 手工焊接QFN等无管脚IC
+</title>
+        <link rel="stylesheet" href="/assets/vendor/normalize.css"/>
+        <link rel="stylesheet" href="/assets/vendor/prettify-night.css"/>
+        <link rel="stylesheet" href="/assets/themes/default/main.css"/>
+        <link rel="shortcut icon" href="/fav.ico"/>
+        <script type="text/javascript" src="/assets/vendor/prettify.js"></script>
+        
+    </head>
+    <body onload="prettyPrint()">
+    <div id="header">
+        <div id="header-inner">
+            <div id="title"><a href="/">Geeks Note</a></div>
+            <div id="subtitle">Open your heart &amp; Enjoy the life course</div>
+        </div>
+    </div>
+
+<div id="main">
+    <div id="main-inner">
+        <div id="topnav">
+            <ul>
+                <li><a href="/">首页</a></li>
+                <li class="sep"> | </li>
+                <li><a href="/tag.html">标签</a></li>
+                
+<li class="sep"> | </li>
+<li><a href="/pages/about-me.html" target="_self">关于我</a></li>
+
+<li class="sep"> | </li>
+<li><a href="https://github.com/edgar1470" target="_blank">Github</a></li>
+
+<li class="sep"> | </li>
+<li><a href="http://edgar1470.github.io/rss.xml" target="_blank">RSS</a></li>
+
+
+            </ul>
+            <div style="clear:both;"></div>
+        </div>
+        <div id="article-title">
+            <a href="/articles/qfn-hand-soldering.html">手工焊接QFN等无管脚IC</a>
+        </div>
+        <div id="article-meta">
+            作者 edgar1470 | 发布于 2014-01-12 22:01:54
+        </div>
+        <div id="article-tags">
+        
+        <a class="tag" href="/tag.html#qfn">qfn</a>
+        
+        <a class="tag" href="/tag.html#soldering">soldering</a>
+        
+        <a class="tag" href="/tag.html#cc2540">cc2540</a>
+        
+        <a class="tag" href="/tag.html#cc2541">cc2541</a>
+        
+        </div>
+        <div id="article-content">
+            <p>在手工焊接TI CC2540/CC2541 BLE样板的过程中遇到不少问题,今天总结焊接经验时，<br>发现下面一篇文章<br><a href="http://www.geek-workshop.com/forum.php?mod=viewthread&amp;tid=83">手工焊接QFN LGA等无引脚IC方法</a>  </p>
+<p>电子制作中无可避免的要遇到手工焊接QFN LGA等无引脚IC，这些IC因为引脚全部在IC下方，用烙铁很难焊接。所以介绍一下怎样用热风枪来进行焊接。</p>
+<p>  先来看一下用的设备 焊锡膏和一根针，我用的是维修佬焊锡膏5g包装版，因为便宜嘛，一个芯片的焊锡膏用量很小的，这么5g可以焊接好多好多的芯片。
+  <img src="../images/QFN_001.jpg" alt="001"></p>
+<p>  下来就是热风枪了，我用的是快克857D。
+  <img src="../images/QFN_002.jpg" alt="002"></p>
+<p>  这次拍摄使用的是ITG 3200系列芯片（ITG 3205），是一个陀螺仪芯片。下面看看正反面的封装样式:
+  <img src="../images/QFN_003.jpg" alt="003">
+  <img src="../images/QFN_004.jpg" alt="004">
+  再下来看看焊接用的电路板，这块电路板是经过特殊设计，PCB板上IC引脚全部加长过，这种有两种好处，一种是工艺上的，因为引脚加长后吸锡量加大，可以预防引脚短接，另外也给出现问题后手工修补提供了方便。
+  <img src="../images/QFN_005.jpg" alt="005"></p>
+<p>  先用针在IC覆盖位置覆盖薄薄的一层焊锡膏，一定要少，而且要只覆盖IC覆盖的引脚部位。覆盖程度只需要刚刚盖住底就ok，多了容易堆锡。
+  <img src="../images/QFN_006.jpg" alt="006"></p>
+<p>  然后就可以把IC放上去了，位置要放正，IC的小圆点和焊盘上的小圆点要一个方向。
+  <img src="../images/QFN_007.jpg" alt="007"></p>
+<p>  接下来就开启热风枪进行加热，因为芯片很小，所以使用最大风嘴，最小风量，温度我是用的是340度，风嘴在IC顶部罩住吹，偶尔需要左右晃动或者转圈一下使周围均匀受热。
+  <img src="../images/QFN_008.jpg" alt="008"></p>
+<p>  当焊锡全部溶化后就可以把风枪移开关闭了。等PCB板冷却后就可以查看焊接质量。这里会有童鞋问，难道吹得时候不需要手工对准吗？答案是肯定的，当锡膏融化后，焊锡只会跑到有金属的地方，因为表面张力，IC会自动对准焊盘（前提是刚开始放的时候误差没那么恐怖），不需要手工干预。</p>
+<p>  本次焊接因为锡膏上的还是有点多，有些堆锡现象。
+  <img src="../images/QFN_009.jpg" alt="009"></p>
+<p>  这是就需要用烙铁来进行加工，把堆锡除掉。去掉堆锡的样子是这样子的。
+  <img src="../images/QFN_010.jpg" alt="010"></p>
+<p>  肉眼检查各个方位没有堆锡后，还需要用万用表在电路各个地方进行检查，防止短路。</p>
+<p>  下面的视屏是懒猫侠同学用烙铁焊接QFN封装（侧面有接触点）的视频，大家如果没风枪，可以学习下哦。<br>  <a href="http://v.youku.com/v_show/id_XMjk0NjgxNTg0.html">用烙铁焊接QFN封装</a></p>
+
+        </div>
+        
+    </div>
+</div>
+        <div id="footer">
+            <div id="footer-inner">
+                <p id="copyright">
+                Powered By <a href="https://github.com/ericzhang-cn/papery">papery</a>   Copyright &copy; 2014-2014 Edgar1470
+                </p>
+            </div>
+        </div>
+        /*
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+*/
+
+    </body>
+</html>
+

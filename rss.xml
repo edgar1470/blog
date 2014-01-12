@@ -4,7 +4,7 @@
         <title>Edgar1470&#39;s RSS</title>
         <link>http://edgar1470.github.io</link>
         <description>Geeks Note for Embedded System</description>
-        <lastBuildDate>Fri, 10 Jan 2014 16:22:30 +0800</lastBuildDate>
+        <lastBuildDate>Sun, 12 Jan 2014 22:50:33 +0800</lastBuildDate>
         <language>zh-cn</language>
         
         <item>
@@ -488,6 +488,63 @@ edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ dd skip=52 cou
 1110dba: 38305000  80P.
 1110DBE  EOF
 &lt;/pre&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>手工焊接QFN等无管脚IC</title>
+            <link>http://edgar1470.github.io/articles/qfn-hand-soldering.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>http://edgar1470.github.io/articles/qfn-hand-soldering.html</guid>
+            <author>edgar1470@gmail.com Edgar1470</author>
+            <pubDate>Sun, 12 Jan 2014 22:01:54 +0800</pubDate>
+            <description>&lt;p&gt;在手工焊接TI CC2540/CC2541 BLE样板的过程中遇到不少问题,今天总结焊接经验时，&lt;br&gt;发现下面一篇文章&lt;br&gt;&lt;a href=&quot;http://www.geek-workshop.com/forum.php?mod=viewthread&amp;tid=83&quot;&gt;手工焊接QFN LGA等无引脚IC方法&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;电子制作中无可避免的要遇到手工焊接QFN LGA等无引脚IC，这些IC因为引脚全部在IC下方，用烙铁很难焊接。所以介绍一下怎样用热风枪来进行焊接。&lt;/p&gt;
+&lt;p&gt;  先来看一下用的设备 焊锡膏和一根针，我用的是维修佬焊锡膏5g包装版，因为便宜嘛，一个芯片的焊锡膏用量很小的，这么5g可以焊接好多好多的芯片。
+  &lt;img src=&quot;../images/QFN_001.jpg&quot; alt=&quot;001&quot;&gt;&lt;/p&gt;
+&lt;p&gt;  下来就是热风枪了，我用的是快克857D。
+  &lt;img src=&quot;../images/QFN_002.jpg&quot; alt=&quot;002&quot;&gt;&lt;/p&gt;
+&lt;p&gt;  这次拍摄使用的是ITG 3200系列芯片（ITG 3205），是一个陀螺仪芯片。下面看看正反面的封装样式:
+  &lt;img src=&quot;../images/QFN_003.jpg&quot; alt=&quot;003&quot;&gt;
+  &lt;img src=&quot;../images/QFN_004.jpg&quot; alt=&quot;004&quot;&gt;
+  再下来看看焊接用的电路板，这块电路板是经过特殊设计，PCB板上IC引脚全部加长过，这种有两种好处，一种是工艺上的，因为引脚加长后吸锡量加大，可以预防引脚短接，另外也给出现问题后手工修补提供了方便。
+  &lt;img src=&quot;../images/QFN_005.jpg&quot; alt=&quot;005&quot;&gt;&lt;/p&gt;
+&lt;p&gt;  先用针在IC覆盖位置覆盖薄薄的一层焊锡膏，一定要少，而且要只覆盖IC覆盖的引脚部位。覆盖程度只需要刚刚盖住底就ok，多了容易堆锡。
+  &lt;img src=&quot;../images/QFN_006.jpg&quot; alt=&quot;006&quot;&gt;&lt;/p&gt;
+&lt;p&gt;  然后就可以把IC放上去了，位置要放正，IC的小圆点和焊盘上的小圆点要一个方向。
+  &lt;img src=&quot;../images/QFN_007.jpg&quot; alt=&quot;007&quot;&gt;&lt;/p&gt;
+&lt;p&gt;  接下来就开启热风枪进行加热，因为芯片很小，所以使用最大风嘴，最小风量，温度我是用的是340度，风嘴在IC顶部罩住吹，偶尔需要左右晃动或者转圈一下使周围均匀受热。
+  &lt;img src=&quot;../images/QFN_008.jpg&quot; alt=&quot;008&quot;&gt;&lt;/p&gt;
+&lt;p&gt;  当焊锡全部溶化后就可以把风枪移开关闭了。等PCB板冷却后就可以查看焊接质量。这里会有童鞋问，难道吹得时候不需要手工对准吗？答案是肯定的，当锡膏融化后，焊锡只会跑到有金属的地方，因为表面张力，IC会自动对准焊盘（前提是刚开始放的时候误差没那么恐怖），不需要手工干预。&lt;/p&gt;
+&lt;p&gt;  本次焊接因为锡膏上的还是有点多，有些堆锡现象。
+  &lt;img src=&quot;../images/QFN_009.jpg&quot; alt=&quot;009&quot;&gt;&lt;/p&gt;
+&lt;p&gt;  这是就需要用烙铁来进行加工，把堆锡除掉。去掉堆锡的样子是这样子的。
+  &lt;img src=&quot;../images/QFN_010.jpg&quot; alt=&quot;010&quot;&gt;&lt;/p&gt;
+&lt;p&gt;  肉眼检查各个方位没有堆锡后，还需要用万用表在电路各个地方进行检查，防止短路。&lt;/p&gt;
+&lt;p&gt;  下面的视屏是懒猫侠同学用烙铁焊接QFN封装（侧面有接触点）的视频，大家如果没风枪，可以学习下哦。&lt;br&gt;  &lt;a href=&quot;http://v.youku.com/v_show/id_XMjk0NjgxNTg0.html&quot;&gt;用烙铁焊接QFN封装&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>超级电容电量简易计算方法</title>
+            <link>http://edgar1470.github.io/articles/supercapacitor.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>http://edgar1470.github.io/articles/supercapacitor.html</guid>
+            <author>edgar1470@gmail.com Edgar1470</author>
+            <pubDate>Sun, 12 Jan 2014 22:44:50 +0800</pubDate>
+            <description>&lt;p&gt;网络文章 &lt;a href=&quot;http://www.geek-workshop.com/thread-2114-1-1.html&quot;&gt;超级电容电量简易计算方法&lt;/a&gt;  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;电压(V) = 电流(I) x 电阻(R)&lt;/li&gt;
+&lt;li&gt;电荷量(Q) = 电流(I) x 时间(T)&lt;/li&gt;
+&lt;li&gt;功率(P) = V x I&lt;/li&gt;
+&lt;li&gt;能量(W) = P x T = Q x V&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;容量 F= 库伦（C） / 电压（V）&lt;/p&gt;
+&lt;p&gt;将容量、电压转为等效电量
+电量     =电压（V) x 电荷量（C）&lt;/p&gt;
+&lt;p&gt;实例估算：&lt;br&gt; 电压5.5V 1F（1法拉电容）的电量为5.5C（库伦），
+ 电压下限我们设定在3.8V，电容放电的有效电压差为5.5-3.8=1.7V，所以有效电量为1.7C。&lt;br&gt; 1.7C=1.7A*S（安秒）=1700mAS（毫安秒）=0.472mAh（毫安时） 
+ 若电流消耗以10mA计算，1700mAS/10mA=170S=2.83min（维持时间分钟） 
+so，这样大家就能非常简单的计算出超级电容的等效电池容量，方便自己选型。顺便计算电容的漏电速度。。。。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         
