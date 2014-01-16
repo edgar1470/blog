@@ -4,7 +4,7 @@
         <title>Edgar1470&#39;s RSS</title>
         <link>http://edgar1470.github.io</link>
         <description>Geeks Note for Embedded System</description>
-        <lastBuildDate>Thu, 16 Jan 2014 11:15:20 +0800</lastBuildDate>
+        <lastBuildDate>Thu, 16 Jan 2014 17:28:23 +0800</lastBuildDate>
         <language>zh-cn</language>
         
         <item>
@@ -562,6 +562,70 @@ so，这样大家就能非常简单的计算出超级电容的等效电池容量
   mogrify -font msyh.ttf -pointsize 64 -fill red -weight bolder -gravity southeast -annotate +20+20 @&quot;t.txt&quot; src.jpg
 &lt;/pre&gt;
 &lt;p&gt;  msyh.ttf 是水印使用的字体,可以指定路径 /font/xx.ttf&lt;br&gt;  64 水印字体大小&lt;br&gt;   t.txt 文件中包含了一行水印描述，字体文件支持的所以编码空间中的字符都可以 &lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>一些C语言学习的文章资料</title>
+            <link>http://edgar1470.github.io/articles/language-c.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>http://edgar1470.github.io/articles/language-c.html</guid>
+            <author>edgar1470@gmail.com Edgar1470</author>
+            <pubDate>Thu, 16 Jan 2014 15:42:30 +0800</pubDate>
+            <description>&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#define&quot;&gt;C预处理宏定义&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;c-a-name-define-a-&quot;&gt;C预处理宏定义 &lt;a name=&quot;define&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.tutorialspoint.com/cprogramming/pdf/c_preprocessors.pdf&quot;&gt;宏定义的简要说明&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://gcc.gnu.org/onlinedocs/cpp.pdf&quot;&gt;宏定义的详细说明&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cs.cornell.edu/courses/cs2022/2011sp/lectures/lect08.pdf&quot;&gt;宏定义展开后可能出现的一些问题&lt;/a&gt;    &lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>代码统计工具</title>
+            <link>http://edgar1470.github.io/articles/code-counting-tool.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>http://edgar1470.github.io/articles/code-counting-tool.html</guid>
+            <author>edgar1470@gmail.com Edgar1470</author>
+            <pubDate>Thu, 16 Jan 2014 16:48:19 +0800</pubDate>
+            <description>&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#cloc-overview&quot;&gt;cloc 简介&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#why-use-cloc&quot;&gt;Why Use cloc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#cloc-usage&quot;&gt;cloc usage&lt;/a&gt;  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;cloc-overview-a-name-cloc-overview-a-&quot;&gt;cloc Overview  &lt;a name=&quot;cloc-overview&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;  &lt;a href=&quot;http://cloc.sourceforge.net/#Overview&quot;&gt;cloc&lt;/a&gt; counts blank lines, comment lines, and physical lines of source code in many programming languages. Given two versions of a code base, cloc can compute differences in blank, comment, and source lines. It is written entirely in Perl with no dependencies outside the standard distribution of Perl v5.6 and higher (code from some external modules is embedded within cloc) and so is quite portable. cloc is known to run on many flavors of Linux, FreeBSD, NetBSD, OpenBSD, Mac OS X, AIX, HP-UX, Solaris, IRIX, z/OS, and Windows. (To run the Perl source version of cloc on Windows one needs ActiveState Perl 5.6.1 or higher, Strawberry Perl, Cygwin, or MobaXTerm with the Perl plug-in installed. Alternatively one can use the Windows binary of cloc generated with perl2exe to run on Windows computers that have neither Perl nor Cygwin.)&lt;/p&gt;
+&lt;p&gt;  cloc contains code from David Wheeler&#39;s SLOCCount, Damian Conway and Abigail&#39;s Perl module Regexp::Common, Sean M. Burke&#39;s Perl module Win32::Autoglob, and Tye McQueen&#39;s Perl module Algorithm::Diff. Language scale factors were derived from Mayes Consulting, LLC web site &lt;a href=&quot;http://softwareestimator.com/IndustryData2.htm&quot;&gt;http://softwareestimator.com/IndustryData2.htm&lt;/a&gt;. &lt;/p&gt;
+&lt;h3 id=&quot;why-use-cloc-a-name-why-use-cloc-a-&quot;&gt;Why Use cloc?  &lt;a name=&quot;why-use-cloc&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;cloc has many features that make it easy to use, thorough, extensible, and portable:  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Exists as a single, self-contained file that requires minimal installation effort---just download the file and run it.&lt;/li&gt;
+&lt;li&gt;Can read language comment definitions from a file and thus potentially work with computer languages that do not yet exist.&lt;/li&gt;
+&lt;li&gt;Allows results from multiple runs to be summed together by language and by project.&lt;/li&gt;
+&lt;li&gt;Can produce results in a variety of formats: plain text, SQL, XML, YAML, comma separated values.&lt;/li&gt;
+&lt;li&gt;Can count code within compressed archives (tar balls, Zip files, Java .ear files).&lt;/li&gt;
+&lt;li&gt;Has numerous troubleshooting options.&lt;/li&gt;
+&lt;li&gt;Handles file and directory names with spaces and other unusual characters.&lt;/li&gt;
+&lt;li&gt;Has no dependencies outside the standard Perl distribution.&lt;/li&gt;
+&lt;li&gt;Runs on Linux, FreeBSD, NetBSD, OpenBSD, Mac OS X, AIX, HP-UX, Solaris, IRIX, and z/OS systems that have Perl 5.6 or higher. The source version runs on Windows with either ActiveState Perl, Strawberry Perl, Cygwin, or MobaXTerm+Perl plugin. Alternatively on Windows one can run the Windows binary which has no dependencies. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;cloc-usage-a-name-cloc-usage-a-&quot;&gt;cloc usage &lt;a name=&quot;cloc-usage&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;$ ./cloc-1.55.pl /cygdrive/d/source/65X/NT9665x_CarDV_20141013
+lsUse of qw(...) as parentheses is deprecated at ./cloc-1.55.pl line 1841.          1814 text files.
+    1696 unique files.
+          45 files ignored.
+
+          http://cloc.sourceforge.net v 1.55  T=16.0 s (103.2 files/s, 29969.2 lines/s)
+          -------------------------------------------------------------------------------
+          Language                     files          blank        comment           code
+          -------------------------------------------------------------------------------
+          C                              466          28407          51002         206452
+          C/C++ Header                   721          20749          42535          55748
+          D                              369          23225              0          46732
+          make                            83            807           1576           1949
+          DOS Batch                       11             45              0            230
+          Assembly                         1              6             26             18
+          -------------------------------------------------------------------------------
+          SUM:                          1651          73239          95139         311129
+          -------------------------------------------------------------------------------
+&lt;/pre&gt;
 </description>
         </item>
         
