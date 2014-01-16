@@ -4,7 +4,7 @@
         <title>Edgar1470&#39;s RSS</title>
         <link>http://edgar1470.github.io</link>
         <description>Geeks Note for Embedded System</description>
-        <lastBuildDate>Sun, 12 Jan 2014 22:50:33 +0800</lastBuildDate>
+        <lastBuildDate>Thu, 16 Jan 2014 11:15:20 +0800</lastBuildDate>
         <language>zh-cn</language>
         
         <item>
@@ -545,6 +545,23 @@ edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ dd skip=52 cou
 so，这样大家就能非常简单的计算出超级电容的等效电池容量，方便自己选型。顺便计算电容的漏电速度。。。。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>ImageMagick的使用</title>
+            <link>http://edgar1470.github.io/articles/imagemagick.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>http://edgar1470.github.io/articles/imagemagick.html</guid>
+            <author>edgar1470@gmail.com Edgar1470</author>
+            <pubDate>Thu, 16 Jan 2014 11:03:18 +0800</pubDate>
+            <description>&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#watermark-cn&quot;&gt;给图片添加中文字符水印&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;-a-name-watermark-cn-a-&quot;&gt;给图片添加中文字符水印 &lt;a name=&quot;watermark-cn&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;  #!/bin/bash
+  mogrify -font msyh.ttf -pointsize 64 -fill red -weight bolder -gravity southeast -annotate +20+20 @&quot;t.txt&quot; src.jpg
+&lt;/pre&gt;
+&lt;p&gt;  msyh.ttf 是水印使用的字体,可以指定路径 /font/xx.ttf&lt;br&gt;  64 水印字体大小&lt;br&gt;   t.txt 文件中包含了一行水印描述，字体文件支持的所以编码空间中的字符都可以 &lt;/p&gt;
 </description>
         </item>
         
