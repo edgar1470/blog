@@ -53,15 +53,26 @@
         </div>
         <div id="article-tags">
         
-        <a class="tag" href="/tag.html#C语言">C语言</a>
+        <a class="tag" href="/tag.html#c">c</a>
+        
+        <a class="tag" href="/tag.html#编程">编程</a>
         
         </div>
         <div id="article-content">
             <ul>
 <li><a href="#define">C预处理宏定义</a></li>
+<li><a href="#c++-convert">能把C++程序自动转换成C程序吗</a></li>
 </ul>
 <h3 id="c-a-name-define-a-">C预处理宏定义 <a name="define"></a></h3>
 <p><a href="http://www.tutorialspoint.com/cprogramming/pdf/c_preprocessors.pdf">宏定义的简要说明</a><br><a href="http://gcc.gnu.org/onlinedocs/cpp.pdf">宏定义的详细说明</a><br><a href="http://www.cs.cornell.edu/courses/cs2022/2011sp/lectures/lect08.pdf">宏定义展开后可能出现的一些问题</a>    </p>
+<h3 id="-c-c-a-name-c-convert-a-">能把C++程序自动转换成C程序吗 <a name="c++-convert"></a></h3>
+<p><a href="http://www.parashift.com/c++-faq/convert-to-c.html">Is it possible to convert C++ to C?</a> 
+答案是：</p>
+<ul>
+<li>NO.  不能把C++代码自动转换成可读性和可维护性的C代码</li>
+<li>YES.  能自动转换,但有很多限制</li>
+</ul>
+<p><a href="http://llvm.org/releases/3.1/docs/FAQ.html#translatecxx">Can I use LLVM to convert C++ code to C code?</a><br>Yes, you can use LLVM to convert code from any language LLVM supports to C. Note that the generated C code will be very low level (all loops are lowered to gotos, etc) and not very pretty (comments are stripped, original source formatting is totally lost, variables are renamed, expressions are regrouped), so this may not be what you&#39;re looking for. Also, there are several limitations noted below.</p>
 
         </div>
         
@@ -74,9 +85,7 @@
                 </p>
             </div>
         </div>
-        /*
-   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
-*/
+         <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
 
     </body>
 </html>

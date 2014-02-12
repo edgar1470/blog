@@ -4,7 +4,7 @@
         <title>Edgar1470&#39;s RSS</title>
         <link>http://edgar1470.github.io</link>
         <description>Geeks Note for Embedded System</description>
-        <lastBuildDate>Wed, 22 Jan 2014 16:02:07 +0800</lastBuildDate>
+        <lastBuildDate>Wed, 12 Feb 2014 11:41:04 +0800</lastBuildDate>
         <language>zh-cn</language>
         
         <item>
@@ -573,9 +573,18 @@ so，这样大家就能非常简单的计算出超级电容的等效电池容量
             <pubDate>Thu, 16 Jan 2014 15:42:30 +0800</pubDate>
             <description>&lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#define&quot;&gt;C预处理宏定义&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#c++-convert&quot;&gt;能把C++程序自动转换成C程序吗&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;c-a-name-define-a-&quot;&gt;C预处理宏定义 &lt;a name=&quot;define&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&quot;http://www.tutorialspoint.com/cprogramming/pdf/c_preprocessors.pdf&quot;&gt;宏定义的简要说明&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://gcc.gnu.org/onlinedocs/cpp.pdf&quot;&gt;宏定义的详细说明&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cs.cornell.edu/courses/cs2022/2011sp/lectures/lect08.pdf&quot;&gt;宏定义展开后可能出现的一些问题&lt;/a&gt;    &lt;/p&gt;
+&lt;h3 id=&quot;-c-c-a-name-c-convert-a-&quot;&gt;能把C++程序自动转换成C程序吗 &lt;a name=&quot;c++-convert&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.parashift.com/c++-faq/convert-to-c.html&quot;&gt;Is it possible to convert C++ to C?&lt;/a&gt; 
+答案是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;NO.  不能把C++代码自动转换成可读性和可维护性的C代码&lt;/li&gt;
+&lt;li&gt;YES.  能自动转换,但有很多限制&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;http://llvm.org/releases/3.1/docs/FAQ.html#translatecxx&quot;&gt;Can I use LLVM to convert C++ code to C code?&lt;/a&gt;&lt;br&gt;Yes, you can use LLVM to convert code from any language LLVM supports to C. Note that the generated C code will be very low level (all loops are lowered to gotos, etc) and not very pretty (comments are stripped, original source formatting is totally lost, variables are renamed, expressions are regrouped), so this may not be what you&#39;re looking for. Also, there are several limitations noted below.&lt;/p&gt;
 </description>
         </item>
         
