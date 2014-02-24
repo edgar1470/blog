@@ -4,7 +4,7 @@
         <title>Edgar1470&#39;s RSS</title>
         <link>http://edgar1470.github.io</link>
         <description>Geeks Note for Embedded System</description>
-        <lastBuildDate>Thu, 13 Feb 2014 17:43:53 +0800</lastBuildDate>
+        <lastBuildDate>Mon, 24 Feb 2014 09:50:57 +0800</lastBuildDate>
         <language>zh-cn</language>
         
         <item>
@@ -585,6 +585,16 @@ so，这样大家就能非常简单的计算出超级电容的等效电池容量
 &lt;li&gt;YES.  能自动转换,但有很多限制&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href=&quot;http://llvm.org/releases/3.1/docs/FAQ.html#translatecxx&quot;&gt;Can I use LLVM to convert C++ code to C code?&lt;/a&gt;&lt;br&gt;Yes, you can use LLVM to convert code from any language LLVM supports to C. Note that the generated C code will be very low level (all loops are lowered to gotos, etc) and not very pretty (comments are stripped, original source formatting is totally lost, variables are renamed, expressions are regrouped), so this may not be what you&#39;re looking for. Also, there are several limitations noted below.&lt;/p&gt;
+&lt;p&gt;在google 怎么用llvm 转换C++源代码到C源代码时,发现了这个 
+&lt;a href=&quot;http://llvm.org/releases/3.1/docs/ReleaseNotes.html#changes&quot;&gt;http://llvm.org/releases/3.1/docs/ReleaseNotes.html#changes&lt;/a&gt;
+LLVM 从3.1版本就不再支持从其它语言转换成C源代码的功能 
+但转换成汇编的功能继续可用&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;$ clang –c –emit-llvm –o test.bc test.c
+$ opt –O1 –o test.bc test.bc
+$ llc –o test.s test.bc
+$ gcc –o test test.s
+&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Source-to-source_compiler&quot;&gt;http://en.wikipedia.org/wiki/Source-to-source_compiler&lt;/a&gt; &lt;/p&gt;
 </description>
         </item>
         

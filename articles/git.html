@@ -63,6 +63,7 @@
 <li><a href="#reset-push">撤销push到远程仓库的操作</a></li>
 <li><a href="#revert-version">回退到指定版本</a></li>
 <li><a href="#svn2git">本地SVN仓库转换成git仓库</a></li>
+<li>[在bash提示符显示当前的git分支][#bash-prompt]</li>
 </ul>
 <h3 id="-push-a-name-reset-push-a-">撤销push到远程仓库的操作  <a name="reset-push"></a></h3>
 <ul>
@@ -85,6 +86,16 @@
 </ul>
 <h3 id="-svn-git-a-name-svn2git-a-">本地SVN仓库转换成git仓库 <a name="svn2git"></a></h3>
 <p>git svn clone file:///media/sf_D_DRIVE/test_svn_repos   test.git  </p>
+<h3 id="-bash-git-a-name-bash-prompt-a-">在bash提示符显示当前的git分支 <a name="bash-prompt"></a></h3>
+<p><a href="http://makandracards.com/makandra/524-show-the-current-git-branch-on-your-bash-prompt">Show the current Git branch on your Bash prompt</a></p>
+<ul>
+<li>Append this to your ~/.bashrc:<pre class="prettyprint linenums lang-bash">export PS1=&#39;\[\033[01;32m\]\h\[\033[01;34m\] \w\[\033[31m\]$(__git_ps1 &quot;(%s)&quot;) \[\033[01;34m\]$\[\033[00m\] &#39;
+</pre>
+</li>
+<li>Reload the changes by saying<pre class="prettyprint linenums lang-bash">source ~/.bashrc
+</pre>
+</li>
+</ul>
 
         </div>
         

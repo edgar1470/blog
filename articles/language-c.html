@@ -73,6 +73,16 @@
 <li>YES.  能自动转换,但有很多限制</li>
 </ul>
 <p><a href="http://llvm.org/releases/3.1/docs/FAQ.html#translatecxx">Can I use LLVM to convert C++ code to C code?</a><br>Yes, you can use LLVM to convert code from any language LLVM supports to C. Note that the generated C code will be very low level (all loops are lowered to gotos, etc) and not very pretty (comments are stripped, original source formatting is totally lost, variables are renamed, expressions are regrouped), so this may not be what you&#39;re looking for. Also, there are several limitations noted below.</p>
+<p>在google 怎么用llvm 转换C++源代码到C源代码时,发现了这个 
+<a href="http://llvm.org/releases/3.1/docs/ReleaseNotes.html#changes">http://llvm.org/releases/3.1/docs/ReleaseNotes.html#changes</a>
+LLVM 从3.1版本就不再支持从其它语言转换成C源代码的功能 
+但转换成汇编的功能继续可用</p>
+<pre class="prettyprint linenums lang-shell">$ clang –c –emit-llvm –o test.bc test.c
+$ opt –O1 –o test.bc test.bc
+$ llc –o test.s test.bc
+$ gcc –o test test.s
+</pre>
+<p><a href="http://en.wikipedia.org/wiki/Source-to-source_compiler">http://en.wikipedia.org/wiki/Source-to-source_compiler</a> </p>
 
         </div>
         
