@@ -4,7 +4,7 @@
         <title>Edgar1470&#39;s RSS</title>
         <link>http://edgar1470.github.io</link>
         <description>Geeks Note for Embedded System</description>
-        <lastBuildDate>Mon, 24 Feb 2014 09:50:57 +0800</lastBuildDate>
+        <lastBuildDate>Tue, 25 Feb 2014 16:40:46 +0800</lastBuildDate>
         <language>zh-cn</language>
         
         <item>
@@ -556,12 +556,41 @@ so，这样大家就能非常简单的计算出超级电容的等效电池容量
             <pubDate>Thu, 16 Jan 2014 11:03:18 +0800</pubDate>
             <description>&lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#watermark-cn&quot;&gt;给图片添加中文字符水印&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#profile&quot;&gt;图片profile操作&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;-a-name-watermark-cn-a-&quot;&gt;给图片添加中文字符水印 &lt;a name=&quot;watermark-cn&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;  #!/bin/bash
   mogrify -font msyh.ttf -pointsize 64 -fill red -weight bolder -gravity southeast -annotate +20+20 @&quot;t.txt&quot; src.jpg
 &lt;/pre&gt;
 &lt;p&gt;  msyh.ttf 是水印使用的字体,可以指定路径 /font/xx.ttf&lt;br&gt;  64 水印字体大小&lt;br&gt;   t.txt 文件中包含了一行水印描述，字体文件支持的所以编码空间中的字符都可以 &lt;/p&gt;
+&lt;h3 id=&quot;-profile-a-name-profile-a-&quot;&gt;图片profile操作 &lt;a name=&quot;profile&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;  &lt;a href=&quot;http://www.imagemagick.org/Usage/formats/#profiles&quot;&gt;http://www.imagemagick.org/Usage/formats/#profiles&lt;/a&gt;  &lt;/p&gt;
+&lt;h4 id=&quot;-profile&quot;&gt;使用了哪些profile&lt;/h4&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;debian /data_disk/image $ identify -verbose 20580004.jpg | grep &#39;Profile-.*bytes&#39;
+    Profile-8bim: 48 bytes
+    Profile-exif: 4344 bytes
+    Profile-iptc: 35 bytes
+    Profile-xmp: 3094 bytes
+&lt;/pre&gt;
+&lt;p&gt;Common Profiles (and pointer to info I have on them) include...  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;EXIF    Digital Camera Meta-Data&lt;/li&gt;
+&lt;li&gt;ICC     Image Color Space Profile&lt;/li&gt;
+&lt;li&gt;ICM     Microsoft Color Management (like ICC)&lt;/li&gt;
+&lt;li&gt;IPTC    Image and Author Info&lt;/li&gt;
+&lt;li&gt;8BIM    Photoshop Meta-data profile. Including data on: Clip Paths... What else?&lt;/li&gt;
+&lt;li&gt;XMP     Adobe&#39;s Extensible Metadata Platform (XMP) (See adobe page)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;-exif-&quot;&gt;提取exif信息&lt;/h4&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;convert test.jpg exif:profile.exif    # 把exif信息保存到文件profile.exif中
+convert test.jpg xmp:profile.xmp
+&lt;/pre&gt;
+&lt;h4 id=&quot;-exif-&quot;&gt;删除exif信息&lt;/h4&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;convert  test.jpg +profile exif no_exif.jpg
+&lt;/pre&gt;
+&lt;h4 id=&quot;-exif-&quot;&gt;添加exif信息&lt;/h4&gt;
+&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;debian /data_disk/image $ mogrify -set profile exif:profile.exif with_exif.jpg  #给with_exif.jpg 添加exif信息
+&lt;/pre&gt;
 </description>
         </item>
         

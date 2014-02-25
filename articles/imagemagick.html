@@ -59,12 +59,41 @@
         <div id="article-content">
             <ul>
 <li><a href="#watermark-cn">给图片添加中文字符水印</a></li>
+<li><a href="#profile">图片profile操作</a></li>
 </ul>
 <h3 id="-a-name-watermark-cn-a-">给图片添加中文字符水印 <a name="watermark-cn"></a></h3>
 <pre class="prettyprint linenums lang-shell">  #!/bin/bash
   mogrify -font msyh.ttf -pointsize 64 -fill red -weight bolder -gravity southeast -annotate +20+20 @&quot;t.txt&quot; src.jpg
 </pre>
 <p>  msyh.ttf 是水印使用的字体,可以指定路径 /font/xx.ttf<br>  64 水印字体大小<br>   t.txt 文件中包含了一行水印描述，字体文件支持的所以编码空间中的字符都可以 </p>
+<h3 id="-profile-a-name-profile-a-">图片profile操作 <a name="profile"></a></h3>
+<p>  <a href="http://www.imagemagick.org/Usage/formats/#profiles">http://www.imagemagick.org/Usage/formats/#profiles</a>  </p>
+<h4 id="-profile">使用了哪些profile</h4>
+<pre class="prettyprint linenums lang-shell">debian /data_disk/image $ identify -verbose 20580004.jpg | grep &#39;Profile-.*bytes&#39;
+    Profile-8bim: 48 bytes
+    Profile-exif: 4344 bytes
+    Profile-iptc: 35 bytes
+    Profile-xmp: 3094 bytes
+</pre>
+<p>Common Profiles (and pointer to info I have on them) include...  </p>
+<ul>
+<li>EXIF    Digital Camera Meta-Data</li>
+<li>ICC     Image Color Space Profile</li>
+<li>ICM     Microsoft Color Management (like ICC)</li>
+<li>IPTC    Image and Author Info</li>
+<li>8BIM    Photoshop Meta-data profile. Including data on: Clip Paths... What else?</li>
+<li>XMP     Adobe&#39;s Extensible Metadata Platform (XMP) (See adobe page)</li>
+</ul>
+<h4 id="-exif-">提取exif信息</h4>
+<pre class="prettyprint linenums lang-shell">convert test.jpg exif:profile.exif    # 把exif信息保存到文件profile.exif中
+convert test.jpg xmp:profile.xmp
+</pre>
+<h4 id="-exif-">删除exif信息</h4>
+<pre class="prettyprint linenums lang-shell">convert  test.jpg +profile exif no_exif.jpg
+</pre>
+<h4 id="-exif-">添加exif信息</h4>
+<pre class="prettyprint linenums lang-shell">debian /data_disk/image $ mogrify -set profile exif:profile.exif with_exif.jpg  #给with_exif.jpg 添加exif信息
+</pre>
 
         </div>
         
