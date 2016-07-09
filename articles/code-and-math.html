@@ -7,7 +7,7 @@
         <meta name="keywords" content="OpenWRT,Mobius,ActionCam,Flytecam,SSD,Linux"/>
         <meta name="author" content="Edgar.Wu"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-        <title>Geek&#39;s Notes - vim实用技巧
+        <title>Geek&#39;s Notes - 代码与数学公式示例
 </title>
         <link rel="stylesheet" href="/assets/vendor/normalize.css"/>
         <link rel="stylesheet" href="/assets/vendor/prettify-night.css"/>
@@ -36,40 +36,51 @@
 <li><a href="/pages/about-me.html" target="_self">关于我</a></li>
 
 <li class="sep"> | </li>
-<li><a href="https://github.com/edgar1470" target="_blank">github</a></li>
-
-<li class="sep"> | </li>
-<li><a href="http://edgar1470.github.io/rss.xml" target="_blank">RSS</a></li>
+<li><a href="https://github.com/ericzhang-cn/papery" target="_blank">github</a></li>
 
 
             </ul>
             <div style="clear:both;"></div>
         </div>
         <div id="article-title">
-            <a href="/articles/vim-tips.html">vim实用技巧</a>
+            <a href="/articles/code-and-math.html">代码与数学公式示例</a>
         </div>
         <div id="article-meta">
-            作者 Edgar1470 | 发布于 2016-07-07 23:53:43 | 最后更新 2016-07-07 23:53:43
+            作者 Papery | 发布于 2013-01-01
         </div>
         <div id="article-tags">
         
-        <a class="tag" href="/tag.html#tools">tools</a>
+        <a class="tag" href="/tag.html#Papery">Papery</a>
         
-        <a class="tag" href="/tag.html#vim">vim</a>
+        <a class="tag" href="/tag.html#代码">代码</a>
+        
+        <a class="tag" href="/tag.html#数学公式">数学公式</a>
         
         </div>
         <div id="article-content">
-            <h2 id="vim-tips">VIM Tips</h2>
-<!-- toc -->
-<ul>
-<li><a href="#快速插入当前时间到文本中">快速插入当前时间到文本中</a></li>
-</ul>
-<!-- toc stop -->
-<h3 id="快速插入当前时间到文本中">快速插入当前时间到文本中</h3>
-<p>来源<a href="http://stackoverflow.com/questions/56052/best-way-to-insert-timestamp-in-vim/58604#58604">best way to insert timestamp in vim</a></p>
-<pre class="prettyprint linenums lang-bash">nmap &lt;F3&gt; i&lt;C-R&gt;=strftime(&quot;%Y-%m-%d %a %I:%M %p&quot;)&lt;CR&gt;&lt;Esc&gt;
-imap &lt;F3&gt; &lt;C-R&gt;=strftime(&quot;%Y-%m-%d %a %I:%M %p&quot;)&lt;CR&gt;
+            <h1 id="这是一段代码">这是一段代码</h1>
+<pre class="prettyprint linenums lang-c">#include &lt;stdio.h&gt;
+
+int main(int argc, char** argv) {
+    printf(&quot;%s\n&quot;, &quot;Hello, World!&quot;);
+}
 </pre>
+<h1 id="这是一些数学公式">这是一些数学公式</h1>
+<p>\[e^{i\pi}+1=0\]</p>
+<p>\[\begin{pmatrix}
+  1/\sqrt{2}  &amp; 1/\sqrt{2} \\
+  -1/\sqrt{2} &amp; 1/\sqrt{2}
+\end{pmatrix}
+\begin{pmatrix}
+  3 \\
+  2
+\end{pmatrix}
+=
+\begin{pmatrix}
+  5/\sqrt{2} \\
+  -1/\sqrt{2}
+\end{pmatrix}\]</p>
+<p>\[Var(a)=\frac{1}{m}\sum_{i=1}^m{(a_i-\mu)^2}\]</p>
 
         </div>
         
@@ -80,7 +91,17 @@ imap &lt;F3&gt; &lt;C-R&gt;=strftime(&quot;%Y-%m-%d %a %I:%M %p&quot;)&lt;CR&gt;
                 <p id="copyright">Copyright &copy; 2014-2016 Edgar.Wu</p>
             </div>
         </div>
-        
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            processEscapes: true
+        }
+    });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
     </body>
 </html>
 

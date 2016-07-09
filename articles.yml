@@ -1,0 +1,75 @@
+
+
+- id: code-counting-tools
+  title: 代码行数统计工具
+  postedOn: !!str 2014-01-16 16:48:19
+  updateOn: !!str 2016-07-08 22:47:55 
+  author: Edgar1470
+  tags: 
+    - program
+    - c
+    - shell
+    - tools 
+  abstract: 衡量工作量的一个重要参考指标：代码行数
+
+- id: c-tips
+  title: C代码片段
+  postedOn: !!str 2014-01-16 15:42:30
+  updateOn: !!str 2016-07-08 22:47:55 
+  author: Edgar1470
+  tags: 
+    - program
+    - c 
+  abstract: 收集整理的一些C代码片段和参考资料
+
+- id: git-tips
+  title: git实用技巧
+  postedOn: !!str 2016-07-08 00:23:14 
+  updateOn: !!str 2016-07-08 00:23:14
+  author: Edgar1470
+  tags: 
+    - tools
+    - git  
+  abstract: 收集整理的一些git的实用技巧
+
+- id: imagemagick-tips
+  title: imagemagick实用技巧
+  postedOn: !!str 2016-07-08 00:12:36
+  updateOn: !!str 2016-07-08 00:12:36 
+  author: Edgar1470
+  tags: 
+    - tools
+    - imagemagick
+    - 图像处理 
+  abstract: 收集整理的一些imagemagick的实用技巧
+
+- id: vim-tips
+  title: vim实用技巧
+  postedOn: !!str 2016-07-07 23:53:43 
+  updateOn: !!str 2016-07-07 23:53:43
+  author: Edgar1470
+  tags: 
+    - tools
+    - vim
+  abstract: 收集整理的一些VIM的实用技巧
+
+- id: super-capacitor 
+  title: 超级电容电量的简易计算方法
+  postedOn: !!str 2014-01-12 22:44:50
+  updateOn: !!str 2014-01-12 22:44:50
+  author: Edgar1470
+  tags: 
+    - 硬件
+    - 超级电容 
+    - 法拉电容
+  abstract: 网络文章，超级电容电量的简易计算方法
+
+- id: use-papery-write-blog
+  title: 使用papery写blog
+  postedOn: !!str 2014-01-08 16:33:11
+  updateOn: !!str 2014-01-08 16:33:11
+  author: Edgar1470
+  tags: 
+    - blog
+  abstract: 快速了解如何使用Papery, 以及使用Papery时遇到的问题。
+

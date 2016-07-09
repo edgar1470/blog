@@ -7,7 +7,7 @@
         <meta name="keywords" content="OpenWRT,Mobius,ActionCam,Flytecam,SSD,Linux"/>
         <meta name="author" content="Edgar.Wu"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-        <title>Geek&#39;s Notes - vim实用技巧
+        <title>Geek&#39;s Notes - 超级电容电量的简易计算方法
 </title>
         <link rel="stylesheet" href="/assets/vendor/normalize.css"/>
         <link rel="stylesheet" href="/assets/vendor/prettify-night.css"/>
@@ -46,30 +46,32 @@
             <div style="clear:both;"></div>
         </div>
         <div id="article-title">
-            <a href="/articles/vim-tips.html">vim实用技巧</a>
+            <a href="/articles/super-capacitor.html">超级电容电量的简易计算方法</a>
         </div>
         <div id="article-meta">
-            作者 Edgar1470 | 发布于 2016-07-07 23:53:43 | 最后更新 2016-07-07 23:53:43
+            作者 Edgar1470 | 发布于 2014-01-12 22:44:50 | 最后更新 2014-01-12 22:44:50
         </div>
         <div id="article-tags">
         
-        <a class="tag" href="/tag.html#tools">tools</a>
+        <a class="tag" href="/tag.html#硬件">硬件</a>
         
-        <a class="tag" href="/tag.html#vim">vim</a>
+        <a class="tag" href="/tag.html#超级电容">超级电容</a>
+        
+        <a class="tag" href="/tag.html#法拉电容">法拉电容</a>
         
         </div>
         <div id="article-content">
-            <h2 id="vim-tips">VIM Tips</h2>
-<!-- toc -->
-<ul>
-<li><a href="#快速插入当前时间到文本中">快速插入当前时间到文本中</a></li>
-</ul>
-<!-- toc stop -->
-<h3 id="快速插入当前时间到文本中">快速插入当前时间到文本中</h3>
-<p>来源<a href="http://stackoverflow.com/questions/56052/best-way-to-insert-timestamp-in-vim/58604#58604">best way to insert timestamp in vim</a></p>
-<pre class="prettyprint linenums lang-bash">nmap &lt;F3&gt; i&lt;C-R&gt;=strftime(&quot;%Y-%m-%d %a %I:%M %p&quot;)&lt;CR&gt;&lt;Esc&gt;
-imap &lt;F3&gt; &lt;C-R&gt;=strftime(&quot;%Y-%m-%d %a %I:%M %p&quot;)&lt;CR&gt;
-</pre>
+            <h3 id="网络文章-a-href-http-wwwgeek-workshopcom-thread-2114-1-1html-超级电容电量简易计算方法-a-">网络文章 <a href="http://www.geek-workshop.com/thread-2114-1-1.html">超级电容电量简易计算方法</a></h3>
+<pre>电压(V) = 电流(I) x 电阻(R)
+电荷量(Q) = 电流(I) x 时间(T)
+功率(P) = V x I
+能量(W) = P x T = Q x V
+容量 F= 库伦（C） / 电压（V）
+</pre><p>将容量、电压转为等效电量 </p>
+<pre>电量 =电压（V) x 电荷量（C）
+</pre><h3 id="实例估算：">实例估算：</h3>
+<p>电压5.5V 1F（1法拉电容）的电量为5.5C（库伦）， 电压下限我们设定在3.8V，电容放电的有效电压差为5.5-3.8=1.7V，所以有效电量为1.7C。
+1.7C=1.7A*S（安秒）=1700mAS（毫安秒）=0.472mAh（毫安时） 若电流消耗以10mA计算，1700mAS/10mA=170S=2.83min（维持时间分钟） so，这样大家就能非常简单的计算出超级电容的等效电池容量，方便自己选型。顺便计算电容的漏电速度。。。。</p>
 
         </div>
         

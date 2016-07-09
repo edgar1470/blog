@@ -3,11 +3,11 @@
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta name="description" content="Geeks Note for Embedded System"/>
-        <meta name="keywords" content="OpenWRT,GoPro,Mobius ActionCam,Flytecam,SSD"/>
-        <meta name="author" content="Edgar1470"/>
+        <meta name="description" content="Content of description meta tag"/>
+        <meta name="keywords" content="OpenWRT,Mobius,ActionCam,Flytecam,SSD,Linux"/>
+        <meta name="author" content="Edgar.Wu"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-        <title>Geeks Note - 使用papery写blog
+        <title>Geek&#39;s Notes - 使用papery写blog
 </title>
         <link rel="stylesheet" href="/assets/vendor/normalize.css"/>
         <link rel="stylesheet" href="/assets/vendor/prettify-night.css"/>
@@ -19,7 +19,7 @@
     <body onload="prettyPrint()">
     <div id="header">
         <div id="header-inner">
-            <div id="title"><a href="/">Geeks Note</a></div>
+            <div id="title"><a href="/">Geek&#39;s Notes</a></div>
             <div id="subtitle">Open your heart &amp; Enjoy the life course</div>
         </div>
     </div>
@@ -36,7 +36,7 @@
 <li><a href="/pages/about-me.html" target="_self">关于我</a></li>
 
 <li class="sep"> | </li>
-<li><a href="https://github.com/edgar1470" target="_blank">Github</a></li>
+<li><a href="https://github.com/edgar1470" target="_blank">github</a></li>
 
 <li class="sep"> | </li>
 <li><a href="http://edgar1470.github.io/rss.xml" target="_blank">RSS</a></li>
@@ -49,72 +49,16 @@
             <a href="/articles/use-papery-write-blog.html">使用papery写blog</a>
         </div>
         <div id="article-meta">
-            作者 edgar1470 | 发布于 2014-01-08 16:33:11
+            作者 Edgar1470 | 发布于 2014-01-08 16:33:11 | 最后更新 2014-01-08 16:33:11
         </div>
         <div id="article-tags">
         
-        <a class="tag" href="/tag.html#papery">papery</a>
+        <a class="tag" href="/tag.html#blog">blog</a>
         
         </div>
         <div id="article-content">
-            <h1 id="-papery-blog">使用papery写blog</h1>
-<p>配置步骤:
-参照 <a href="https://github.com/ericzhang-cn/papery">papry</a> 的说明进行</p>
-<ul>
-<li><p>安装相应的软件</p>
-<ul>
-<li>apt-get install nodejs</li>
-<li>apt-get install npm</li>
-<li>nmp install -g papery</li>
-</ul>
-</li>
-<li><p>创建blog</p>
-<ul>
-<li><p>使用<em>pap-create blog_test_dir</em>创建blog出错</p>
-<pre class="prettyprint linenums lang-shell">edgar@debian:/data_disk/papery_blog$ pap-create blog_test_dir
-/usr/bin/env: node: No such file or directory
-</pre>
-</li>
-<li><p><a href="http://stackoverflow.com/questions/14017172/paper-js-build-error-env-node-no-such-file-or-directory">stackoverflow</a>上也有人遇到了这个问题</p>
-<p><a href="http://stackoverflow.com/a/14018192">The script calls build/prepro.js, which runs in node.js 
-(see the first line: #!/usr/bin/env node), 
-but you seem to not have it installed (or at least it&#39;s not found by env).
-Try installing node.js, or making it available to env, so the build script will work.
-</a></p>
-<p>看起来应该是在环境变量中找不到node程序.
-在终端下输入node按TAB只匹配出了nodejs程序，没有node程序,看来问题确时出在这里
-解决方法：</p>
-<pre class="prettyprint linenums lang-shell">edgar@debian:/data_disk/github/edgar1470.github.io$ whereis nodejs
-nodejs: /usr/bin/nodejs /usr/lib/nodejs /usr/bin/X11/nodejs /usr/include/nodejs /usr/share/man/man1/nodejs.1.gz
-edgar@debian:/usr/bin$ sudo ln -s /usr/bin/nodejs /usr/bin/node
-edgar@debian:/data_disk/papery_blog$ pap-create blog_test_dir
- [2014-01-04 17:30:55.225] [INFO] [default] - Woo! A new blog was born in blog_test_dir
-</pre>
-</li>
-<li>继续创建<pre class="prettyprint linenums lang-shell">edgar@debian:/data_disk/papery_blog$ pap-build all blog_test_dir/
-[2014-01-04 17:34:16.020] [INFO] [default] - Load blog_test_dir/site.yml completed!
-[2014-01-04 17:34:16.025] [INFO] [default] - Load blog_test_dir/articles.yml completed!
-[2014-01-04 17:34:16.025] [INFO] [default] - Load blog_test_dir/pages.yml completed!
-[2014-01-04 17:34:16.026] [INFO] [default] - Load blog_test_dir/navbar.yml completed!
-[2014-01-04 17:34:16.027] [INFO] [default] - Load blog_test_dir/ext.yml completed!
-[2014-01-04 17:34:16.033] [INFO] [default] - Load blog_test_dir/templates/index.ejs completed!
-[2014-01-04 17:34:16.050] [INFO] [default] - Build index.html completed!
-[2014-01-04 17:34:16.058] [INFO] [default] - Load blog_test_dir/templates/rss.ejs completed!
-[2014-01-04 17:34:16.079] [INFO] [default] - Build rss.xml completed!
-[2014-01-04 17:34:16.080] [INFO] [default] - Load blog_test_dir/templates/tag.ejs completed!
-[2014-01-04 17:34:16.101] [INFO] [default] - Build tag.html completed!
-[2014-01-04 17:34:16.102] [INFO] [default] - Load blog_test_dir/templates/pages.ejs completed!
-[2014-01-04 17:34:16.116] [INFO] [default] - Build blog_test_dir/pages/about-me.html completed!
-[2014-01-04 17:34:16.117] [INFO] [default] - Load blog_test_dir/templates/articles.ejs completed!
-[2014-01-04 17:34:16.135] [INFO] [default] - Build blog_test_dir/articles/first-post.html completed!
-[2014-01-04 17:34:16.147] [INFO] [default] - Build blog_test_dir/articles/second-post.html completed!
-dgar@debian:/data_disk/papery_blog$ pap-server blog_test_dir/
-[2014-01-04 17:38:18.823] [INFO] [default] - Server started at http://localhost:8001/
-</pre>
-</li>
-</ul>
-</li>
-</ul>
+            <p>按照<a href="https://github.com/ericzhang-cn/papery">papery</a> 的说明就能非常顺利的完成安装和搭建blog的工作。
+从简洁和实用的角度，papery值得尝试和实用！</p>
 
         </div>
         
@@ -122,13 +66,10 @@ dgar@debian:/data_disk/papery_blog$ pap-server blog_test_dir/
 </div>
         <div id="footer">
             <div id="footer-inner">
-                <p id="copyright">
-                Powered By <a href="https://github.com/ericzhang-cn/papery">papery</a>   Copyright &copy; 2014-2014 Edgar1470
-                </p>
+                <p id="copyright">Copyright &copy; 2014-2016 Edgar.Wu</p>
             </div>
         </div>
-         <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
-
+        
     </body>
 </html>
 

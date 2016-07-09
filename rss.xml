@@ -1,648 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
     <channel>
-        <title>Edgar1470&#39;s RSS</title>
-        <link>http://edgar1470.github.io</link>
+        <title>Geek&#39;s Notes</title>
+        <link>Homepage link</link>
         <description>Geeks Note for Embedded System</description>
-        <lastBuildDate>Sun, 16 Mar 2014 23:16:01 +0800</lastBuildDate>
+        <lastBuildDate>Sat, 09 Jul 2016 13:28:53 +0800</lastBuildDate>
         <language>zh-cn</language>
         
         <item>
-            <title>使用papery写blog</title>
-            <link>http://edgar1470.github.io/articles/use-papery-write-blog.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>http://edgar1470.github.io/articles/use-papery-write-blog.html</guid>
-            <author>edgar1470@gmail.com Edgar1470</author>
-            <pubDate>Wed, 08 Jan 2014 16:33:11 +0800</pubDate>
-            <description>&lt;h1 id=&quot;-papery-blog&quot;&gt;使用papery写blog&lt;/h1&gt;
-&lt;p&gt;配置步骤:
-参照 &lt;a href=&quot;https://github.com/ericzhang-cn/papery&quot;&gt;papry&lt;/a&gt; 的说明进行&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;安装相应的软件&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;apt-get install nodejs&lt;/li&gt;
-&lt;li&gt;apt-get install npm&lt;/li&gt;
-&lt;li&gt;nmp install -g papery&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;创建blog&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;使用&lt;em&gt;pap-create blog_test_dir&lt;/em&gt;创建blog出错&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/papery_blog$ pap-create blog_test_dir
-/usr/bin/env: node: No such file or directory
-&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/14017172/paper-js-build-error-env-node-no-such-file-or-directory&quot;&gt;stackoverflow&lt;/a&gt;上也有人遇到了这个问题&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/a/14018192&quot;&gt;The script calls build/prepro.js, which runs in node.js 
-(see the first line: #!/usr/bin/env node), 
-but you seem to not have it installed (or at least it&#39;s not found by env).
-Try installing node.js, or making it available to env, so the build script will work.
-&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;看起来应该是在环境变量中找不到node程序.
-在终端下输入node按TAB只匹配出了nodejs程序，没有node程序,看来问题确时出在这里
-解决方法：&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io$ whereis nodejs
-nodejs: /usr/bin/nodejs /usr/lib/nodejs /usr/bin/X11/nodejs /usr/include/nodejs /usr/share/man/man1/nodejs.1.gz
-edgar@debian:/usr/bin$ sudo ln -s /usr/bin/nodejs /usr/bin/node
-edgar@debian:/data_disk/papery_blog$ pap-create blog_test_dir
- [2014-01-04 17:30:55.225] [INFO] [default] - Woo! A new blog was born in blog_test_dir
-&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;继续创建&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/papery_blog$ pap-build all blog_test_dir/
-[2014-01-04 17:34:16.020] [INFO] [default] - Load blog_test_dir/site.yml completed!
-[2014-01-04 17:34:16.025] [INFO] [default] - Load blog_test_dir/articles.yml completed!
-[2014-01-04 17:34:16.025] [INFO] [default] - Load blog_test_dir/pages.yml completed!
-[2014-01-04 17:34:16.026] [INFO] [default] - Load blog_test_dir/navbar.yml completed!
-[2014-01-04 17:34:16.027] [INFO] [default] - Load blog_test_dir/ext.yml completed!
-[2014-01-04 17:34:16.033] [INFO] [default] - Load blog_test_dir/templates/index.ejs completed!
-[2014-01-04 17:34:16.050] [INFO] [default] - Build index.html completed!
-[2014-01-04 17:34:16.058] [INFO] [default] - Load blog_test_dir/templates/rss.ejs completed!
-[2014-01-04 17:34:16.079] [INFO] [default] - Build rss.xml completed!
-[2014-01-04 17:34:16.080] [INFO] [default] - Load blog_test_dir/templates/tag.ejs completed!
-[2014-01-04 17:34:16.101] [INFO] [default] - Build tag.html completed!
-[2014-01-04 17:34:16.102] [INFO] [default] - Load blog_test_dir/templates/pages.ejs completed!
-[2014-01-04 17:34:16.116] [INFO] [default] - Build blog_test_dir/pages/about-me.html completed!
-[2014-01-04 17:34:16.117] [INFO] [default] - Load blog_test_dir/templates/articles.ejs completed!
-[2014-01-04 17:34:16.135] [INFO] [default] - Build blog_test_dir/articles/first-post.html completed!
-[2014-01-04 17:34:16.147] [INFO] [default] - Build blog_test_dir/articles/second-post.html completed!
-dgar@debian:/data_disk/papery_blog$ pap-server blog_test_dir/
-[2014-01-04 17:38:18.823] [INFO] [default] - Server started at http://localhost:8001/
-&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>VIM技巧</title>
-            <link>http://edgar1470.github.io/articles/vim-tips.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>http://edgar1470.github.io/articles/vim-tips.html</guid>
-            <author>edgar1470@gmail.com Edgar1470</author>
-            <pubDate>Wed, 08 Jan 2014 16:35:44 +0800</pubDate>
-            <description>&lt;h1 id=&quot;vim-tips&quot;&gt;VIM tips&lt;/h1&gt;
-&lt;h3 id=&quot;-&quot;&gt;快速插入时间戳&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/a/58604&quot;&gt;best way to insert timestamp in vim&lt;/a&gt;&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-vim&quot;&gt;  nmap &lt;F3&gt; a&lt;C-R&gt;=strftime(&quot;%Y-%m-%d %H:%M:%S %a&quot;)&lt;CR&gt;&lt;Esc&gt;
-  imap &lt;F3&gt; &lt;C-R&gt;=strftime(&quot;%Y-%m-%d %H:%M:%S %a&quot;)&lt;CR&gt;
-&lt;/pre&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>.MOV内嵌GPS信息分析之一</title>
-            <link>http://edgar1470.github.io/articles/mov-fileformat-001.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>http://edgar1470.github.io/articles/mov-fileformat-001.html</guid>
-            <author>edgar1470@gmail.com Edgar1470</author>
-            <pubDate>Thu, 09 Jan 2014 14:03:10 +0800</pubDate>
-            <description>&lt;h3 id=&quot;mov-gps-&quot;&gt;MOV内嵌GPS信息分析之一&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#base-framework&quot;&gt;基本框架&lt;/a&gt;    &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#atom-size&quot;&gt;ATOM大小计算&lt;/a&gt;    &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#atom-structrue&quot;&gt;MOV文件基本ATOM&lt;/a&gt;                            &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#atom-basic&quot;&gt;Basic ATOM&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#atom-ftyp&quot;&gt;ATOM ftyp&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#nt96650&quot;&gt;NTK96650录制的MOV文件信息&lt;/a&gt; &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;官方资料 [QuickTime File Format Specification](&lt;a href=&quot;https://developer.apple.com/library/mac/documentation/quicktime/qtff/QTFFChap1/qtff1&quot;&gt;https://developer.apple.com/library/mac/documentation/quicktime/qtff/QTFFChap1/qtff1&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;-a-name-base-framework-a-&quot;&gt;&lt;a name=&quot;base-framework&quot;&gt; 基本框架 &lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt; &lt;img src=&quot;../images/qtff_atom_sample.gif&quot; alt=&quot;qtff-atom&quot;&gt;                                   &lt;/p&gt;
-&lt;h3 id=&quot;-a-name-atom-size-atom-a-&quot;&gt;&lt;a name=&quot;atom-size&quot;&gt; ATOM大小计算 &lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt; &lt;img src=&quot;../images/qtff_atom_size.gif&quot; alt=&quot;qtff-size&quot;&gt;                                     &lt;/p&gt;
-&lt;h3 id=&quot;-a-name-atom-structrue-mov-atom-a-&quot;&gt;&lt;a name=&quot;atom-structrue&quot;&gt; MOV文件基本ATOM &lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt; &lt;img src=&quot;../images/qtff_mov_structure.gif&quot; alt=&quot;qtff-structrue&quot;&gt;                            &lt;/p&gt;
-&lt;h3 id=&quot;-a-name-atom-basic-basic-atom-a-&quot;&gt;&lt;a name=&quot;atom-basic&quot;&gt; Basic ATOM &lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Basic atom types of a QuickTime file   &lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Atom type&lt;/th&gt;
-&lt;th&gt;Use&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;&#39;ftyp&#39;&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;File type compatibility—identifies the file type and differentiates it from similar file types, such as MPEG-4 files and JPEG-2000 files.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;&#39;moov&#39;&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Movie resource metadata about the movie (number and type of tracks, location of sample data, and so on). Describes where the movie data can be found and how to interpret it.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;&#39;mdat&#39;&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Movie sample data—media samples such as video frames and groups of audio samples. Usually this data can be interpreted only by using the movie resource.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;&#39;free&#39;&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Unused space available in file.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;&#39;skip&#39;&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Unused space available in file.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;&#39;wide&#39;&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Reserved space—can be overwritten by an extended size field if the following atom exceeds 2^32 bytes, without displacing the contents of the following atom.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;&#39;pnot&#39;&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;Reference to movie preview data.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&quot;-a-name-atom-ftyp-atom-ftyp-a-&quot;&gt;&lt;a name=&quot;atom-ftyp&quot;&gt; ATOM ftyp&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;&#39;ftyp&#39;&lt;/em&gt;  The File Type Compatibility Atom&lt;br&gt;  The file type atom is optional, but strongly recommended. If present, it must be the first significant atom in the file, preceding the movie atom (and any free space atoms, preview atom, or movie data atoms).&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -l 100 REC_0001_GPS_FAKE.MOV 
-0000000: 00000018 66747970 71742020 00000000  ....ftypqt  ....
-0000010: 71742020 00000000 0000747c 66726561  qt  ......t|frea
-0000020: 0000000c 74696d61 00000009 00001be4  ....tima........
-0000030: 74686d61 ffd8ffdb 00840006 04050605  thma............
-0000040: 04060605 06070706 080a100a 0a09090a  ................
-0000050: 140e0f0c 10171418 18171416 161a1d25  ...............%
-0000060: 1f1a1b23                             ...#
-&lt;/pre&gt;
-&lt;p&gt;the file type atom has an atom type value of &#39;ftyp&#39; and contains the following fields:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Size&lt;br&gt;A 32-bit unsigned integer that specifies the number of bytes in this atom.&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -l 100 REC_0001_GPS_FAKE.MOV 
-0000000: 00000018 66747970 71742020 00000000  ....ftypqt  ....
-              |
-       size = 0x18
-&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;Type&lt;br&gt;A 32-bit unsigned integer that identifies the atom type, typically represented as a four-character code; this field must be set to &#39;ftyp&#39;.&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -l 100 REC_0001_GPS_FAKE.MOV 
-0000000: 00000018 66747970 71742020 00000000  ....ftypqt  ....
-                       |
-                must be &#39;ftyp&#39;
-&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;Major_Brand&lt;br&gt;A 32-bit unsigned integer that should be set to &#39;qt  &#39; (note the two trailing ASCII space characters) for QuickTime movie files. If a file is compatible with multiple brands, all such brands are listed in the Compatible_Brands fields, and the Major_Brand identifies the preferred brand or best use.&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -l 100 REC_0001_GPS_FAKE.MOV 
-0000000: 00000018 66747970 71742020 00000000  ....ftypqt  ....
-                                |
-                              must be &#39;qt  &#39;
-&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;Minor_Version&lt;br&gt;A 32-bit field that indicates the file format specification version. For QuickTime movie files, this takes the form of four binary-coded decimal values, indicating the century, year, and month of the QuickTime File Format Specification, followed by a binary coded decimal zero. For example, for the June 2004 minor version, this field is set to the BCD values 20 04 06 00.&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -l 100 REC_0001_GPS_FAKE.MOV 
-0000000: 00000018 66747970 71742020 00000000  ....ftypqt  ....
-                                         |
-                               minor version
-&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;Compatible_Brands[ ]&lt;br&gt;A series of unsigned 32-bit integers listing compatible file formats. The major brand must appear in the list of compatible brands. One or more “placeholder” entries with value zero are permitted; such entries should be ignored.
-If none of the Compatible_Brands fields is set to &#39;qt  &#39;, then the file is not a QuickTime movie file and is not compatible with this specification. Applications should return an error and close the file, or else invoke a file importer appropriate to one of the specified brands, preferably the major brand. QuickTime currently returns an error when attempting to open a file whose file type, file extension, or MIME type identifies it as a QuickTime movie, but whose file type atom does not include the &#39;qt  &#39; brand.&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -l 100 REC_0001_GPS_FAKE.MOV 
-0000000: 00000018 66747970 71742020 00000000  ....ftypqt  ....
-0000010: 71742020 00000000 0000747c 66726561  qt  ......t|frea
-              |
-        compatiable_brands
-&lt;/pre&gt;
-Note: A common source of this error is an MPEG-4 file incorrectly named with the .mov file extension or with the MIME type incorrectly set to “video/quicktime”. MPEG-4 files are automatically imported by QuickTime only when they are correctly identified as MPEG-4 files using the Mac OS file type, file extension, or MIME type.
-If you are creating a file type that is fully compatible with the QuickTime file format, one of the Compatible_Brand fields must be set to &#39;qt  &#39;; otherwise QuickTime will not recognize the file as a QuickTime movie.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Warning:  Use of the QuickTime file format in this manner is subject to license from Apple, Inc.&lt;/p&gt;
-&lt;h3 id=&quot;-a-name-nt96650-ntk96650-mov-a-&quot;&gt;&lt;a name=&quot;nt96650&quot;&gt;NTK96650录制的MOV文件信息&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;以文件&lt;strong&gt;REC_0001_GPS_FAKE.MOV&lt;/strong&gt;为例:
-   文件大小(字节) : 17894846  = 0x1110DBE&lt;br&gt;   第一层atom  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;ftyp  长度 = 0x00000018&lt;/li&gt;
-&lt;li&gt;frea  长度 = 0x0000747c&lt;/li&gt;
-&lt;li&gt;mdat  长度 = 0x01108b74 &lt;/li&gt;
-&lt;li&gt;moov  长度 = 0x00000db6 &lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -l 100 REC_0001_GPS_FAKE.MOV 
-0000000: 00000018 66747970 71742020 00000000  ....ftypqt  ....
-0000010: 71742020 00000000 0000747c 66726561  qt  ......t|frea
-0000020: 0000000c 74696d61 00000009 00001be4  ....tima........
-0000030: 74686d61 ffd8ffdb 00840006 04050605  thma............
-0000040: 04060605 06070706 080a100a 0a09090a  ................
-0000050: 140e0f0c 10171418 18171416 161a1d25  ...............%
-0000060: 1f1a1b23                             ...#
-
-edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -s 0x18 -l 100 REC_0001_GPS_FAKE.MOV 
-0000018: 0000747c 66726561 0000000c 74696d61  ..t|frea....tima
-0000028: 00000009 00001be4 74686d61 ffd8ffdb  ........thma....
-0000038: 00840006 04050605 04060605 06070706  ................
-0000048: 080a100a 0a09090a 140e0f0c 10171418  ................
-0000058: 18171416 161a1d25 1f1a1b23 1c161620  .......%...#... 
-0000068: 2c202326 27292a29 191f2d30 2d283025  , #&amp;&#39;)*)..-0-(0%
-0000078: 28292801                             ()(.
-
-edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -s 0x7494 -l 100 REC_0001_GPS_FAKE.MOV 
-0007494: 01108b74 6d646174 00000000 00000000  ...tmdat........
-00074a4: 00000000 00000000 00000000 00000000  ................
-00074b4: 00000000 00000000 00000000 00000000  ................
-00074c4: 00000000 00000000 00000000 00000000  ................
-00074d4: 00000000 00000000 00000000 00000000  ................
-00074e4: 00000000 00000000 00000000 00000000  ................
-00074f4: 00000000                             ....
-
-edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -s 0x1110008 -l 100 REC_0001_GPS_FAKE.MOV 
-1110008: 00000db6 6d6f6f76 0000006c 6d766864  ....moov...lmvhd
-1110018: 00000000 cd07d7d4 cd07d7d4 00007530  ..............u0
-1110028: 00041eb0 00010000 01000000 00000000  ................
-1110038: 00000000 00010000 00000000 00000000  ................
-1110048: 00000000 00010000 00000000 00000000  ................
-1110058: 00000000 40000000 00000000 00000000  ....@...........
-1110068: 00000000                             ....
-
-edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -s 0x1110D80 -l 100 REC_0001_GPS_FAKE.MOV 
-1110d80: d4800000 f2000001 0f800000 00003375  ..............3u
-1110d90: 64746100 000013a9 666d7400 07000044  dta.....fmt....D
-1110da0: 56522d43 44000000 0018a969 6e66000c  VR-CD......inf..
-1110db0: 00004844 4456522d 31303830 5000      ..HDDVR-1080P.
-&lt;/pre&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>linux 命令行下的计算器bc</title>
-            <link>http://edgar1470.github.io/articles/linux-command-calculate.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>http://edgar1470.github.io/articles/linux-command-calculate.html</guid>
-            <author>edgar1470@gmail.com Edgar1470</author>
-            <pubDate>Thu, 09 Jan 2014 15:56:17 +0800</pubDate>
-            <description>&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#descriptoin&quot;&gt;linux 命令行下的计算器bc&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#bc-basic&quot;&gt;基本计算 加减乘除&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#bc-last&quot;&gt;使用上一次的计算结果&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#bc-precision&quot;&gt;指定精度  默认小数点后显示0位&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#bc-change&quot;&gt;进制之间相互转换 默认输入输出都是十进制&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#bc-parenthesis&quot;&gt;复杂运算需要使用括号&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#bc-uppercase&quot;&gt;十六进制的都使用大写&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#bc-force&quot;&gt;我就想要小数点有10个数字出现&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;linux-bc-a-name-descriptoin-a-&quot;&gt;linux 命令行下的计算器bc &lt;a name=&quot;descriptoin&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;在分析.MOV文件格式时需要计算地址，于是google到了bc神器  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;bc - An arbitrary precision calculator language&lt;/strong&gt;  &lt;/p&gt;
-&lt;p&gt;bc是一个任意精度的计算器语言，我的乖乖，正是神器啊！！！ &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;DESCRIPTION&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;bc  is  a language&lt;/strong&gt; that supports arbitrary precision numbers with interactive execution of statements. &lt;strong&gt;There are some simi‐
-larities in the syntax to the C programming language.&lt;/strong&gt;  A standard math library is available  by  command  line  option.   If
-requested,  the math library is defined before processing any files.  bc starts by processing code from all the files listed
-on the command line in the order listed.  After all files have been processed, bc reads from the standard input.   All  code
-is  executed  as  it  is  read.   (If  a file contains a command to halt the processor, bc will never read from the standard
-    input.)&lt;/p&gt;
-&lt;h4 id=&quot;1-a-name-bc-basic-a-&quot;&gt;1 基本计算 加减乘除  &lt;a name=&quot;bc-basic&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/$ echo &#39;1+1&#39; | bc
-2
-edgar@debian:/$ echo &#39;3-2&#39; | bc
-1
-edgar@debian:/$ echo &#39;2 * 5&#39;| bc
-10
-edgar@debian:/$ echo &#39;8 / 3&#39;| bc     &lt;--- 像C语言
-2
-edgar@debian:/$ echo &#39;8 % 3&#39;| bc
-2
-edgar@debian:/$ echo &#39;4 % 3&#39;| bc
-1
-&lt;/pre&gt;
-&lt;h4 id=&quot;2-a-name-bc-last-a-&quot;&gt;2 使用上一次的计算结果 &lt;a name=&quot;bc-last&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/$ echo &#39;11 * 3&#39; | bc
-33
-edgar@debian:/$ echo &#39;last + 2&#39; | bc
-2
-edgar@debian:/$ echo &#39;11*3; last+2&#39; | bc
-33
-35
-edgar@debian:/$ echo &#39;11*3; .+2&#39; | bc
-33
-35
-&lt;/pre&gt;
-&lt;h4 id=&quot;3-0-a-name-bc-precision-a-&quot;&gt;3 指定精度  默认小数点后显示0位 &lt;a name=&quot;bc-precision&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/$ echo &#39;8/3&#39; | bc
-2
-edgar@debian:/$ echo &#39;scale=1; 8/3&#39; | bc
-2.6
-edgar@debian:/$ echo &#39;scale=10; 8/3&#39; | bc
-2.6666666666
-edgar@debian:/$ echo &#39;scale=10; sqrt(3)&#39; | bc
-1.7320508075
-&lt;/pre&gt;
-&lt;h4 id=&quot;4-a-name-bc-change-a-&quot;&gt;4  进制之间相互转换 默认输入输出都是十进制 &lt;a name=&quot;bc-change&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/$ echo &#39;obase=2; 12&#39; | bc   十进制到二进制
-1100
-edgar@debian:/$ echo &#39;obase=8; 12&#39; | bc   十进制到八进制
-14
-edgar@debian:/$ echo &#39;obase=16; 12&#39; | bc  十进制到十六进制
-C
-edgar@debian:/$ echo &#39;obase=2; ibase=16; 12&#39; | bc  十六进制到二进制
-10010
-&lt;/pre&gt;
-&lt;h4 id=&quot;5-a-name-bc-parenthesis-a-&quot;&gt;5 复杂运算需要使用括号   &lt;a name=&quot;bc-parenthesis&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/$ echo &#39;obase=10; ibase=10; (3^3)^3&#39; | bc
-19683
-edgar@debian:/$ echo &#39;obase=10; ibase=10; 3^3^3&#39; | bc
-7625597484987
-&lt;/pre&gt;
-&lt;h4 id=&quot;6-a-name-bc-uppercase-a-&quot;&gt;6 十六进制的都使用大写  &lt;a name=&quot;bc-uppercase&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/$ echo &#39;obase=10; ibase=16; ffff&#39; | bc
-0
-edgar@debian:/$ echo &#39;obase=10; ibase=16; FFFF&#39; | bc
-65535
-edgar@debian:/$ echo &#39;obase=10; ibase=16; 1a&#39; | bc
-(standard_in) 1: syntax error
-edgar@debian:/$ echo &#39;obase=10; ibase=16; 1A&#39; | bc
-26
-&lt;/pre&gt;
-&lt;h4 id=&quot;7-10-a-name-bc-force-a-&quot;&gt;7 我就想要小数点有10个数字出现   &lt;a name=&quot;bc-force&quot;&gt;&lt;/a&gt;&lt;/h4&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/$ echo &#39;scale=10; 1.25*9&#39; | bc
-11.25
-edgar@debian:/$ echo &#39;scale=10; (1.25*9)/1&#39; | bc
-11.2500000000
-&lt;/pre&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>.MOV内嵌GPS信息分析之二</title>
-            <link>http://edgar1470.github.io/articles/mov-fileformat-002.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>http://edgar1470.github.io/articles/mov-fileformat-002.html</guid>
-            <author>edgar1470@gmail.com Edgar1470</author>
-            <pubDate>Fri, 10 Jan 2014 11:31:52 +0800</pubDate>
-            <description>&lt;h3 id=&quot;mov-gps-&quot;&gt;MOV内嵌GPS信息分析之二&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#root-atom&quot;&gt;顶层ATOM&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#root-ftyp&quot;&gt;ATOM: ftyp&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#root-frea&quot;&gt;ATOM: frea&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#root-mdat&quot;&gt;ATOM: mdat&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#root-moov&quot;&gt;ATOM: moov&lt;/a&gt; &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a name=&quot;root-atom&quot;&gt; 顶层ATOM&lt;/a&gt;&lt;br&gt;以文件&lt;strong&gt;REC_0001_GPS_FAKE.MOV&lt;/strong&gt;为例:&lt;br&gt;文件大小(字节) : 17894846  = 0x1110DBE   &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;ftyp  长度 = 0x00000018&lt;/li&gt;
-&lt;li&gt;frea  长度 = 0x0000747c&lt;/li&gt;
-&lt;li&gt;mdat  长度 = 0x01108b74 &lt;/li&gt;
-&lt;li&gt;moov  长度 = 0x00000db6 &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a name=&quot;root-ftyp&quot;&gt; ATOM: ftyp&lt;/a&gt;&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -c4 -l 0x18 REC_0001_GPS_FAKE.MOV 
-0000000: 00000018  ....    Size         ftyp的长度 0x18字节
-0000004: 66747970  ftyp    Type         ftyp的ATOM标记
-0000008: 71742020  qt      Major_Brand  QuickTime movie file
-000000c: 00000000  ....    Minor_Version
-0000010: 71742020  qt      Compatible_Brands 
-0000014: 00000000  ....
-&lt;/pre&gt;
-&lt;p&gt;&lt;a name=&quot;root-frea&quot;&gt; ATOM: frea&lt;/a&gt;&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -g4 -c4 -s 0x18 -l 100 REC_0001_GPS_FAKE.MOV 
-0000018: 0000747c  ..t| Size  frea的长度 0x747C
-000001c: 66726561  frea Type  frea的ATOM标记
-0000020: 0000000c  ....   Size tima的长度 0x0C      
-0000024: 74696d61  tima   Type tima的ATOM标记
-0000028: 00000009  ....   Unknown
-000002c: 00001be4  ....     Size thma的长度 0x1BE4
-0000030: 74686d61  thma     Type thma
-0000034: ffd8ffdb  ....       FFD8  JPG?
-0000038: 00840006  ....
-000003c: 04050605  ....
-....
-&lt;/pre&gt;
-&lt;p&gt;真的是 JPG?
-FFD8  FFD9  好熟悉哈&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -u -g4 -c4 -s 0x34 -l 0x1BDC REC_0001_GPS_FAKE.MOV 
-0000034: FFD8FFDB  ....
-0000038: 00840006  ....
-000003c: 04050605  ....
-0000040: 04060605  ....
-0000044: 06070706  ....
-....
-0001bf8: 45140051  E..Q
-0001bfc: 45140051  E..Q
-0001c00: 45140051  E..Q
-0001c04: 45140051  E..Q
-0001c08: 451401FF  E...
-0001c0c: D9FFFFFF  ....
-edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ dd skip=52 count=7132 if=REC_0001_GPS_FAKE.MOV of=thma.jpg bs=1
-7132+0 records in
-7132+0 records out
-7132 bytes (7.1 kB) copied, 0.0176471 s, 404 kB/s
-&lt;/pre&gt;
-&lt;p&gt;打开thma.jpg真的是一张320x240的缩略图   &lt;/p&gt;
-&lt;p&gt;frea的ATOM内存放了两张缩略图:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一张320x240大小  &lt;/li&gt;
-&lt;li&gt;一张640x480大小&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;edgar@debian:/data_disk/github/edgar1470.github.io/articles/qtff$ xxd -u -g4 -c4 -s 0x18 -l 0x1BDC REC_0001_GPS_FAKE.MOV 
-0000018: 0000747C  ..t|
-000001c: 66726561  frea
-0000020: 0000000C  ....
-0000024: 74696D61  tima
-0000028: 00000009  ....
-000002c: 00001BE4  ....
-0000030: 74686D61  thma   &lt;- 第一张缩略图 
-0000034: FFD8FFDB  ....
-0000038: 00840006  ....
-....
-0001c08: 451401FF  E...
-0001c0c: D9FFFFFF  ....
-0001c10: 00005884  ..X.
-0001c14: 73637261  scra   &lt;- 第二张缩略图
-0001c18: FFD8FFDB  ....
-0001c1c: 00840006  ....
-0001c20: 04050605  ....
-....
-000748c: 00514514  .QE.
-0007490: 01FFD900  ....
-0007494: 01108B74  ...t
-0007498: 6D646174  mdat
-000749c: 00000000  ....
-00074a0: 00000000  ....
-....
-1110000: 8ADB9742  ...B
-1110004: 5F16F14C  _..L
-1110008: 00000DB6  ....
-111000c: 6D6F6F76  moov
-1110010: 0000006C  ...l
-1110014: 6D766864  mvhd
-1110018: 00000000  ....
-111001c: CD07D7D4  ....
-1110020: CD07D7D4  ....
-1110024: 00007530  ..u0
-1110028: 00041EB0  ....
-111002c: 00010000  ....
-1110030: 01000000  ....
-1110034: 00000000  ....
-1110038: 00000000  ....
-&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a name=&quot;root-mdat&quot;&gt; ATOM: mdat&lt;/a&gt;  &lt;/p&gt;
-&lt;p&gt;&lt;a name=&quot;root-moov&quot;&gt; ATOM: moov&lt;/a&gt;&lt;br&gt;QuickTime movie atoms have an atom type of &#39;moov&#39;. These atoms act as a container for the information that describes a movie’s data. This information, or metadata, is stored in a number of different types of atoms. Generally speaking, only metadata is stored in a movie atom. Sample data for the movie, such as audio or video samples, are referenced in the movie atom, but are not contained in it.&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;1110008: 00000DB6  ....     --&gt;1110DBE  EOF
-111000c: 6D6F6F76  moov
-1110010: 0000006C  ...l     --&gt;111007C
-1110014: 6D766864  mvhd
-1110018: 00000000  ....
-....      
-111007c: 00000AD6  ....     --&gt;1110B52
-1110080: 7472616B  trak                       
-1110b52: 00000239  ...9     --&gt;1110D8B
-1110b56: 7472616B  trak
-....
-1110d8b: 00000033  ...3       --&gt;1110DBE  EOF
-1110d8f: 75647461  udta
-1110d93: 00000013  ....       --&gt;1110DA6      
-1110d97: A9666D74  .fmt
-...
-1110da6: 00000018  ....     --&gt;1110DBE  EOF
-1110daa: A9696E66  .inf
-1110dae: 000C0000  ....
-1110db2: 48444456  HDDV
-1110db6: 522D3130  R-10
-1110dba: 38305000  80P.
-1110DBE  EOF
-&lt;/pre&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>手工焊接QFN等无管脚IC</title>
-            <link>http://edgar1470.github.io/articles/qfn-hand-soldering.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>http://edgar1470.github.io/articles/qfn-hand-soldering.html</guid>
-            <author>edgar1470@gmail.com Edgar1470</author>
-            <pubDate>Sun, 12 Jan 2014 22:01:54 +0800</pubDate>
-            <description>&lt;p&gt;在手工焊接TI CC2540/CC2541 BLE样板的过程中遇到不少问题,今天总结焊接经验时，&lt;br&gt;发现下面一篇文章&lt;br&gt;&lt;a href=&quot;http://www.geek-workshop.com/forum.php?mod=viewthread&amp;tid=83&quot;&gt;手工焊接QFN LGA等无引脚IC方法&lt;/a&gt;  &lt;/p&gt;
-&lt;p&gt;电子制作中无可避免的要遇到手工焊接QFN LGA等无引脚IC，这些IC因为引脚全部在IC下方，用烙铁很难焊接。所以介绍一下怎样用热风枪来进行焊接。&lt;/p&gt;
-&lt;p&gt;  先来看一下用的设备 焊锡膏和一根针，我用的是维修佬焊锡膏5g包装版，因为便宜嘛，一个芯片的焊锡膏用量很小的，这么5g可以焊接好多好多的芯片。
-  &lt;img src=&quot;../images/QFN_001.jpg&quot; alt=&quot;001&quot;&gt;&lt;/p&gt;
-&lt;p&gt;  下来就是热风枪了，我用的是快克857D。
-  &lt;img src=&quot;../images/QFN_002.jpg&quot; alt=&quot;002&quot;&gt;&lt;/p&gt;
-&lt;p&gt;  这次拍摄使用的是ITG 3200系列芯片（ITG 3205），是一个陀螺仪芯片。下面看看正反面的封装样式:
-  &lt;img src=&quot;../images/QFN_003.jpg&quot; alt=&quot;003&quot;&gt;
-  &lt;img src=&quot;../images/QFN_004.jpg&quot; alt=&quot;004&quot;&gt;
-  再下来看看焊接用的电路板，这块电路板是经过特殊设计，PCB板上IC引脚全部加长过，这种有两种好处，一种是工艺上的，因为引脚加长后吸锡量加大，可以预防引脚短接，另外也给出现问题后手工修补提供了方便。
-  &lt;img src=&quot;../images/QFN_005.jpg&quot; alt=&quot;005&quot;&gt;&lt;/p&gt;
-&lt;p&gt;  先用针在IC覆盖位置覆盖薄薄的一层焊锡膏，一定要少，而且要只覆盖IC覆盖的引脚部位。覆盖程度只需要刚刚盖住底就ok，多了容易堆锡。
-  &lt;img src=&quot;../images/QFN_006.jpg&quot; alt=&quot;006&quot;&gt;&lt;/p&gt;
-&lt;p&gt;  然后就可以把IC放上去了，位置要放正，IC的小圆点和焊盘上的小圆点要一个方向。
-  &lt;img src=&quot;../images/QFN_007.jpg&quot; alt=&quot;007&quot;&gt;&lt;/p&gt;
-&lt;p&gt;  接下来就开启热风枪进行加热，因为芯片很小，所以使用最大风嘴，最小风量，温度我是用的是340度，风嘴在IC顶部罩住吹，偶尔需要左右晃动或者转圈一下使周围均匀受热。
-  &lt;img src=&quot;../images/QFN_008.jpg&quot; alt=&quot;008&quot;&gt;&lt;/p&gt;
-&lt;p&gt;  当焊锡全部溶化后就可以把风枪移开关闭了。等PCB板冷却后就可以查看焊接质量。这里会有童鞋问，难道吹得时候不需要手工对准吗？答案是肯定的，当锡膏融化后，焊锡只会跑到有金属的地方，因为表面张力，IC会自动对准焊盘（前提是刚开始放的时候误差没那么恐怖），不需要手工干预。&lt;/p&gt;
-&lt;p&gt;  本次焊接因为锡膏上的还是有点多，有些堆锡现象。
-  &lt;img src=&quot;../images/QFN_009.jpg&quot; alt=&quot;009&quot;&gt;&lt;/p&gt;
-&lt;p&gt;  这是就需要用烙铁来进行加工，把堆锡除掉。去掉堆锡的样子是这样子的。
-  &lt;img src=&quot;../images/QFN_010.jpg&quot; alt=&quot;010&quot;&gt;&lt;/p&gt;
-&lt;p&gt;  肉眼检查各个方位没有堆锡后，还需要用万用表在电路各个地方进行检查，防止短路。&lt;/p&gt;
-&lt;p&gt;  下面的视屏是懒猫侠同学用烙铁焊接QFN封装（侧面有接触点）的视频，大家如果没风枪，可以学习下哦。&lt;br&gt;  &lt;a href=&quot;http://v.youku.com/v_show/id_XMjk0NjgxNTg0.html&quot;&gt;用烙铁焊接QFN封装&lt;/a&gt;&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>超级电容电量简易计算方法</title>
-            <link>http://edgar1470.github.io/articles/supercapacitor.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>http://edgar1470.github.io/articles/supercapacitor.html</guid>
-            <author>edgar1470@gmail.com Edgar1470</author>
-            <pubDate>Sun, 12 Jan 2014 22:44:50 +0800</pubDate>
-            <description>&lt;p&gt;网络文章 &lt;a href=&quot;http://www.geek-workshop.com/thread-2114-1-1.html&quot;&gt;超级电容电量简易计算方法&lt;/a&gt;  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;电压(V) = 电流(I) x 电阻(R)&lt;/li&gt;
-&lt;li&gt;电荷量(Q) = 电流(I) x 时间(T)&lt;/li&gt;
-&lt;li&gt;功率(P) = V x I&lt;/li&gt;
-&lt;li&gt;能量(W) = P x T = Q x V&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;容量 F= 库伦（C） / 电压（V）&lt;/p&gt;
-&lt;p&gt;将容量、电压转为等效电量
-电量     =电压（V) x 电荷量（C）&lt;/p&gt;
-&lt;p&gt;实例估算：&lt;br&gt; 电压5.5V 1F（1法拉电容）的电量为5.5C（库伦），
- 电压下限我们设定在3.8V，电容放电的有效电压差为5.5-3.8=1.7V，所以有效电量为1.7C。&lt;br&gt; 1.7C=1.7A*S（安秒）=1700mAS（毫安秒）=0.472mAh（毫安时） 
- 若电流消耗以10mA计算，1700mAS/10mA=170S=2.83min（维持时间分钟） 
-so，这样大家就能非常简单的计算出超级电容的等效电池容量，方便自己选型。顺便计算电容的漏电速度。。。。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>ImageMagick的使用</title>
-            <link>http://edgar1470.github.io/articles/imagemagick.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>http://edgar1470.github.io/articles/imagemagick.html</guid>
-            <author>edgar1470@gmail.com Edgar1470</author>
-            <pubDate>Thu, 16 Jan 2014 11:03:18 +0800</pubDate>
-            <description>&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#watermark-cn&quot;&gt;给图片添加中文字符水印&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#profile&quot;&gt;图片profile操作&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;-a-name-watermark-cn-a-&quot;&gt;给图片添加中文字符水印 &lt;a name=&quot;watermark-cn&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;  #!/bin/bash
-  mogrify -font msyh.ttf -pointsize 64 -fill red -weight bolder -gravity southeast -annotate +20+20 @&quot;t.txt&quot; src.jpg
-&lt;/pre&gt;
-&lt;p&gt;  msyh.ttf 是水印使用的字体,可以指定路径 /font/xx.ttf&lt;br&gt;  64 水印字体大小&lt;br&gt;   t.txt 文件中包含了一行水印描述，字体文件支持的所以编码空间中的字符都可以 &lt;/p&gt;
-&lt;h3 id=&quot;-profile-a-name-profile-a-&quot;&gt;图片profile操作 &lt;a name=&quot;profile&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;  &lt;a href=&quot;http://www.imagemagick.org/Usage/formats/#profiles&quot;&gt;http://www.imagemagick.org/Usage/formats/#profiles&lt;/a&gt;  &lt;/p&gt;
-&lt;h4 id=&quot;-profile&quot;&gt;使用了哪些profile&lt;/h4&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;debian /data_disk/image $ identify -verbose 20580004.jpg | grep &#39;Profile-.*bytes&#39;
-    Profile-8bim: 48 bytes
-    Profile-exif: 4344 bytes
-    Profile-iptc: 35 bytes
-    Profile-xmp: 3094 bytes
-&lt;/pre&gt;
-&lt;p&gt;Common Profiles (and pointer to info I have on them) include...  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;EXIF    Digital Camera Meta-Data&lt;/li&gt;
-&lt;li&gt;ICC     Image Color Space Profile&lt;/li&gt;
-&lt;li&gt;ICM     Microsoft Color Management (like ICC)&lt;/li&gt;
-&lt;li&gt;IPTC    Image and Author Info&lt;/li&gt;
-&lt;li&gt;8BIM    Photoshop Meta-data profile. Including data on: Clip Paths... What else?&lt;/li&gt;
-&lt;li&gt;XMP     Adobe&#39;s Extensible Metadata Platform (XMP) (See adobe page)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;-exif-&quot;&gt;提取exif信息&lt;/h4&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;convert test.jpg exif:profile.exif    # 把exif信息保存到文件profile.exif中
-convert test.jpg xmp:profile.xmp
-&lt;/pre&gt;
-&lt;h4 id=&quot;-exif-&quot;&gt;删除exif信息&lt;/h4&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;convert  test.jpg +profile exif no_exif.jpg
-&lt;/pre&gt;
-&lt;h4 id=&quot;-exif-&quot;&gt;添加exif信息&lt;/h4&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;debian /data_disk/image $ mogrify -set profile exif:profile.exif with_exif.jpg  #给with_exif.jpg 添加exif信息
-&lt;/pre&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>一些C语言学习的文章资料</title>
-            <link>http://edgar1470.github.io/articles/language-c.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>http://edgar1470.github.io/articles/language-c.html</guid>
-            <author>edgar1470@gmail.com Edgar1470</author>
-            <pubDate>Thu, 16 Jan 2014 15:42:30 +0800</pubDate>
-            <description>&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#define&quot;&gt;C预处理宏定义&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#c++-convert&quot;&gt;能把C++程序自动转换成C程序吗&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;c-a-name-define-a-&quot;&gt;C预处理宏定义 &lt;a name=&quot;define&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.tutorialspoint.com/cprogramming/pdf/c_preprocessors.pdf&quot;&gt;宏定义的简要说明&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://gcc.gnu.org/onlinedocs/cpp.pdf&quot;&gt;宏定义的详细说明&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cs.cornell.edu/courses/cs2022/2011sp/lectures/lect08.pdf&quot;&gt;宏定义展开后可能出现的一些问题&lt;/a&gt;    &lt;/p&gt;
-&lt;h3 id=&quot;-c-c-a-name-c-convert-a-&quot;&gt;能把C++程序自动转换成C程序吗 &lt;a name=&quot;c++-convert&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.parashift.com/c++-faq/convert-to-c.html&quot;&gt;Is it possible to convert C++ to C?&lt;/a&gt; 
-答案是：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;NO.  不能把C++代码自动转换成可读性和可维护性的C代码&lt;/li&gt;
-&lt;li&gt;YES.  能自动转换,但有很多限制&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a href=&quot;http://llvm.org/releases/3.1/docs/FAQ.html#translatecxx&quot;&gt;Can I use LLVM to convert C++ code to C code?&lt;/a&gt;&lt;br&gt;Yes, you can use LLVM to convert code from any language LLVM supports to C. Note that the generated C code will be very low level (all loops are lowered to gotos, etc) and not very pretty (comments are stripped, original source formatting is totally lost, variables are renamed, expressions are regrouped), so this may not be what you&#39;re looking for. Also, there are several limitations noted below.&lt;/p&gt;
-&lt;p&gt;在google 怎么用llvm 转换C++源代码到C源代码时,发现了这个 
-&lt;a href=&quot;http://llvm.org/releases/3.1/docs/ReleaseNotes.html#changes&quot;&gt;http://llvm.org/releases/3.1/docs/ReleaseNotes.html#changes&lt;/a&gt;
-LLVM 从3.1版本就不再支持从其它语言转换成C源代码的功能 
-但转换成汇编的功能继续可用&lt;/p&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;$ clang –c –emit-llvm –o test.bc test.c
-$ opt –O1 –o test.bc test.bc
-$ llc –o test.s test.bc
-$ gcc –o test test.s
-&lt;/pre&gt;
-&lt;p&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Source-to-source_compiler&quot;&gt;http://en.wikipedia.org/wiki/Source-to-source_compiler&lt;/a&gt; &lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>代码统计工具</title>
-            <link>http://edgar1470.github.io/articles/code-counting-tool.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
-            <guid>http://edgar1470.github.io/articles/code-counting-tool.html</guid>
-            <author>edgar1470@gmail.com Edgar1470</author>
+            <title>代码行数统计工具</title>
+            <link>Homepage link/articles/code-counting-tools.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/code-counting-tools.html</guid>
+            <author>edgar1470@gmail.com Edgar.Wu</author>
             <pubDate>Thu, 16 Jan 2014 16:48:19 +0800</pubDate>
-            <description>&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#cloc-overview&quot;&gt;cloc 简介&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#why-use-cloc&quot;&gt;Why Use cloc&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#cloc-usage&quot;&gt;cloc usage&lt;/a&gt;  &lt;/li&gt;
+            <description>&lt;p&gt;在HW工作时经常用来衡量工作量（数量和质量）的一个重要指标就是：你这个功能需要写多少行代码？
+那个时段项目组的代码库基线指标是一个人50行／天, 刚开始听到这个数字的感觉：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;好保守的数字&lt;/li&gt;
+&lt;li&gt;这样是要磨洋工的好借口&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;cloc-overview-a-name-cloc-overview-a-&quot;&gt;cloc Overview  &lt;a name=&quot;cloc-overview&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;  &lt;a href=&quot;http://cloc.sourceforge.net/#Overview&quot;&gt;cloc&lt;/a&gt; counts blank lines, comment lines, and physical lines of source code in many programming languages. Given two versions of a code base, cloc can compute differences in blank, comment, and source lines. It is written entirely in Perl with no dependencies outside the standard distribution of Perl v5.6 and higher (code from some external modules is embedded within cloc) and so is quite portable. cloc is known to run on many flavors of Linux, FreeBSD, NetBSD, OpenBSD, Mac OS X, AIX, HP-UX, Solaris, IRIX, z/OS, and Windows. (To run the Perl source version of cloc on Windows one needs ActiveState Perl 5.6.1 or higher, Strawberry Perl, Cygwin, or MobaXTerm with the Perl plug-in installed. Alternatively one can use the Windows binary of cloc generated with perl2exe to run on Windows computers that have neither Perl nor Cygwin.)&lt;/p&gt;
-&lt;p&gt;  cloc contains code from David Wheeler&#39;s SLOCCount, Damian Conway and Abigail&#39;s Perl module Regexp::Common, Sean M. Burke&#39;s Perl module Win32::Autoglob, and Tye McQueen&#39;s Perl module Algorithm::Diff. Language scale factors were derived from Mayes Consulting, LLC web site &lt;a href=&quot;http://softwareestimator.com/IndustryData2.htm&quot;&gt;http://softwareestimator.com/IndustryData2.htm&lt;/a&gt;. &lt;/p&gt;
-&lt;h3 id=&quot;why-use-cloc-a-name-why-use-cloc-a-&quot;&gt;Why Use cloc?  &lt;a name=&quot;why-use-cloc&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;cloc has many features that make it easy to use, thorough, extensible, and portable:  &lt;/p&gt;
+&lt;p&gt;但做了一段时间后，才发现在多人协作的大型开发项目中提出这个基线指标是有丈量依据和事实数据支撑的。&lt;/p&gt;
+&lt;p&gt;下面这个工具&lt;a href=&quot;https://github.com/AlDanial/cloc&quot;&gt;cloc&lt;/a&gt; 可以用于实际编码中的代码量统计：&lt;/p&gt;
+&lt;!-- toc --&gt;
+&lt;h3 id=&quot;cloc-overview&quot;&gt;cloc Overview&lt;/h3&gt;
+&lt;p&gt;cloc counts blank lines, comment lines, and physical lines of source code in many programming languages. Given two versions of a code base, cloc can compute differences in blank, comment, and source lines. It is written entirely in Perl with no dependencies outside the standard distribution of Perl v5.6 and higher (code from some external modules is embedded within cloc) and so is quite portable. cloc is known to run on many flavors of Linux, FreeBSD, NetBSD, OpenBSD, Mac OS X, AIX, HP-UX, Solaris, IRIX, z/OS, and Windows. (To run the Perl source version of cloc on Windows one needs ActiveState Perl 5.6.1 or higher, Strawberry Perl, Cygwin, or MobaXTerm with the Perl plug-in installed. Alternatively one can use the Windows binary of cloc generated with perl2exe to run on Windows computers that have neither Perl nor Cygwin.)&lt;/p&gt;
+&lt;p&gt;cloc contains code from David Wheeler&#39;s SLOCCount, Damian Conway and Abigail&#39;s Perl module Regexp::Common, Sean M. Burke&#39;s Perl module Win32::Autoglob, and Tye McQueen&#39;s Perl module Algorithm::Diff. Language scale factors were derived from Mayes Consulting, LLC web site &lt;a href=&quot;http://softwareestimator.com/IndustryData2.htm&quot;&gt;http://softwareestimator.com/IndustryData2.htm&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;why-use-cloc&quot;&gt;Why Use cloc&lt;/h3&gt;
+&lt;p&gt;cloc has many features that make it easy to use, thorough, extensible, and portable:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Exists as a single, self-contained file that requires minimal installation effort---just download the file and run it.&lt;/li&gt;
 &lt;li&gt;Can read language comment definitions from a file and thus potentially work with computer languages that do not yet exist.&lt;/li&gt;
@@ -652,12 +36,13 @@ $ gcc –o test test.s
 &lt;li&gt;Has numerous troubleshooting options.&lt;/li&gt;
 &lt;li&gt;Handles file and directory names with spaces and other unusual characters.&lt;/li&gt;
 &lt;li&gt;Has no dependencies outside the standard Perl distribution.&lt;/li&gt;
-&lt;li&gt;Runs on Linux, FreeBSD, NetBSD, OpenBSD, Mac OS X, AIX, HP-UX, Solaris, IRIX, and z/OS systems that have Perl 5.6 or higher. The source version runs on Windows with either ActiveState Perl, Strawberry Perl, Cygwin, or MobaXTerm+Perl plugin. Alternatively on Windows one can run the Windows binary which has no dependencies. &lt;/li&gt;
+&lt;li&gt;Runs on Linux, FreeBSD, NetBSD, OpenBSD, Mac OS X, AIX, HP-UX, Solaris, IRIX, and z/OS systems that have Perl 5.6 or higher. The source version runs on Windows with either ActiveState Perl, Strawberry Perl, Cygwin, or MobaXTerm+Perl plugin. Alternatively on Windows one can run the Windows binary which has no dependencies.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;cloc-usage-a-name-cloc-usage-a-&quot;&gt;cloc usage &lt;a name=&quot;cloc-usage&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
-&lt;pre class=&quot;prettyprint linenums lang-shell&quot;&gt;$ ./cloc-1.55.pl /cygdrive/d/source/65X/NT9665x_CarDV_20141013
-lsUse of qw(...) as parentheses is deprecated at ./cloc-1.55.pl line 1841.          1814 text files.
-    1696 unique files.
+&lt;h3 id=&quot;cloc-usage&quot;&gt;cloc usage&lt;/h3&gt;
+&lt;pre class=&quot;prettyprint linenums lang-bash&quot;&gt;$ ./cloc-1.55.pl /cygdrive/d/source/65X/NT9665x_CarDV_20141013
+lsUse of qw(...) as parentheses is deprecated at ./cloc-1.55.pl line 1841.         
+          1814 text files.
+          1696 unique files.
           45 files ignored.
 
           http://cloc.sourceforge.net v 1.55  T=16.0 s (103.2 files/s, 29969.2 lines/s)
@@ -674,6 +59,167 @@ lsUse of qw(...) as parentheses is deprecated at ./cloc-1.55.pl line 1841.      
           SUM:                          1651          73239          95139         311129
           -------------------------------------------------------------------------------
 &lt;/pre&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>C代码片段</title>
+            <link>Homepage link/articles/c-tips.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/c-tips.html</guid>
+            <author>edgar1470@gmail.com Edgar.Wu</author>
+            <pubDate>Thu, 16 Jan 2014 15:42:30 +0800</pubDate>
+            <description>&lt;p&gt;C Tips
+&lt;!-- toc --&gt;&lt;/p&gt;
+&lt;h3 id=&quot;程序执行时间测试&quot;&gt;程序执行时间测试&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://msdn.microsoft.com/en-us/library/4e2ess30.aspx&quot;&gt;Calculates the wall-clock time used by the calling process.&lt;/a&gt;
+The clock function tells how much wall-clock time the calling process has used. Note that this is not strictly conformant with ISO C99, which specifies net CPU time as the return value. To obtain CPU time, use the Win32 GetProcessTimes function.
+A timer tick is approximately equal to 1/CLOCKS_PER_SEC seconds. Given enough time, the value returned by clock can exceed the maximum positive value of clock_t and become negative, or exceed the maximum absolute value and roll over. Do not rely on this value for total elapsed time in processes that run for more than 214,748 seconds, or about 59 hours.&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-c&quot;&gt;// crt_clock.c
+// This example prompts for how long
+// the program is to run and then continuously
+// displays the elapsed time for that period.
+//
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+void sleep( clock_t wait );
+
+int main( void )
+{
+   long    i = 6000000L;
+   clock_t start, finish;
+   double  duration;
+
+   // Delay for a specified time.
+   printf( &quot;Delay for three seconds\n&quot; );
+   sleep( (clock_t)3 * CLOCKS_PER_SEC );
+   printf( &quot;Done!\n&quot; );
+
+   // Measure the duration of an event.
+   printf( &quot;Time to do %ld empty loops is &quot;, i );
+   start = clock();
+   while( i-- ) 
+      ;
+   finish = clock();
+   duration = (double)(finish - start) / CLOCKS_PER_SEC;
+   printf( &quot;%2.1f seconds\n&quot;, duration );
+}
+
+// Pauses for a specified number of milliseconds.
+void sleep( clock_t wait )
+{
+   clock_t goal;
+   goal = wait + clock();
+   while( goal &gt; clock() )
+      ;
+}
+&lt;/pre&gt;
+&lt;h3 id=&quot;自动转换代码&quot;&gt;自动转换代码&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.parashift.com/c++-faq/convert-to-c.html&quot;&gt;Is it possible to convert C++ to C?&lt;/a&gt; 答案是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;NO. 不能把C++代码自动转换成可读性和可维护性的C代码&lt;/li&gt;
+&lt;li&gt;YES. 能自动转换,但有很多限制
+&lt;a href=&quot;http://llvm.org/releases/3.1/docs/FAQ.html#translatecxx&quot;&gt;Can I use LLVM to convert C++ code to C code?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Yes, you can use LLVM to convert code from any language LLVM supports to C. Note that the generated C code will be very low level (all loops are lowered to gotos, etc) and not very pretty (comments are stripped, original source formatting is totally lost, variables are renamed, expressions are regrouped), so this may not be what you&#39;re looking for. Also, there are several limitations noted below.&lt;/p&gt;
+&lt;p&gt;在google 怎么用llvm 转换C++源代码到C源代码时,发现了这个 &lt;a href=&quot;http://llvm.org/releases/3.1/docs/ReleaseNotes.html#changes&quot;&gt;http://llvm.org/releases/3.1/docs/ReleaseNotes.html#changes&lt;/a&gt; LLVM 从3.1版本就不再支持从其它语言转换成C源代码的功能 但转换成汇编的功能继续可用&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-bash&quot;&gt;$ clang –c –emit-llvm –o test.bc test.c
+$ opt –O1 –o test.bc test.bc
+$ llc –o test.s test.bc
+$ gcc –o test test.s
+&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Source-to-source_compiler&quot;&gt;http://en.wikipedia.org/wiki/Source-to-source_compiler&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>git实用技巧</title>
+            <link>Homepage link/articles/git-tips.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/git-tips.html</guid>
+            <author>edgar1470@gmail.com Edgar.Wu</author>
+            <pubDate>Fri, 08 Jul 2016 00:23:14 +0800</pubDate>
+            <description>&lt;p&gt;GIT Tips
+&lt;!-- toc --&gt;&lt;/p&gt;
+&lt;h3 id=&quot;在bash提示符显示当前的git分支&quot;&gt;在bash提示符显示当前的git分支&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://makandracards.com/makandra/524-show-the-current-git-branch-on-your-bash-prompt&quot;&gt;Show the current Git branch on your Bash pro&lt;/a&gt;
+Append this to your ~/.bashrc:&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-bash&quot;&gt;export PS1=&#39;\[\033[01;32m\]\h\[\033[01;34m\] \w\[\033[31m\]$(__git_ps1 &quot;(%s)&quot;) \[\033[01;34m\]$\[\033[00m\] &#39;
+&lt;/pre&gt;
+&lt;p&gt;Reload the changes by saying&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-bash&quot;&gt;source ~/.bashrc
+&lt;/pre&gt;
+&lt;h3 id=&quot;本地svn仓库转换成git仓库&quot;&gt;本地SVN仓库转换成git仓库&lt;/h3&gt;
+&lt;pre class=&quot;prettyprint linenums lang-bash&quot;&gt;git svn clone file:///media/sf_D_DRIVE/test_svn_repos test.git
+&lt;/pre&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>imagemagick实用技巧</title>
+            <link>Homepage link/articles/imagemagick-tips.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/imagemagick-tips.html</guid>
+            <author>edgar1470@gmail.com Edgar.Wu</author>
+            <pubDate>Fri, 08 Jul 2016 00:12:36 +0800</pubDate>
+            <description>&lt;p&gt;ImageMagick Tips
+&lt;!-- toc --&gt;&lt;/p&gt;
+&lt;h3 id=&quot;给图片添加中文字符水印&quot;&gt;给图片添加中文字符水印&lt;/h3&gt;
+&lt;pre class=&quot;prettyprint linenums lang-bash&quot;&gt;  #!/bin/bash
+  mogrify -font msyh.ttf -pointsize 64 -fill red -weight bolder -gravity southeast -annotate +20+20 @&quot;t.txt&quot; src.jpg
+&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;msyh.ttf 是水印使用的字体,可以指定路径 /font/xx.ttf&lt;/li&gt;
+&lt;li&gt;64 水印字体大小&lt;/li&gt;
+&lt;li&gt;t.txt 文件中包含了一行水印描述，字体文件支持的所以编码空间中的字符都可以&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>vim实用技巧</title>
+            <link>Homepage link/articles/vim-tips.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/vim-tips.html</guid>
+            <author>edgar1470@gmail.com Edgar.Wu</author>
+            <pubDate>Thu, 07 Jul 2016 23:53:43 +0800</pubDate>
+            <description>&lt;h2 id=&quot;vim-tips&quot;&gt;VIM Tips&lt;/h2&gt;
+&lt;!-- toc --&gt;
+&lt;h3 id=&quot;快速插入当前时间到文本中&quot;&gt;快速插入当前时间到文本中&lt;/h3&gt;
+&lt;p&gt;来源&lt;a href=&quot;http://stackoverflow.com/questions/56052/best-way-to-insert-timestamp-in-vim/58604#58604&quot;&gt;best way to insert timestamp in vim&lt;/a&gt;&lt;/p&gt;
+&lt;pre class=&quot;prettyprint linenums lang-bash&quot;&gt;nmap &lt;F3&gt; i&lt;C-R&gt;=strftime(&quot;%Y-%m-%d %a %I:%M %p&quot;)&lt;CR&gt;&lt;Esc&gt;
+imap &lt;F3&gt; &lt;C-R&gt;=strftime(&quot;%Y-%m-%d %a %I:%M %p&quot;)&lt;CR&gt;
+&lt;/pre&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>超级电容电量的简易计算方法</title>
+            <link>Homepage link/articles/super-capacitor.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/super-capacitor.html</guid>
+            <author>edgar1470@gmail.com Edgar.Wu</author>
+            <pubDate>Sun, 12 Jan 2014 22:44:50 +0800</pubDate>
+            <description>&lt;h3 id=&quot;网络文章-a-href-http-wwwgeek-workshopcom-thread-2114-1-1html-超级电容电量简易计算方法-a-&quot;&gt;网络文章 &lt;a href=&quot;http://www.geek-workshop.com/thread-2114-1-1.html&quot;&gt;超级电容电量简易计算方法&lt;/a&gt;&lt;/h3&gt;
+&lt;pre&gt;电压(V) = 电流(I) x 电阻(R)
+电荷量(Q) = 电流(I) x 时间(T)
+功率(P) = V x I
+能量(W) = P x T = Q x V
+容量 F= 库伦（C） / 电压（V）
+&lt;/pre&gt;&lt;p&gt;将容量、电压转为等效电量 &lt;/p&gt;
+&lt;pre&gt;电量 =电压（V) x 电荷量（C）
+&lt;/pre&gt;&lt;h3 id=&quot;实例估算：&quot;&gt;实例估算：&lt;/h3&gt;
+&lt;p&gt;电压5.5V 1F（1法拉电容）的电量为5.5C（库伦）， 电压下限我们设定在3.8V，电容放电的有效电压差为5.5-3.8=1.7V，所以有效电量为1.7C。
+1.7C=1.7A*S（安秒）=1700mAS（毫安秒）=0.472mAh（毫安时） 若电流消耗以10mA计算，1700mAS/10mA=170S=2.83min（维持时间分钟） so，这样大家就能非常简单的计算出超级电容的等效电池容量，方便自己选型。顺便计算电容的漏电速度。。。。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>使用papery写blog</title>
+            <link>Homepage link/articles/use-papery-write-blog.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=rss</link>
+            <guid>Homepage link/articles/use-papery-write-blog.html</guid>
+            <author>edgar1470@gmail.com Edgar.Wu</author>
+            <pubDate>Wed, 08 Jan 2014 16:33:11 +0800</pubDate>
+            <description>&lt;p&gt;按照&lt;a href=&quot;https://github.com/ericzhang-cn/papery&quot;&gt;papery&lt;/a&gt; 的说明就能非常顺利的完成安装和搭建blog的工作。
+从简洁和实用的角度，papery值得尝试和实用！&lt;/p&gt;
 </description>
         </item>
         
