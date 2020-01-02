@@ -74,23 +74,5 @@
       <description>使用papery写blog 按照papery 的说明就能非常顺利的完成安装和搭建blog的工作。 从简洁和实用的角度，papery值得尝试和实用！</description>
     </item>
     
-    <item>
-      <title></title>
-      <link>https://edgar1470.github.io/post/papery-quickstart/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://edgar1470.github.io/post/papery-quickstart/</guid>
-      <description>Papery - create your simple, fast &amp;amp; elegant blog with plain text.
-使用说明 安装及升级 首先要保证机器上安装有NodeJS及npm。
-NodeJs版本需要&amp;gt;=0.10。
-安装 1  npm install -g papery   升级 1  npm update -g   命令列表 create create命令用于创建一个新的博客，使用方法为：
-1  papery create &amp;lt;root&amp;gt;   执行后则会在root目录创建一个全新的博客，里面包含papery博客的基本目录结构及配置文件等内容。详细信息会在下文详述。
-build 通过create创建的博客还不能成为一个真正可以访问的网站，因为里面只包含配置信息和元文本，还没有web页面。build用于根据配置和元文本生成web内容。使用方法为：
-1  papery build &amp;lt;root&amp;gt;   server server可以在本地启动一个调试服务器用于快速预览和调试内容，命令为：
-1  papery server &amp;lt;root&amp;gt; [&amp;lt;port&amp;gt;]   执行上述命令将在本地port指定的端口启动一个webserver，其中port为可选项，默认值为8001。在浏览器中输入 http://localhost:/ 即可访问。
-目录结构 一个papery博客的目录结构如下
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22  root | - articles.</description>
-    </item>
-    
   </channel>
 </rss>

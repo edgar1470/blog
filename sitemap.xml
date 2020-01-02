@@ -155,9 +155,4 @@
     <priority>0.5</priority>
   </url>
   
-  <url>
-    <loc>https://edgar1470.github.io/post/papery-quickstart/</loc>
-    <priority>0</priority>
-  </url>
-  
 </urlset>
