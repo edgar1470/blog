@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Fake it</title>
+    <title>ImageMagick Tips - Fake it</title>
     <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Andy Wu" /><meta name="description" content="Andy Wu&#39;s Blog" /><meta name="keywords" content="Embedded System, hisilicon, hi3518, hi3516, hi3519, hi3556, hi3559" />
+<meta name="author" content="Andy Wu" /><meta name="description" content="给图片添加中文字符水印 1 2 #!/bin/bash mogrify -font msyh.ttf -pointsize 64 -fill red -weight bolder -gravity southeast -annotate &#43;20&#43;20 @&amp;#34;t.txt&amp;#34; src.jpg msyh.ttf 是水印使用的字体,可以指定路径 /font/xx.ttf 64 水印字体大小 t.txt 文件中包含了一行水印描述，字体文" /><meta name="keywords" content="Embedded System, hisilicon, hi3518, hi3516, hi3519, hi3556, hi3559" />
 
 
 
@@ -26,9 +26,9 @@
 <meta name="generator" content="Hugo 0.61.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://edgar1470.github.io/" />
-<link href="/" rel="alternate" type="application/rss+xml" title="Fake it" />
-<link href="/" rel="feed" type="application/rss+xml" title="Fake it" />
+<link rel="canonical" href="https://edgar1470.github.io/post/imagemagick-tips/" />
+<link href="/post/imagemagick-tips/" rel="alternate" type="application/rss+xml" title="Fake it" />
+<link href="/post/imagemagick-tips/" rel="feed" type="application/rss+xml" title="Fake it" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,15 +41,23 @@
 <link rel="stylesheet" href="/css/reset-even.css">
 
 
-<meta property="og:title" content="Fake it" />
-<meta property="og:description" content="Andy Wu&#39;s Blog" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://edgar1470.github.io/" />
-<meta property="og:updated_time" content="2020-01-02T15:22:41+08:00" />
-<meta itemprop="name" content="Fake it">
-<meta itemprop="description" content="Andy Wu&#39;s Blog"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Fake it"/>
-<meta name="twitter:description" content="Andy Wu&#39;s Blog"/>
+<meta property="og:title" content="ImageMagick Tips" />
+<meta property="og:description" content="给图片添加中文字符水印 1 2 #!/bin/bash mogrify -font msyh.ttf -pointsize 64 -fill red -weight bolder -gravity southeast -annotate &#43;20&#43;20 @&#34;t.txt&#34; src.jpg msyh.ttf 是水印使用的字体,可以指定路径 /font/xx.ttf 64 水印字体大小 t.txt 文件中包含了一行水印描述，字体文" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://edgar1470.github.io/post/imagemagick-tips/" />
+<meta property="article:published_time" content="2016-07-08T00:12:36+08:00" />
+<meta property="article:modified_time" content="2016-07-08T00:12:36+08:00" />
+<meta itemprop="name" content="ImageMagick Tips">
+<meta itemprop="description" content="给图片添加中文字符水印 1 2 #!/bin/bash mogrify -font msyh.ttf -pointsize 64 -fill red -weight bolder -gravity southeast -annotate &#43;20&#43;20 @&#34;t.txt&#34; src.jpg msyh.ttf 是水印使用的字体,可以指定路径 /font/xx.ttf 64 水印字体大小 t.txt 文件中包含了一行水印描述，字体文">
+<meta itemprop="datePublished" content="2016-07-08T00:12:36&#43;08:00" />
+<meta itemprop="dateModified" content="2016-07-08T00:12:36&#43;08:00" />
+<meta itemprop="wordCount" content="87">
+
+
+
+<meta itemprop="keywords" content="ImageMagick," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ImageMagick Tips"/>
+<meta name="twitter:description" content="给图片添加中文字符水印 1 2 #!/bin/bash mogrify -font msyh.ttf -pointsize 64 -fill red -weight bolder -gravity southeast -annotate &#43;20&#43;20 @&#34;t.txt&#34; src.jpg msyh.ttf 是水印使用的字体,可以指定路径 /font/xx.ttf 64 水印字体大小 t.txt 文件中包含了一行水印描述，字体文"/>
 
 </head>
 <body>
@@ -95,7 +103,7 @@
 </div>
 
 <nav class="site-navbar">
-    <ul id="menu" class="menu" data-sum="2">
+    <ul id="menu" class="menu" data-sum="0">
         
         <li class="menu-item menu-item-home">
             <a class="menu-item-link" href="/" title="首页">首页</a>
@@ -132,40 +140,119 @@
     <main id="main" class="main">
         <div class="content-wrapper">
             <div id="content" class="content">
-                <section id="posts" class="posts">
-    
-
-
-<article class="post">
+                <article class="post">
+  
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/">Posts</a></h1>
+    <h1 class="post-title">ImageMagick Tips</h1>
+
     <div class="post-meta">
-      <span class="post-time"> 2020-01-02 15:22 </span>
-      
-        <span class="more-meta"> 约 0 字 </span>
-        <span class="more-meta"> 预计阅读 0 分钟 </span>
+      <span class="post-time"> 8080-07-08 00:12 </span>
+      <div class="post-category">
+        <a href="/categories/%E6%8A%80%E5%B7%A7/"> 技巧 </a>
+        </div>
+      <span class="more-meta"> 约 87 字 </span>
+      <span class="more-meta"> 预计阅读 1 分钟 </span>
+      <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
     </div>
   </header>
 
-
-
-  
-  <div class="post-content">
-    <div class="post-summary">
-      
-    </div>
-    <div class="read-more">
-      <a href="/post/" class="read-more-link">阅读更多</a>
+  <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#heading">给图片添加中文字符水印</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+  <div class="post-outdated">
+    <div class="warn">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2016-07-08T00:12:36" title="July 8, 2016">July 8, 2016</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
+  <div class="post-content">
+    <h3 id="heading">给图片添加中文字符水印</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">  <span class="c1">#!/bin/bash</span>
+  mogrify -font msyh.ttf -pointsize <span class="m">64</span> -fill red -weight bolder -gravity southeast -annotate +20+20 @<span class="s2">&#34;t.txt&#34;</span> src.jpg
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>msyh.ttf 是水印使用的字体,可以指定路径 /font/xx.ttf</li>
+<li>64 水印字体大小</li>
+<li>t.txt 文件中包含了一行水印描述，字体文件支持的所以编码空间中的字符都可以</li>
+</ul>
+
+  </div>
+
+  <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Andy Wu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        8080-07-08 00:12
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/wechat.png">
+        <span>微信佛系打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/alipay.jpg">
+        <span>支付宝佛系打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+    <div class="post-tags">
+      <a href="/tags/ImageMagick/">ImageMagick</a>
+      </div>
+    <nav class="post-nav">
+      <a class="prev" href="/post/git-tips/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Git Tips</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+      <a class="next" href="/post/code-counting-tools/">
+        <span class="next-text nav-default">Programming Tips</span>
+        <span class="next-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav>
+  </footer>
+  <script src="https://utteranc.es/client.js"
+          repo="nusr/blog"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterance.</a></noscript>
 </article>
-
-    </section>
-
-<nav class="pagination">
-    
-    
-</nav>
             </div>
             
 

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技巧 on Fake it</title>
+    <link>https://edgar1470.github.io/categories/%E6%8A%80%E5%B7%A7/</link>
+    <description>Recent content in 技巧 on Fake it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 02 Jan 2020 15:22:41 +0800</lastBuildDate>
+    
+	<atom:link href="https://edgar1470.github.io/categories/%E6%8A%80%E5%B7%A7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>VIM Tips</title>
+      <link>https://edgar1470.github.io/post/vim-tips/</link>
+      <pubDate>Thu, 02 Jan 2020 15:22:41 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/post/vim-tips/</guid>
+      <description>快速插入当前时间到文本中 来源best way to insert timestamp in vim 1 2 nmap &amp;lt;F3&amp;gt; i&amp;lt;C-R&amp;gt;=strftime(&amp;#34;%Y-%m-%d %a %I:%M %p&amp;#34;)&amp;lt;CR&amp;gt;&amp;lt;Esc&amp;gt; imap &amp;lt;F3&amp;gt; &amp;lt;C-R&amp;gt;=strftime(&amp;#34;%Y-%m-%d %a %I:%M %p&amp;#34;)&amp;lt;CR&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>Git Tips</title>
+      <link>https://edgar1470.github.io/post/git-tips/</link>
+      <pubDate>Thu, 02 Jan 2020 15:06:51 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/post/git-tips/</guid>
+      <description>org date: 2016-07-08T 00:23:14+08:00 在bash提示符显示当前的git分支 Show the current Git branch on your Bash pro Append this to your ~/.bashrc: 1 export PS1=&amp;#39;\[\033[01;32m\]\h\[\033[01;34m\] \w\[\033[31m\]$(__git_ps1 &amp;#34;(%s)&amp;#34;) \[\033[01;34m\]$\[\033[00m\] &amp;#39; Reload the changes by saying 1 source ~/.bashrc 本地SVN仓库转换成git仓库 1 git svn clone</description>
+    </item>
+    
+    <item>
+      <title>ImageMagick Tips</title>
+      <link>https://edgar1470.github.io/post/imagemagick-tips/</link>
+      <pubDate>Fri, 08 Jul 2016 00:12:36 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/post/imagemagick-tips/</guid>
+      <description>给图片添加中文字符水印 1 2 #!/bin/bash mogrify -font msyh.ttf -pointsize 64 -fill red -weight bolder -gravity southeast -annotate +20+20 @&amp;#34;t.txt&amp;#34; src.jpg msyh.ttf 是水印使用的字体,可以指定路径 /font/xx.ttf 64 水印字体大小 t.txt 文件中包含了一行水印描述，字体文</description>
+    </item>
+    
+    <item>
+      <title>Programming Tips</title>
+      <link>https://edgar1470.github.io/post/code-counting-tools/</link>
+      <pubDate>Thu, 07 Jul 2016 23:53:43 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/post/code-counting-tools/</guid>
+      <description>工作时经常用来衡量工作量（数量和质量）的一个重要指标就是：你这个功能需要写多少行代码？ 那个时段项目组的代码库基线指标是一个人50行／天, 刚开</description>
+    </item>
+    
+    <item>
+      <title>C Tips</title>
+      <link>https://edgar1470.github.io/post/c-tips/</link>
+      <pubDate>Thu, 16 Jan 2014 15:42:30 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/post/c-tips/</guid>
+      <description>程序执行时间测试 Calculates the wall-clock time used by the calling process. The clock function tells how much wall-clock time the calling process has used. Note that this is not strictly conformant with ISO C99, which specifies net CPU time as the return value. To obtain CPU time, use the Win32 GetProcessTimes function. A timer tick is approximately equal to 1/CLOCKS_PER_SEC seconds. Given enough time,</description>
+    </item>
+    
+    <item>
+      <title>超级电容电量简易计算方法</title>
+      <link>https://edgar1470.github.io/post/super-capacitor/</link>
+      <pubDate>Thu, 16 Jan 2014 15:42:30 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/post/super-capacitor/</guid>
+      <description>转自网络文章 超级电容电量简易计算方法 1 2 3 4 5 电压(V) = 电流(I) x 电阻(R) 电荷量(Q) = 电流(I) x 时间(T) 功率(P) = V x I 能量(</description>
+    </item>
+    
+  </channel>
+</rss>

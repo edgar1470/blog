@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C on Fake it</title>
+    <link>https://edgar1470.github.io/tags/C/</link>
+    <description>Recent content in C on Fake it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 16 Jan 2014 15:42:30 +0800</lastBuildDate>
+    
+	<atom:link href="https://edgar1470.github.io/tags/C/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>C Tips</title>
+      <link>https://edgar1470.github.io/post/c-tips/</link>
+      <pubDate>Thu, 16 Jan 2014 15:42:30 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/post/c-tips/</guid>
+      <description>程序执行时间测试 Calculates the wall-clock time used by the calling process. The clock function tells how much wall-clock time the calling process has used. Note that this is not strictly conformant with ISO C99, which specifies net CPU time as the return value. To obtain CPU time, use the Win32 GetProcessTimes function. A timer tick is approximately equal to 1/CLOCKS_PER_SEC seconds. Given enough time,</description>
+    </item>
+    
+  </channel>
+</rss>

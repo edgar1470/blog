@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>programming on Fake it</title>
+    <link>https://edgar1470.github.io/tags/programming/</link>
+    <description>Recent content in programming on Fake it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 07 Jul 2016 23:53:43 +0800</lastBuildDate>
+    
+	<atom:link href="https://edgar1470.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Programming Tips</title>
+      <link>https://edgar1470.github.io/post/code-counting-tools/</link>
+      <pubDate>Thu, 07 Jul 2016 23:53:43 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/post/code-counting-tools/</guid>
+      <description>工作时经常用来衡量工作量（数量和质量）的一个重要指标就是：你这个功能需要写多少行代码？ 那个时段项目组的代码库基线指标是一个人50行／天, 刚开</description>
+    </item>
+    
+  </channel>
+</rss>

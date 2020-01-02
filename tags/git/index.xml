@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on Fake it</title>
+    <link>https://edgar1470.github.io/tags/git/</link>
+    <description>Recent content in git on Fake it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 02 Jan 2020 15:06:51 +0800</lastBuildDate>
+    
+	<atom:link href="https://edgar1470.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git Tips</title>
+      <link>https://edgar1470.github.io/post/git-tips/</link>
+      <pubDate>Thu, 02 Jan 2020 15:06:51 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/post/git-tips/</guid>
+      <description>org date: 2016-07-08T 00:23:14+08:00 在bash提示符显示当前的git分支 Show the current Git branch on your Bash pro Append this to your ~/.bashrc: 1 export PS1=&amp;#39;\[\033[01;32m\]\h\[\033[01;34m\] \w\[\033[31m\]$(__git_ps1 &amp;#34;(%s)&amp;#34;) \[\033[01;34m\]$\[\033[00m\] &amp;#39; Reload the changes by saying 1 source ~/.bashrc 本地SVN仓库转换成git仓库 1 git svn clone</description>
+    </item>
+    
+  </channel>
+</rss>

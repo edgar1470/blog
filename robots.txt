@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://edgar1470.github.io/sitemap.xml

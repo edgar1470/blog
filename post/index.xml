@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Fake it</title>
+    <link>https://edgar1470.github.io/post/</link>
+    <description>Recent content in Posts on Fake it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 02 Jan 2020 15:22:41 +0800</lastBuildDate>
+    
+	<atom:link href="https://edgar1470.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>VIM Tips</title>
+      <link>https://edgar1470.github.io/post/vim-tips/</link>
+      <pubDate>Thu, 02 Jan 2020 15:22:41 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/post/vim-tips/</guid>
+      <description>快速插入当前时间到文本中 来源best way to insert timestamp in vim 1 2 nmap &amp;lt;F3&amp;gt; i&amp;lt;C-R&amp;gt;=strftime(&amp;#34;%Y-%m-%d %a %I:%M %p&amp;#34;)&amp;lt;CR&amp;gt;&amp;lt;Esc&amp;gt; imap &amp;lt;F3&amp;gt; &amp;lt;C-R&amp;gt;=strftime(&amp;#34;%Y-%m-%d %a %I:%M %p&amp;#34;)&amp;lt;CR&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>Git Tips</title>
+      <link>https://edgar1470.github.io/post/git-tips/</link>
+      <pubDate>Thu, 02 Jan 2020 15:06:51 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/post/git-tips/</guid>
+      <description>org date: 2016-07-08T 00:23:14+08:00 在bash提示符显示当前的git分支 Show the current Git branch on your Bash pro Append this to your ~/.bashrc: 1 export PS1=&amp;#39;\[\033[01;32m\]\h\[\033[01;34m\] \w\[\033[31m\]$(__git_ps1 &amp;#34;(%s)&amp;#34;) \[\033[01;34m\]$\[\033[00m\] &amp;#39; Reload the changes by saying 1 source ~/.bashrc 本地SVN仓库转换成git仓库 1 git svn clone</description>
+    </item>
+    
+    <item>
+      <title>ImageMagick Tips</title>
+      <link>https://edgar1470.github.io/post/imagemagick-tips/</link>
+      <pubDate>Fri, 08 Jul 2016 00:12:36 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/post/imagemagick-tips/</guid>
+      <description>给图片添加中文字符水印 1 2 #!/bin/bash mogrify -font msyh.ttf -pointsize 64 -fill red -weight bolder -gravity southeast -annotate +20+20 @&amp;#34;t.txt&amp;#34; src.jpg msyh.ttf 是水印使用的字体,可以指定路径 /font/xx.ttf 64 水印字体大小 t.txt 文件中包含了一行水印描述，字体文</description>
+    </item>
+    
+    <item>
+      <title>Programming Tips</title>
+      <link>https://edgar1470.github.io/post/code-counting-tools/</link>
+      <pubDate>Thu, 07 Jul 2016 23:53:43 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/post/code-counting-tools/</guid>
+      <description>工作时经常用来衡量工作量（数量和质量）的一个重要指标就是：你这个功能需要写多少行代码？ 那个时段项目组的代码库基线指标是一个人50行／天, 刚开</description>
+    </item>
+    
+    <item>
+      <title>C Tips</title>
+      <link>https://edgar1470.github.io/post/c-tips/</link>
+      <pubDate>Thu, 16 Jan 2014 15:42:30 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/post/c-tips/</guid>
+      <description>程序执行时间测试 Calculates the wall-clock time used by the calling process. The clock function tells how much wall-clock time the calling process has used. Note that this is not strictly conformant with ISO C99, which specifies net CPU time as the return value. To obtain CPU time, use the Win32 GetProcessTimes function. A timer tick is approximately equal to 1/CLOCKS_PER_SEC seconds. Given enough time,</description>
+    </item>
+    
+    <item>
+      <title>超级电容电量简易计算方法</title>
+      <link>https://edgar1470.github.io/post/super-capacitor/</link>
+      <pubDate>Thu, 16 Jan 2014 15:42:30 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/post/super-capacitor/</guid>
+      <description>转自网络文章 超级电容电量简易计算方法 1 2 3 4 5 电压(V) = 电流(I) x 电阻(R) 电荷量(Q) = 电流(I) x 时间(T) 功率(P) = V x I 能量(</description>
+    </item>
+    
+    <item>
+      <title>博客开张</title>
+      <link>https://edgar1470.github.io/post/use-papery-write-blog/</link>
+      <pubDate>Wed, 08 Jan 2014 16:33:11 +0000</pubDate>
+      
+      <guid>https://edgar1470.github.io/post/use-papery-write-blog/</guid>
+      <description>使用papery写blog 按照papery 的说明就能非常顺利的完成安装和搭建blog的工作。 从简洁和实用的角度，papery值得尝试和实用！</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://edgar1470.github.io/post/papery-quickstart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://edgar1470.github.io/post/papery-quickstart/</guid>
+      <description>Papery - create your simple, fast &amp;amp; elegant blog with plain text.
+使用说明 安装及升级 首先要保证机器上安装有NodeJS及npm。
+NodeJs版本需要&amp;gt;=0.10。
+安装 1  npm install -g papery   升级 1  npm update -g   命令列表 create create命令用于创建一个新的博客，使用方法为：
+1  papery create &amp;lt;root&amp;gt;   执行后则会在root目录创建一个全新的博客，里面包含papery博客的基本目录结构及配置文件等内容。详细信息会在下文详述。
+build 通过create创建的博客还不能成为一个真正可以访问的网站，因为里面只包含配置信息和元文本，还没有web页面。build用于根据配置和元文本生成web内容。使用方法为：
+1  papery build &amp;lt;root&amp;gt;   server server可以在本地启动一个调试服务器用于快速预览和调试内容，命令为：
+1  papery server &amp;lt;root&amp;gt; [&amp;lt;port&amp;gt;]   执行上述命令将在本地port指定的端口启动一个webserver，其中port为可选项，默认值为8001。在浏览器中输入 http://localhost:/ 即可访问。
+目录结构 一个papery博客的目录结构如下
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22  root | - articles.</description>
+    </item>
+    
+  </channel>
+</rss>

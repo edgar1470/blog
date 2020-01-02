@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Programming Tips - Fake it</title>
+    <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Andy Wu" /><meta name="description" content="工作时经常用来衡量工作量（数量和质量）的一个重要指标就是：你这个功能需要写多少行代码？ 那个时段项目组的代码库基线指标是一个人50行／天, 刚开" /><meta name="keywords" content="Embedded System, hisilicon, hi3518, hi3516, hi3519, hi3556, hi3559" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.61.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://edgar1470.github.io/post/code-counting-tools/" />
+<link href="/post/code-counting-tools/" rel="alternate" type="application/rss+xml" title="Fake it" />
+<link href="/post/code-counting-tools/" rel="feed" type="application/rss+xml" title="Fake it" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.06658218.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/reset-even.css">
+
+
+<meta property="og:title" content="Programming Tips" />
+<meta property="og:description" content="工作时经常用来衡量工作量（数量和质量）的一个重要指标就是：你这个功能需要写多少行代码？ 那个时段项目组的代码库基线指标是一个人50行／天, 刚开" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://edgar1470.github.io/post/code-counting-tools/" />
+<meta property="article:published_time" content="2016-07-07T23:53:43+08:00" />
+<meta property="article:modified_time" content="2016-07-07T23:53:43+08:00" />
+<meta itemprop="name" content="Programming Tips">
+<meta itemprop="description" content="工作时经常用来衡量工作量（数量和质量）的一个重要指标就是：你这个功能需要写多少行代码？ 那个时段项目组的代码库基线指标是一个人50行／天, 刚开">
+<meta itemprop="datePublished" content="2016-07-07T23:53:43&#43;08:00" />
+<meta itemprop="dateModified" content="2016-07-07T23:53:43&#43;08:00" />
+<meta itemprop="wordCount" content="620">
+
+
+
+<meta itemprop="keywords" content="programming," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Programming Tips"/>
+<meta name="twitter:description" content="工作时经常用来衡量工作量（数量和质量）的一个重要指标就是：你这个功能需要写多少行代码？ 那个时段项目组的代码库基线指标是一个人50行／天, 刚开"/>
+
+</head>
+<body>
+<div id="mobile-navbar" class="mobile-navbar">
+    <div class="mobile-header-logo">
+        <a href="/" class="logo">Fake it</a>
+    </div>
+    <div class="mobile-navbar-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+    <ul class="mobile-menu-list">
+        <a href="/">
+            <li class="mobile-menu-item" title="首页">首页</li>
+        </a>
+        <a href="/post/">
+            <li class="mobile-menu-item" title="归档">归档</li>
+        </a>
+        <a href="/categories/">
+            <li class="mobile-menu-item" title="分类">分类</li>
+        </a>
+        <a href="/tags/">
+            <li class="mobile-menu-item" title="标签">标签</li>
+        </a>
+        <a href="/about/">
+            <li class="mobile-menu-item" title="关于我">关于我</li>
+        </a>
+        <a href="https://github.com/edgar1470/reading-list">
+            <li class="mobile-menu-item" title="阅读清单">阅读清单</li>
+        </a>
+        
+    </ul>
+    
+</nav>
+
+<div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+    <a href="/" class="logo">Fake it</a>
+</div>
+
+<nav class="site-navbar">
+    <ul id="menu" class="menu" data-sum="0">
+        
+        <li class="menu-item menu-item-home">
+            <a class="menu-item-link" href="/" title="首页">首页</a>
+        </li>
+        
+        <li class="menu-item menu-item-archives">
+            <a class="menu-item-link" href="/post/" title="归档">归档</a>
+        </li>
+        
+        <li class="menu-item menu-item-categories">
+            <a class="menu-item-link" href="/categories/" title="分类">分类</a>
+        </li>
+        
+        <li class="menu-item menu-item-tags">
+            <a class="menu-item-link" href="/tags/" title="标签">标签</a>
+        </li>
+        
+        <li class="menu-item menu-item-about">
+            <a class="menu-item-link" href="/about/" title="关于我">关于我</a>
+        </li>
+        
+        <li class="menu-item menu-item-reading-list">
+            <a class="menu-item-link" href="https://github.com/edgar1470/reading-list" title="阅读清单">阅读清单</a>
+        </li>
+        
+    </ul>
+</nav>
+
+	
+
+    </header>
+
+
+    <main id="main" class="main">
+        <div class="content-wrapper">
+            <div id="content" class="content">
+                <article class="post">
+  
+  <header class="post-header">
+    <h1 class="post-title">Programming Tips</h1>
+
+    <div class="post-meta">
+      <span class="post-time"> 7070-07-07 23:53 </span>
+      <div class="post-category">
+        <a href="/categories/%E6%8A%80%E5%B7%A7/"> 技巧 </a>
+        </div>
+      <span class="more-meta"> 约 620 字 </span>
+      <span class="more-meta"> 预计阅读 2 分钟 </span>
+      <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+    </div>
+  </header>
+
+  <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#cloc-overview">cloc Overview</a></li>
+        <li><a href="#why-use-cloc">Why Use cloc</a></li>
+        <li><a href="#cloc-usage">cloc usage</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+  <div class="post-outdated">
+    <div class="warn">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2016-07-07T23:53:43" title="July 7, 2016">July 7, 2016</span>，文中内容可能已过时，请谨慎使用。</p>
+    </div>
+  </div>
+  <div class="post-content">
+    <p>工作时经常用来衡量工作量（数量和质量）的一个重要指标就是：你这个功能需要写多少行代码？
+那个时段项目组的代码库基线指标是一个人50行／天, 刚开始听到这个数字的感觉：</p>
+<ul>
+<li>好保守的数字</li>
+<li>这样是要磨洋工的好借口</li>
+</ul>
+<p>但做了一段时间后，才发现在多人协作的大型开发项目中提出这个基线指标是有丈量依据和事实数据支撑的。</p>
+<p>下面这个工具<a href="https://github.com/AlDanial/cloc">cloc</a> 可以用于实际编码中的代码量统计：</p>
+<!-- raw HTML omitted -->
+<h3 id="cloc-overview">cloc Overview</h3>
+<p>cloc counts blank lines, comment lines, and physical lines of source code in many programming languages. Given two versions of a code base, cloc can compute differences in blank, comment, and source lines. It is written entirely in Perl with no dependencies outside the standard distribution of Perl v5.6 and higher (code from some external modules is embedded within cloc) and so is quite portable. cloc is known to run on many flavors of Linux, FreeBSD, NetBSD, OpenBSD, Mac OS X, AIX, HP-UX, Solaris, IRIX, z/OS, and Windows. (To run the Perl source version of cloc on Windows one needs ActiveState Perl 5.6.1 or higher, Strawberry Perl, Cygwin, or MobaXTerm with the Perl plug-in installed. Alternatively one can use the Windows binary of cloc generated with perl2exe to run on Windows computers that have neither Perl nor Cygwin.)</p>
+<p>cloc contains code from David Wheeler's SLOCCount, Damian Conway and Abigail's Perl module Regexp::Common, Sean M. Burke's Perl module Win32::Autoglob, and Tye McQueen's Perl module Algorithm::Diff. Language scale factors were derived from Mayes Consulting, LLC web site <a href="http://softwareestimator.com/IndustryData2.htm">http://softwareestimator.com/IndustryData2.htm</a>.</p>
+<h3 id="why-use-cloc">Why Use cloc</h3>
+<p>cloc has many features that make it easy to use, thorough, extensible, and portable:</p>
+<ul>
+<li>Exists as a single, self-contained file that requires minimal installation effort&mdash;just download the file and run it.</li>
+<li>Can read language comment definitions from a file and thus potentially work with computer languages that do not yet exist.</li>
+<li>Allows results from multiple runs to be summed together by language and by project.</li>
+<li>Can produce results in a variety of formats: plain text, SQL, XML, YAML, comma separated values.</li>
+<li>Can count code within compressed archives (tar balls, Zip files, Java .ear files).</li>
+<li>Has numerous troubleshooting options.</li>
+<li>Handles file and directory names with spaces and other unusual characters.</li>
+<li>Has no dependencies outside the standard Perl distribution.</li>
+<li>Runs on Linux, FreeBSD, NetBSD, OpenBSD, Mac OS X, AIX, HP-UX, Solaris, IRIX, and z/OS systems that have Perl 5.6 or higher. The source version runs on Windows with either ActiveState Perl, Strawberry Perl, Cygwin, or MobaXTerm+Perl plugin. Alternatively on Windows one can run the Windows binary which has no dependencies.</li>
+</ul>
+<h3 id="cloc-usage">cloc usage</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ ./cloc-1.55.pl /cygdrive/d/source/65X/NT9665x_CarDV_20141013
+lsUse of qw<span class="o">(</span>...<span class="o">)</span> as parentheses is deprecated at ./cloc-1.55.pl line 1841.         
+          <span class="m">1814</span> text files.
+          <span class="m">1696</span> unique files.
+          <span class="m">45</span> files ignored.
+ 
+          http://cloc.sourceforge.net v 1.55  <span class="nv">T</span><span class="o">=</span>16.0 s <span class="o">(</span>103.2 files/s, 29969.2 lines/s<span class="o">)</span>
+          -------------------------------------------------------------------------------
+          Language                     files          blank        comment           code
+          -------------------------------------------------------------------------------
+          C                              <span class="m">466</span>          <span class="m">28407</span>          <span class="m">51002</span>         <span class="m">206452</span>
+          C/C++ Header                   <span class="m">721</span>          <span class="m">20749</span>          <span class="m">42535</span>          <span class="m">55748</span>
+          D                              <span class="m">369</span>          <span class="m">23225</span>              <span class="m">0</span>          <span class="m">46732</span>
+          make                            <span class="m">83</span>            <span class="m">807</span>           <span class="m">1576</span>           <span class="m">1949</span>
+          DOS Batch                       <span class="m">11</span>             <span class="m">45</span>              <span class="m">0</span>            <span class="m">230</span>
+          Assembly                         <span class="m">1</span>              <span class="m">6</span>             <span class="m">26</span>             <span class="m">18</span>
+          -------------------------------------------------------------------------------
+          SUM:                          <span class="m">1651</span>          <span class="m">73239</span>          <span class="m">95139</span>         <span class="m">311129</span>
+          -------------------------------------------------------------------------------
+</code></pre></td></tr></table>
+</div>
+</div>
+  </div>
+
+  <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Andy Wu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        7070-07-07 23:53
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a target="_blank" rel="license noopener" href="https://github.com/nusr/blog/blob/master/LICENSE">MIT</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/wechat.png">
+        <span>微信佛系打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/alipay.jpg">
+        <span>支付宝佛系打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+    <div class="post-tags">
+      <a href="/tags/programming/">programming</a>
+      </div>
+    <nav class="post-nav">
+      <a class="prev" href="/post/imagemagick-tips/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">ImageMagick Tips</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+      <a class="next" href="/post/c-tips/">
+        <span class="next-text nav-default">C Tips</span>
+        <span class="next-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav>
+  </footer>
+  <script src="https://utteranc.es/client.js"
+          repo="nusr/blog"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterance.</a></noscript>
+</article>
+            </div>
+            
+
+        </div>
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="social-links">
+  <a href="mailto:wushixionga@gmail.com" class="iconfont icon-email" title="email" rel="noopener" target="_blank" data-title="email"> </a>
+  <a href="https://github.com/edgar1470" class="iconfont icon-github" title="github" rel="noopener" target="_blank" data-title="github"> </a>
+  <a href="https://www.linkedin.com/in/andy-wu-65445b112/" class="iconfont icon-linkedin" title="linkedin" rel="noopener" target="_blank" data-title="linkedin"> </a>
+  <a href="https://edgar1470.github.io/index.xml" type="application/rss+xml" rel="noopener" target="_blank" class="iconfont icon-rss" title="rss"></a>
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 -
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+    <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy;
+    2014 -
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Andy Wu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+    </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "zh-CN".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+<script type="text/javascript" src="/dist/even.47f727f4.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
