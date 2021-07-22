@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>404 page not found - Andy&#39;s Blog</title>
+  <title>超级电容的电量计算 - Andy&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Andy.Wu" /><meta name="description" content="关于嵌入式软件开发的笔记" /><meta name="keywords" content="programming, 嵌入式软件, geek" />
+<meta name="author" content="Andy.Wu" /><meta name="description" content="超级电容电量简易计算方法 电压(V) = 电流(I) x 电阻(R) 电荷量(Q) = 电流(I) x 时间(T) 功率(P) = V x I 能量(W) = P x T = Q x V 容" /><meta name="keywords" content="超级电容" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.68.3 with theme even" />
 
 
-<link rel="canonical" href="https://edgar1470.github.io/404.html" />
+<link rel="canonical" href="https://edgar1470.github.io/post/ee-super-capacitor/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,15 +39,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="404 Page not found" />
-<meta property="og:description" content="关于嵌入式软件开发的笔记" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://edgar1470.github.io/404.html" />
+<meta property="og:title" content="超级电容的电量计算" />
+<meta property="og:description" content="超级电容电量简易计算方法 电压(V) = 电流(I) x 电阻(R) 电荷量(Q) = 电流(I) x 时间(T) 功率(P) = V x I 能量(W) = P x T = Q x V 容" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://edgar1470.github.io/post/ee-super-capacitor/" />
+<meta property="article:published_time" content="2014-01-17T21:45:10+08:00" />
+<meta property="article:modified_time" content="2021-07-22T17:08:10+08:00" />
+<meta itemprop="name" content="超级电容的电量计算">
+<meta itemprop="description" content="超级电容电量简易计算方法 电压(V) = 电流(I) x 电阻(R) 电荷量(Q) = 电流(I) x 时间(T) 功率(P) = V x I 能量(W) = P x T = Q x V 容">
+<meta itemprop="datePublished" content="2014-01-17T21:45:10&#43;08:00" />
+<meta itemprop="dateModified" content="2021-07-22T17:08:10&#43;08:00" />
+<meta itemprop="wordCount" content="350">
 
-<meta itemprop="name" content="404 Page not found">
-<meta itemprop="description" content="关于嵌入式软件开发的笔记"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="404 Page not found"/>
-<meta name="twitter:description" content="关于嵌入式软件开发的笔记"/>
+
+
+<meta itemprop="keywords" content="硬件," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="超级电容的电量计算"/>
+<meta name="twitter:description" content="超级电容电量简易计算方法 电压(V) = 电流(I) x 电阻(R) 电荷量(Q) = 电流(I) x 时间(T) 功率(P) = V x I 能量(W) = P x T = Q x V 容"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -121,22 +129,102 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <div class="not-found">
-  <h1 class="error-emoji"></h1>
-  <p class="error-text">/* 404 page not found. */</p>
-  <p class="error-link"><a href="/">↑ Back Home ↑</a></p>
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">超级电容的电量计算</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2014-01-17 </span>
+        <div class="post-category">
+            <a href="/categories/hardward/"> hardward </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#超级电容电量简易计算方法">超级电容电量简易计算方法</a></li>
+        <li><a href="#实例估算">实例估算：</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
 </div>
-<script>
-  var errorEmojiContainer = document.getElementsByClassName('error-emoji')[0];
-  var emojiArray = [
-    '\\(o_o)/', '(o^^)o', '(˚Δ˚)b', '(^-^*)', '(≥o≤)', '(^_^)b', '(·_·)',
-    '(=\'X\'=)', '(>_<)', '(;-;)', '\\(^Д^)/',
-  ];
-  var errorEmoji = emojiArray[Math.floor(Math.random() * emojiArray.length)];
-  errorEmojiContainer.appendChild(document.createTextNode(errorEmoji));
-</script>
+    <div class="post-content">
+      <h2 id="超级电容电量简易计算方法">超级电容电量简易计算方法</h2>
+<ul>
+<li>电压(V) = 电流(I) x 电阻(R)</li>
+<li>电荷量(Q) = 电流(I) x 时间(T)</li>
+<li>功率(P) = V x I
+能量(W) = P x T = Q x V</li>
+<li>容量 F= 库伦（C） / 电压（V）</li>
+</ul>
+<p>将容量、电压转为等效电量</p>
+<ul>
+<li>电量 =电压（V) x 电荷量（C）</li>
+</ul>
+<h2 id="实例估算">实例估算：</h2>
+<p>电压 5.5V 1F（1法拉电容）的电量为5.5C（库伦）， 电压下限我们设定在3.8V，
+电容放电的有效电压差为 5.5-3.8=1.7V，所以有效电量为1.7C。
+1.7C=1.7A*S（安秒）=1700mAS（毫安秒）=0.472mAh（毫安时）
+若电流消耗以10mA计算，1700mAS/10mA=170S=2.83min（维持时间分钟）
+so，这样大家就能非常简单的计算出超级电容的等效电池容量，方便自己选型。
+顺便计算电容的漏电速度。。。。</p>
+<p>参考来源:</p>
+<ul>
+<li><a href="https://www.geek-workshop.com/thread-2114-1-1.html">超级电容电量估算方法</a></li>
+<li><a href="https://baike.baidu.com/item/%E6%B3%95%E6%8B%89%E7%94%B5%E5%AE%B9/7160754">超级电容特点</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Andy.Wu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-07-22
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E7%A1%AC%E4%BB%B6/">硬件</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/programing-tips-measure-workload/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">怎么评估软件开发工作量</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/c-tips-measure-run-time/">
+            <span class="next-text nav-default">C Tips: 测试程序执行时间: </span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>

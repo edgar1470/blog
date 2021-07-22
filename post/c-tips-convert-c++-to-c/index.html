@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>C Tips: 把 C&#43;&#43; 代码自动转换成 C 代码 - Andy&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Andy.Wu" /><meta name="description" content="Is it possible to convert C&#43;&#43; to C? old link: c&#43;&#43;-faq/convert-to-c new link: isocpp.org 答案是： NO. 不能把C&#43;&#43;代码自动转换成可读性和可维护性的C代码 YES. 能自动转换,但有限制(exception handling 无法转换" /><meta name="keywords" content="C Programming" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="https://edgar1470.github.io/post/c-tips-convert-c&#43;&#43;-to-c/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="C Tips: 把 C&#43;&#43; 代码自动转换成 C 代码" />
+<meta property="og:description" content="Is it possible to convert C&#43;&#43; to C? old link: c&#43;&#43;-faq/convert-to-c new link: isocpp.org 答案是： NO. 不能把C&#43;&#43;代码自动转换成可读性和可维护性的C代码 YES. 能自动转换,但有限制(exception handling 无法转换" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://edgar1470.github.io/post/c-tips-convert-c&#43;&#43;-to-c/" />
+<meta property="article:published_time" content="2014-01-16T15:42:01+08:00" />
+<meta property="article:modified_time" content="2021-07-22T15:49:01+08:00" />
+<meta itemprop="name" content="C Tips: 把 C&#43;&#43; 代码自动转换成 C 代码">
+<meta itemprop="description" content="Is it possible to convert C&#43;&#43; to C? old link: c&#43;&#43;-faq/convert-to-c new link: isocpp.org 答案是： NO. 不能把C&#43;&#43;代码自动转换成可读性和可维护性的C代码 YES. 能自动转换,但有限制(exception handling 无法转换">
+<meta itemprop="datePublished" content="2014-01-16T15:42:01&#43;08:00" />
+<meta itemprop="dateModified" content="2021-07-22T15:49:01&#43;08:00" />
+<meta itemprop="wordCount" content="736">
+
+
+
+<meta itemprop="keywords" content="c-tips,programming," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="C Tips: 把 C&#43;&#43; 代码自动转换成 C 代码"/>
+<meta name="twitter:description" content="Is it possible to convert C&#43;&#43; to C? old link: c&#43;&#43;-faq/convert-to-c new link: isocpp.org 答案是： NO. 不能把C&#43;&#43;代码自动转换成可读性和可维护性的C代码 YES. 能自动转换,但有限制(exception handling 无法转换"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Andy&#39;s Notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Andy&#39;s Notes</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">C Tips: 把 C&#43;&#43; 代码自动转换成 C 代码</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2014-01-16 </span>
+        <div class="post-category">
+            <a href="/categories/programming/"> programming </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#is-it-possible-to-convert-c-to-c">Is it possible to convert C++ to C?</a></li>
+        <li><a href="#llvm-emit-功能">llvm emit 功能</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="is-it-possible-to-convert-c-to-c">Is it possible to convert C++ to C?</h2>
+<p><a href="http://www.parashift.com/c++-faq/convert-to-c.html">old link: c++-faq/convert-to-c </a></p>
+<p><a href="https://isocpp.org/wiki/faq/compiler-dependencies#convert-to-c">new link: isocpp.org</a></p>
+<p>答案是：</p>
+<ul>
+<li>NO. 不能把C++代码自动转换成可读性和可维护性的C代码</li>
+<li>YES. 能自动转换,但有限制(exception handling 无法转换)</li>
+</ul>
+<p><a href="https://isocpp.org/wiki/faq/compiler-dependencies#convert-to-c">Depends on what you mean.</a>
+If you mean, Is it possible to convert C++ to readable and maintainable C-code?
+then sorry, the answer is No — C++ features don’t directly map to C, plus the
+generated C code is not intended for humans to follow. If instead you mean,
+Are there compilers which convert C++ to C for the purpose of compiling onto
+a platform that yet doesn’t have a C++ compiler? then you’re in luck — keep reading.</p>
+<p>A compiler which compiles C++ to C does full syntax and semantic checking on
+the program, and just happens to use C code as a way of generating object code.
+Such a compiler is not merely some kind of fancy macro processor. (And please
+don’t email me claiming these are preprocessors — they are not — they are full
+compilers.) <strong>It is possible to implement all of the features of ISO Standard
+C++ by translation to C, and except for exception handling</strong>, it typically
+results in object code with efficiency comparable to that of the code
+generated by a conventional C++ compiler.</p>
+<p>Here are some products that perform compilation to C (note: if you know of any
+other products that do this, please let us know):</p>
+<ul>
+<li><a href="http://www.comeaucomputing.com/">Comeau Computing</a> offers a compiler based on Edison Design Group’s front end that outputs C code.</li>
+<li>LLVM is a downloadable compiler that emits C code. See also here and here.</li>
+<li>Cfront, the original implementation of C++, done by Bjarne Stroustrup and others at AT&amp;T, generates C code. However it has two problems: it’s been difficult to obtain a license since the mid 90s when it started going through a maze of ownership changes, and development ceased at that same time and so it doesn’t get bug fixes and doesn’t support any of the newer language features (e.g., exceptions, namespaces, RTTI, member templates).</li>
+<li>Contrary to popular myth, as of this writing there is no version of g++ that translates C++ to C. Such a thing seems to be doable, but I am not aware that anyone has actually done it (yet).</li>
+</ul>
+<p>Note that you typically need to specify the target platform’s CPU, OS and C compiler so that the generated C code will be specifically targeted for this platform. This means: (a) you probably can’t take the C code generated for platform X and compile it on platform Y; and (b) it’ll be difficult to do the translation yourself — it’ll probably be a lot cheaper/safer with one of these tools.</p>
+<p>One more time: do not email me saying these are just preprocessors — they are not — they are compilers.</p>
+<h2 id="llvm-emit-功能">llvm emit 功能</h2>
+<p>在 google 怎么用 llvm 转换C++源代码到C源代码时,发现了这个 <a href="http://llvm.org/releases/3.1/docs/ReleaseNotes.html#changes">http://llvm.org/releases/3.1/docs/ReleaseNotes.html#changes</a> LLVM 从3.1版本就不再支持从其它语言转换成C源代码的功能 但转换成汇编的功能继续可用</p>
+<p>其它参考： <a href="https://en.wikipedia.org/wiki/Source-to-source_compiler">https://en.wikipedia.org/wiki/Source-to-source_compiler</a></p>
+<p><a href="https://releases.llvm.org/3.1/docs/FAQ.html#translatecxx">Clang emit C 代码的测试</a></p>
+<p>Compile your program with llvm-g++:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">% llvm-g++ -emit-llvm x.cpp -o program.bc -c
+</code></pre></td></tr></table>
+</div>
+</div><p>or:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">% llvm-g++ a.cpp -c -emit-llvm
+% llvm-g++ b.cpp -c -emit-llvm
+% llvm-ld a.o b.o -o program
+</code></pre></td></tr></table>
+</div>
+</div><p>This will generate program and program.bc. The .bc file is the LLVM version of the program all linked together.</p>
+<p>Convert the LLVM code to C code, using the LLC tool with the C backend:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">% llc -march<span class="o">=</span>c program.bc -o program.c
+</code></pre></td></tr></table>
+</div>
+</div><p>Finally, compile the C file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">% cc x.c -lstdc++
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Andy.Wu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-07-22
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/c-tips/">c-tips</a>
+          <a href="/tags/programming/">programming</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/c-tips-measure-run-time/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">C Tips: 测试程序执行时间: </span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:edgar1470@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/andy-wu-65445b112/detail/recent-activity/posts/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://github.com/edgar1470" class="iconfont icon-github" title="github"></a>
+  <a href="https://edgar1470.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>Andy.Wu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

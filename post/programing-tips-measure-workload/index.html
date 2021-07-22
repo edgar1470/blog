@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>怎么评估软件开发工作量 - Andy&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Andy.Wu" /><meta name="description" content="之前在某个项目组工作时，经常需要开会讨论软件开发的工作量问题： 你这个功能需要写多少行代码？ 所以在编程实践中更多已需要多少行代码来衡量软件的工" /><meta name="keywords" content="programming, 嵌入式软件, geek" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.68.3 with theme even" />
+
+
+<link rel="canonical" href="https://edgar1470.github.io/post/programing-tips-measure-workload/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="怎么评估软件开发工作量" />
+<meta property="og:description" content="之前在某个项目组工作时，经常需要开会讨论软件开发的工作量问题： 你这个功能需要写多少行代码？ 所以在编程实践中更多已需要多少行代码来衡量软件的工" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://edgar1470.github.io/post/programing-tips-measure-workload/" />
+<meta property="article:published_time" content="2014-10-14T17:19:24+08:00" />
+<meta property="article:modified_time" content="2021-07-22T17:19:24+08:00" />
+<meta itemprop="name" content="怎么评估软件开发工作量">
+<meta itemprop="description" content="之前在某个项目组工作时，经常需要开会讨论软件开发的工作量问题： 你这个功能需要写多少行代码？ 所以在编程实践中更多已需要多少行代码来衡量软件的工">
+<meta itemprop="datePublished" content="2014-10-14T17:19:24&#43;08:00" />
+<meta itemprop="dateModified" content="2021-07-22T17:19:24&#43;08:00" />
+<meta itemprop="wordCount" content="708">
+
+
+
+<meta itemprop="keywords" content="programming,management,tools," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="怎么评估软件开发工作量"/>
+<meta name="twitter:description" content="之前在某个项目组工作时，经常需要开会讨论软件开发的工作量问题： 你这个功能需要写多少行代码？ 所以在编程实践中更多已需要多少行代码来衡量软件的工"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Andy&#39;s Notes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Andy&#39;s Notes</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">怎么评估软件开发工作量</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2014-10-14 </span>
+        <div class="post-category">
+            <a href="/categories/programming/"> programming </a>
+            <a href="/categories/tools/"> tools </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#cloc-usage">cloc usage</a></li>
+        <li><a href="#cloc-overview">cloc Overview</a></li>
+        <li><a href="#why-use-cloc">Why Use cloc</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>之前在某个项目组工作时，经常需要开会讨论软件开发的工作量问题：</p>
+<ul>
+<li>你这个功能需要写多少行代码？</li>
+</ul>
+<p>所以在编程实践中更多已需要多少行代码来衡量软件的工作量。
+那个时段项目组的代码库基线指标是一个人50行／天, 刚开始听到这个数字的感觉：</p>
+<ul>
+<li>好保守的数字</li>
+<li>这样是要磨洋工的好借口</li>
+</ul>
+<p>随着对项目的熟悉和深入，才发现在多人协作的大型开发项目中提出这个基线指标
+是有丈量依据和事实数据支撑的。 对于超过10万行源代码,多人协作的项目来说，能达到
+这个基线指标说明大家真的没有磨洋工已经很努力了。</p>
+<p>下面这个工具cloc 可以用于实际编码中的代码量统计：</p>
+<p>cloc is now being developed at <a href="https://github.com/AlDanial/cloc">https://github.com/AlDanial/cloc</a></p>
+<h2 id="cloc-usage">cloc usage</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ ./cloc-1.55.pl /cygdrive/d/source/65X/NT9665x_CarDV_20141013
+lsUse of qw<span class="o">(</span>...<span class="o">)</span> as parentheses is deprecated at ./cloc-1.55.pl line 1841.
+          <span class="m">1814</span> text files.
+          <span class="m">1696</span> unique files.
+          <span class="m">45</span> files ignored.
+
+          http://cloc.sourceforge.net v 1.55  <span class="nv">T</span><span class="o">=</span>16.0 s <span class="o">(</span>103.2 files/s, 29969.2 lines/s<span class="o">)</span>
+          -------------------------------------------------------------------------------
+          Language                     files          blank        comment           code
+          -------------------------------------------------------------------------------
+          C                              <span class="m">466</span>          <span class="m">28407</span>          <span class="m">51002</span>         <span class="m">206452</span>
+          C/C++ Header                   <span class="m">721</span>          <span class="m">20749</span>          <span class="m">42535</span>          <span class="m">55748</span>
+          D                              <span class="m">369</span>          <span class="m">23225</span>              <span class="m">0</span>          <span class="m">46732</span>
+          make                            <span class="m">83</span>            <span class="m">807</span>           <span class="m">1576</span>           <span class="m">1949</span>
+          DOS Batch                       <span class="m">11</span>             <span class="m">45</span>              <span class="m">0</span>            <span class="m">230</span>
+          Assembly                         <span class="m">1</span>              <span class="m">6</span>             <span class="m">26</span>             <span class="m">18</span>
+          -------------------------------------------------------------------------------
+          SUM:                          <span class="m">1651</span>          <span class="m">73239</span>          <span class="m">95139</span>         <span class="m">311129</span>
+          -------------------------------------------------------------------------------
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="cloc-overview">cloc Overview</h2>
+<p>cloc counts blank lines, comment lines, and physical lines of source code in
+many programming languages. Given two versions of a code base, cloc can
+compute differences in blank, comment, and source lines. It is written
+entirely in Perl with no dependencies outside the standard distribution of
+Perl v5.6 and higher (code from some external modules is embedded within cloc)
+and so is quite portable. cloc is known to run on many flavors of Linux,
+FreeBSD, NetBSD, OpenBSD, Mac OS X, AIX, HP-UX, Solaris, IRIX, z/OS, and
+Windows. (To run the Perl source version of cloc on Windows one needs
+ActiveState Perl 5.6.1 or higher, Strawberry Perl, Cygwin, or MobaXTerm with
+the Perl plug-in installed. Alternatively one can use the Windows binary of
+cloc generated with perl2exe to run on Windows computers that have neither
+Perl nor Cygwin.)</p>
+<p>cloc contains code from David Wheeler&rsquo;s SLOCCount, Damian Conway and
+Abigail&rsquo;s Perl module Regexp::Common, Sean M. Burke&rsquo;s Perl module
+Win32::Autoglob, and Tye McQueen&rsquo;s Perl module Algorithm::Diff. Language scale
+factors were derived from Mayes Consulting, LLC web site
+<a href="http://softwareestimator.com/IndustryData2.htm">http://softwareestimator.com/IndustryData2.htm</a>.</p>
+<h2 id="why-use-cloc">Why Use cloc</h2>
+<p>cloc has many features that make it easy to use, thorough, extensible, and portable:</p>
+<ol>
+<li>Exists as a single, self-contained file that requires minimal installation effort&mdash;just download the file and run it.</li>
+<li>Can read language comment definitions from a file and thus potentially work with computer languages that do not yet exist.</li>
+<li>Allows results from multiple runs to be summed together by language and by project.</li>
+<li>Can produce results in a variety of formats: plain text, SQL, JSON, XML, YAML, comma separated values.</li>
+<li>Can count code within compressed archives (tar balls, Zip files, Java .ear files).</li>
+<li>Has numerous troubleshooting options.</li>
+<li>Handles file and directory names with spaces and other unusual characters.</li>
+<li>Has no dependencies outside the standard Perl distribution.</li>
+<li>Runs on Linux, FreeBSD, NetBSD, OpenBSD, macOS, AIX, HP-UX, Solaris, IRIX, and z/OS systems that have Perl 5.6 or higher. The source version runs on Windows with either ActiveState Perl, Strawberry Perl, Cygwin, or MobaXTerm+Perl plugin. Alternatively on Windows one can run the Windows binary which has no dependencies.</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Andy.Wu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-07-22
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/programming/">programming</a>
+          <a href="/tags/management/">management</a>
+          <a href="/tags/tools/">tools</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/imagemagick-tips/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Imagemagick Tips</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/ee-super-capacitor/">
+            <span class="next-text nav-default">超级电容的电量计算</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:edgar1470@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/andy-wu-65445b112/detail/recent-activity/posts/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://github.com/edgar1470" class="iconfont icon-github" title="github"></a>
+  <a href="https://edgar1470.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>Andy.Wu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
