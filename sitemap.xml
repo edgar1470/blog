@@ -9,6 +9,20 @@
   </url>
   
   <url>
+    <loc>https://edgar1470.github.io/categories/</loc>
+    <lastmod>2021-07-22T14:15:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edgar1470.github.io/tags/</loc>
+    <lastmod>2021-07-22T14:14:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://edgar1470.github.io/post/imagemagick-tips/</loc>
     <lastmod>2021-07-22T17:50:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -23,8 +37,64 @@
   </url>
   
   <url>
+    <loc>https://edgar1470.github.io/tags/tips/</loc>
+    <lastmod>2021-07-22T17:50:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edgar1470.github.io/tags/tools/</loc>
+    <lastmod>2021-07-22T17:50:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edgar1470.github.io/categories/tools/</loc>
+    <lastmod>2021-07-22T17:50:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edgar1470.github.io/tags/management/</loc>
+    <lastmod>2021-07-22T17:19:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edgar1470.github.io/tags/programming/</loc>
+    <lastmod>2021-07-22T17:19:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edgar1470.github.io/categories/programming/</loc>
+    <lastmod>2021-07-22T17:19:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://edgar1470.github.io/post/programing-tips-measure-workload/</loc>
     <lastmod>2021-07-22T17:19:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edgar1470.github.io/categories/hardward/</loc>
+    <lastmod>2021-07-22T17:08:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edgar1470.github.io/tags/%E7%A1%AC%E4%BB%B6/</loc>
+    <lastmod>2021-07-22T17:08:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,6 +108,13 @@
   
   <url>
     <loc>https://edgar1470.github.io/post/c-tips-measure-run-time/</loc>
+    <lastmod>2021-07-22T16:46:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://edgar1470.github.io/tags/c-tips/</loc>
     <lastmod>2021-07-22T16:46:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

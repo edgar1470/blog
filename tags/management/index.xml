@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>management on Andy&#39;s Blog</title>
+    <link>https://edgar1470.github.io/tags/management/</link>
+    <description>Recent content in management on Andy&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 14 Oct 2014 17:19:24 +0800</lastBuildDate>
+    
+	<atom:link href="https://edgar1470.github.io/tags/management/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>怎么评估软件开发工作量</title>
+      <link>https://edgar1470.github.io/post/programing-tips-measure-workload/</link>
+      <pubDate>Tue, 14 Oct 2014 17:19:24 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/post/programing-tips-measure-workload/</guid>
+      <description>之前在某个项目组工作时，经常需要开会讨论软件开发的工作量问题： 你这个功能需要写多少行代码？ 所以在编程实践中更多已需要多少行代码来衡量软件的工</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>硬件 on Andy&#39;s Blog</title>
+    <link>https://edgar1470.github.io/tags/%E7%A1%AC%E4%BB%B6/</link>
+    <description>Recent content in 硬件 on Andy&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 17 Jan 2014 21:45:10 +0800</lastBuildDate>
+    
+	<atom:link href="https://edgar1470.github.io/tags/%E7%A1%AC%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>超级电容的电量计算</title>
+      <link>https://edgar1470.github.io/post/ee-super-capacitor/</link>
+      <pubDate>Fri, 17 Jan 2014 21:45:10 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/post/ee-super-capacitor/</guid>
+      <description>超级电容电量简易计算方法 电压(V) = 电流(I) x 电阻(R) 电荷量(Q) = 电流(I) x 时间(T) 功率(P) = V x I 能量(W) = P x T = Q x V 容</description>
+    </item>
+    
+  </channel>
+</rss>

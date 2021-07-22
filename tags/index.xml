@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Andy&#39;s Blog</title>
+    <link>https://edgar1470.github.io/tags/</link>
+    <description>Recent content in Tags on Andy&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 22 Jul 2021 14:14:35 +0800</lastBuildDate>
+    
+	<atom:link href="https://edgar1470.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>tips</title>
+      <link>https://edgar1470.github.io/tags/tips/</link>
+      <pubDate>Fri, 08 Jul 2016 17:50:59 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/tags/tips/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tools</title>
+      <link>https://edgar1470.github.io/tags/tools/</link>
+      <pubDate>Fri, 08 Jul 2016 17:50:59 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/tags/tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>management</title>
+      <link>https://edgar1470.github.io/tags/management/</link>
+      <pubDate>Tue, 14 Oct 2014 17:19:24 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/tags/management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://edgar1470.github.io/tags/programming/</link>
+      <pubDate>Tue, 14 Oct 2014 17:19:24 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>硬件</title>
+      <link>https://edgar1470.github.io/tags/%E7%A1%AC%E4%BB%B6/</link>
+      <pubDate>Fri, 17 Jan 2014 21:45:10 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/tags/%E7%A1%AC%E4%BB%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>c-tips</title>
+      <link>https://edgar1470.github.io/tags/c-tips/</link>
+      <pubDate>Fri, 17 Jan 2014 21:40:01 +0800</pubDate>
+      
+      <guid>https://edgar1470.github.io/tags/c-tips/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
